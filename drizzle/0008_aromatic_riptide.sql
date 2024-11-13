@@ -1,0 +1,1 @@
+ALTER TABLE "auth_users" ADD COLUMN "subscription_type" varchar(20) DEFAULT 'basic';
