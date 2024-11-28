@@ -24,6 +24,14 @@ export const routes = [
     href: '/create-listing',
     icon: 'material-symbols:add-home-work-outline-rounded',
   },
+
+  {
+    label: 'Create New Experience',
+    href: '/experiences/create-experience',
+    icon: 'material-symbols:add-home-work-outline-rounded',
+  },
+
+
   {
     label: 'Account settings',
     href: '/account-settings',

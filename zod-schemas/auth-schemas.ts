@@ -44,6 +44,7 @@ export const RegisterSchema = LoginSchema.extend({
 // Register user schema
 export const RegisterUserSchema = LoginSchema.extend({
   name: NameSchema,
+  clientType: ClientTypeSchema, // New field added here
 })
 
 // Passwords schema for matching passwords

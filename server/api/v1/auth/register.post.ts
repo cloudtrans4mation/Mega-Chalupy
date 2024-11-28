@@ -16,7 +16,7 @@ export default defineEventHandler(async event => {
       })
     }
 
-    const { name, email, password } = parseResult.data
+    const { name, email, password , clientType } = parseResult.data
 
     const userExists = await db.select().from(user).where(eq(user.email, email))
 
@@ -38,7 +38,7 @@ export default defineEventHandler(async event => {
 
     const [newUser] = await db
       .insert(user)
-      .values({ id: userId, name, email, password: hashedPassword, provider: 'email' })
+      .values({ id: userId, name, email, password: hashedPassword, provider: 'email',clientType })
       .returning()
 
     if (newUser) {

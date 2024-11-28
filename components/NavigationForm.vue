@@ -22,6 +22,19 @@ import { defineComponent, ref, watch } from 'vue';
 // Assuming STEPS is imported from the relevant module
 import { STEPS } from '~/composables/useCreateListing'
 
+
+const {
+  listingValues,
+  steps,
+  isLoading,
+  errors,
+  onNext,
+  onBack,
+  add,
+  reduce,
+
+} = useCreateListing()
+
 export default defineComponent({
   name: 'NavigationForm',
   props: {
@@ -58,7 +71,9 @@ export default defineComponent({
     function handleNavigation(label: string) {
       selectedItem.value = stepMap[label];
       props.onStepChange(stepMap[label]);
+      onNext
     }
+    
 
     return {
       stepMap,
@@ -66,5 +81,6 @@ export default defineComponent({
       handleNavigation
     };
   }
+  
 });
 </script>

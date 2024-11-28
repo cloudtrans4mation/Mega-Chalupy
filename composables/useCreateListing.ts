@@ -15,11 +15,11 @@ export enum STEPS {
   TYPE = 10,
   DESCRIPTION = 11,
   PRICE = 12,
-  PUBLISH = 13
-  
+  PUBLISH = 13 
 }
 
 export const STEP_LABELS = {
+  [STEPS.GETTINGSTARTED]: 'GETTING STARTED',
   [STEPS.CATEGORY]: 'Type',
   [STEPS.THINGS]: 'Amenities',
   [STEPS.IMAGES]: 'Photos',
@@ -49,15 +49,30 @@ export function useCreateListing() {
     price: 1,
     title: '',
     description: '',
-    PropertyAccessoriesSelected:'dd',
-    PropertyGuidelinesSelected:'dd',
-    RoomInfoFormSelected:'dd',
-    AccommodationSelectionSelected:'dd',
-    RoomAmenitiesSelected:'dd',
-  })
+  
+    // Additional fields
+    cotAvailability: 'true', // Default as empty string or null if optional
+    ownersMessage: 'hhhh', // Default as empty string or null if optional
+    childrenAllowance: 'Allowed', // Default to an allowed enum value
+    cotAvailabilityChild: 'Available', // Default to an available enum value
+    neighboringActivity: 'yes', // Default as empty string
+    eventsAllowance: 'Allowed', // Default to an allowed enum value
+    numberOfRooms: 1, // Default as 1
+    squareMeterCount: 1, // Default as 1
+    smokingAllowance: 'Allowed', // Default to an allowed enum value
+    propertyType: 'Entire', // Default to an enum value
+  
+    // Selection fields
+    PropertyAccessoriesSelected: 'dd',
+    PropertyGuidelinesSelected: 'dd',
+    RoomInfoFormSelected: 'dd',
+    AccommodationSelectionSelected: 'dd',
+    RoomAmenitiesSelected: 'dd',
+  });
+  
 
   const isLoading = ref(false)
-  const steps = ref(STEPS.CATEGORY)
+  const steps = ref(STEPS.GETTINGSTARTED)
 
   const errors = reactive<{ [key: string]: string }>({
     title: '',
@@ -71,7 +86,7 @@ export function useCreateListing() {
   }
 
   function onNext() {
-    if (steps.value === STEPS.DESCRIPTION && !validDescription()) return
+    if (steps.value === STEPS.PUBLISH && !validDescription()) return
     steps.value++
     saveToLocalStorage()
   }
@@ -193,26 +208,36 @@ export function useCreateListing() {
 // Function to set PropertyAccessoriesSelected
 function setPropertyAccessoriesSelected(accessories: string) {
   listingValues.PropertyAccessoriesSelected = accessories;
+  saveToLocalStorage()
+
 }
 
 // Function to set PropertyGuidelinesSelected
 function setPropertyGuidelinesSelected(guidelines: string) {
   listingValues.PropertyGuidelinesSelected = guidelines;
+  saveToLocalStorage()
+
 }
 
 // Function to set RoomInfoFormSelected
 function setRoomInfoFormSelected(roomInfo: string) {
   listingValues.RoomInfoFormSelected = roomInfo;
+  saveToLocalStorage()
+
 }
 
 // Function to set AccommodationSelectionSelected
 function setAccommodationSelectionSelected(accommodation: string) {
   listingValues.AccommodationSelectionSelected = accommodation;
+  saveToLocalStorage()
+
 }
 
 // Function to set RoomAmenitiesSelected
 function setRoomAmenitiesSelected(amenities: string) {
   listingValues.RoomAmenitiesSelected = amenities;
+  saveToLocalStorage()
+
 }
 
 

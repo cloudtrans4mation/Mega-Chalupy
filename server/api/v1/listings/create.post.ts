@@ -12,15 +12,25 @@ export default defineEventHandler(async event => {
         message: 'Unauthorized',
       })
     }
+
     const parseResult = await readValidatedBody(event, ListingValuesSchema.safeParse)
 
     if (!parseResult.success) {
-      console.error("Validation failed:", parseResult.error);
+      console.error("Validation failed:", parseResult.error.issues);
+    
+      // Check the error's path to locate the exact problematic field
+      parseResult.error.issues.forEach(issue => {
+        console.error(`Field '${issue.path.join('.')}' has an issue: ${issue.message}`);
+      });
+    
       throw createError({
         statusCode: 400,
-        message: 'All fields required',
-      })
+        message: `Validation failed for ${parseResult.error.issues
+          .map(issue => issue.path.join('.'))
+          .join(', ')}`,
+      });
     }
+     
 
     const {
       category,
@@ -33,8 +43,26 @@ export default defineEventHandler(async event => {
       title,
       description,
       imagePublicId,
-    } = parseResult.data
-
+      cotAvailability,
+      ownersMessage,
+      childrenAllowance,
+      cotAvailabilityChild,
+      checkInDate,
+      checkOutDate,
+      neighboringActivity,
+      eventsAllowance,
+      numberOfRooms,
+      squareMeterCount,
+      smokingAllowance,
+      propertyType,
+      propertyAccessories,
+      PropertyAccessoriesSelected,
+      PropertyGuidelinesSelected,
+      RoomInfoFormSelected,
+      AccommodationSelectionSelected,
+      RoomAmenitiesSelected,
+    } = parseResult.data;
+    
     const id = generateIdFromEntropySize(16)
 
     await db.insert(listing).values({
@@ -50,6 +78,24 @@ export default defineEventHandler(async event => {
       title,
       description,
       imagePublicId,
+      cotAvailability: cotAvailability ?? null,
+      ownersMessage: ownersMessage ?? null,
+      childrenAllowance: childrenAllowance ?? null,
+      cotAvailabilityChild: cotAvailabilityChild ?? null,
+      checkInDate: checkInDate ?? null,
+      checkOutDate: checkOutDate ?? null,
+      neighboringActivity: neighboringActivity ?? null,
+      eventsAllowance: eventsAllowance ?? null,
+      numberOfRooms,
+      squareMeterCount,
+      smokingAllowance,
+      propertyType: propertyType ?? null,
+      propertyAccessories: JSON.stringify(propertyAccessories ?? []), // Serialize array for storage
+      PropertyAccessoriesSelected: PropertyAccessoriesSelected ?? null,
+      PropertyGuidelinesSelected: PropertyGuidelinesSelected ?? null,
+      RoomInfoFormSelected: RoomInfoFormSelected ?? null,
+      AccommodationSelectionSelected: AccommodationSelectionSelected ?? null,
+      RoomAmenitiesSelected: RoomAmenitiesSelected ?? null,
     })
 
     return { statusCode: 201, message: 'Listing created!' }

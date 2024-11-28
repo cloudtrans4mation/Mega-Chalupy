@@ -17,15 +17,14 @@
           <!-- Navigation Links -->
           <nav class="nav-container flex space-x-4">
             <a href="#"
-              class="nav-link hover:text-gray-900 hover:border-2 hover:border-gray-300 hover:rounded-full">Home</a>
-            <a href="#"
-              class="nav-link hover:text-gray-900 hover:border-2 hover:border-gray-300 hover:rounded-full">Offer
-              overview
+              class="nav-link hover:text-gray-900 hover:border-2 hover:border-gray-300 hover:rounded-full">Housing</a>
+            <a href="/experiences"
+              class="nav-link hover:text-gray-900 hover:border-2 hover:border-gray-300 hover:rounded-full">
+              Experiences
             </a>
-            <a href="#"
-              class="nav-link hover:text-gray-900 hover:border-2 hover:border-gray-300 hover:rounded-full">About us</a>
           </nav>
 
+          <NavSearch></NavSearch>
           <!-- User Options -->
           <div class="flex gap-2 items-center py-2 text-sm text-blue-600 rounded-full">
             <!-- Dropdown Menu -->
@@ -51,44 +50,31 @@
 </template>
 
 
-<script lang="ts">
-import { defineComponent } from 'vue';
-import { TransitionRoot, TransitionChild, Dialog, DialogPanel } from '@headlessui/vue'
-import UserMenu from './nav/UserMenu.vue';
-const isOpen = ref(false)
+<script setup lang="ts">
+import { ref, computed, onMounted } from 'vue';
+import Container from '~/components/Container.vue';
+import NavSearch from './nav/Search.vue';
+import FlagsTranslation from '~/components/FlagsTranslation.vue';
+import NavUserMenu from '~/components/nav/UserMenu.vue';
+import Categories from '~/components/Categories.vue';
 
-function closeModal() {
-  isOpen.value = false
+// State to detect screen size
+const isMobile = ref(false);
+
+// Function to check if the view is mobile
+function checkMobileView() {
+  isMobile.value = window.innerWidth < 768; // Adjust breakpoint as needed
 }
-function openModal() {
-  isOpen.value = true
-}
 
-
-export default defineComponent({
-  name: 'Navbar',
-  data() {
-    return {
-      showNavSearch: false, // Track whether NavSearch is displayed
-    };
-  },
-
+// Set up event listeners to update on resize
+onMounted(() => {
+  checkMobileView();
+  window.addEventListener('resize', checkMobileView);
 });
 
-
-const dropdownOpen = ref(true);
-
-function toggleDropdown() {
-  dropdownOpen.value = !dropdownOpen.value;
-}
-
-const flags = [
-  { src: '~/public/cz.svg', alt: 'Czech Flag', label: 'Czech Republic' },
-  { src: '~/public/cz.svg', alt: 'Czech Flag', label: 'Czech Republic' },
-  { src: '~/public/cz.svg', alt: 'Czech Flag', label: 'Czech Republic' },
-
-];
-
+onUnmounted(() => {
+  window.removeEventListener('resize', checkMobileView);
+});
 </script>
 
 <style scoped>

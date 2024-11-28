@@ -1,17 +1,18 @@
 <template>
-    <section class="flex flex-col justify-center px-40 pt-6 pb-12 max-md:px-5">
-      <h2 class="text-3xl font-bold leading-none text-neutral-800">
-        Past experiences
-      </h2>
-      <div class="flex flex-wrap gap-6 items-center mt-6 w-full max-md:max-w-full">
-        <ExperienceCard
-          v-for="(experience, index) in experiences"
-          :key="index"
-          :experience="experience"
-        />
-      </div>
-    </section>
-  </template>
+  <section class="flex flex-col justify-center px-40 pt-6 pb-12 max-md:px-5">
+    <h2 class="text-3xl font-bold leading-none text-neutral-800">
+      Past experiences
+    </h2>
+    <div class="flex flex-wrap gap-6 items-stretch mt-6 w-full max-md:max-w-full">
+      <ExperienceCard
+        v-for="(experience, index) in experiences"
+        :key="index"
+        :experience="experience"
+      />
+    </div>
+  </section>
+</template>
+
   
   <script lang="ts">
   import { defineComponent } from 'vue';
@@ -52,6 +53,19 @@
         {
           title: 'Houseplant Retreat',
           host: 'Seth Rogen',
+          status: 'Sold out',
+          imageUrl: 'experiences/houseplant.jpeg',
+        },
+        {
+          title: 'The Last Blockbuster',
+          host: 'Sandi',
+          status: 'Sold out',
+          imageUrl: 'https://cdn.builder.io/api/v1/image/assets/TEMP/4c3d042103a0d7adbf3f265c2d7feb67fc3bb6204c604b66792e4daad5e94969?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa',
+        },
+
+        {
+          title: 'The Last Blockbuster',
+          host: 'Sandi',
           status: 'Sold out',
           imageUrl: 'https://cdn.builder.io/api/v1/image/assets/TEMP/4c3d042103a0d7adbf3f265c2d7feb67fc3bb6204c604b66792e4daad5e94969?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa',
         },

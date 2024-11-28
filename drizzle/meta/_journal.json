@@ -64,6 +64,20 @@
       "when": 1730670055412,
       "tag": "0008_aromatic_riptide",
       "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "6",
+      "when": 1732548194569,
+      "tag": "0009_careful_captain_cross",
+      "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "6",
+      "when": 1732549370493,
+      "tag": "0010_gifted_warbound",
+      "breakpoints": true
     }
   ]
 }
