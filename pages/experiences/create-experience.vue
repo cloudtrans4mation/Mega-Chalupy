@@ -6,8 +6,8 @@ import RoomAmenities from '~/components/host-special/RoomAmenities.vue';
 import PropertyAccessories from '~/components/host-special/PropertyAccessories.vue';
 import RoomInfoForm from '~/components/host-special/room-info-form/RoomInfoForm.vue';
 import PropertyGuidelines from '~/components/host-special/room-info-form/PropertyGuidelines.vue';
-import GettingStarted from '~/components/GettingStarted.vue';
 import ImageUploadForListingCreation from '~/components/ImageUploadForListingCreation.vue';
+import GettingStarted from '~/components/experiences/GettingStarted.vue';
 
 
 const {

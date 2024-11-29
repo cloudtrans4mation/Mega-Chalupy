@@ -83,3 +83,123 @@
     },
   });
   </script>
+
+<style scoped>
+.experience-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 240px;
+  margin: 16px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.experience-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-container {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.image-slider {
+  width: 100%;
+  height: 200px;
+  border-bottom: 1px solid #ddd;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 16px;
+  text-align: center;
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.card-host {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 4px;
+}
+
+.card-status {
+  font-size: 14px;
+  font-weight: 600;
+  color: #555;
+}
+
+/* Customize Swiper navigation buttons */
+.swiper-button-next,
+.swiper-button-prev {
+  width: 24px;
+  height: 24px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  font-size: 12px;
+  color: #fff;
+}
+
+.swiper-button-next {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.swiper-button-next:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+  transform: scale(1.2);
+}
+
+.swiper-button-prev {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.swiper-button-prev:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+  transform: scale(1.2);
+}
+
+.swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  background-color: #fff;
+  opacity: 0.5;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1;
+}
+</style>

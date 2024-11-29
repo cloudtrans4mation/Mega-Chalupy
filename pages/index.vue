@@ -71,12 +71,19 @@ if (import.meta.client) {
 
 
       <ExploreByTypeSection></ExploreByTypeSection>
+
       <InspirationSection></InspirationSection>
+
       <GiftCard></GiftCard>
-      <PastExperiencesSection></PastExperiencesSection>
+
       <!-- Bouton "Afficher la carte" -->
+
+
       <Search />
+      
+      <MegaChalupyPlusSection></MegaChalupyPlusSection>
       <MoreListings></MoreListings>
+      <TopAuthors></TopAuthors>
 
 
       <AlwaysPresentFooter />
