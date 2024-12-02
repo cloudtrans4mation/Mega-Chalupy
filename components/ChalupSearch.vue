@@ -82,7 +82,7 @@
           </MenubarMenu>
 
           <!-- Search Button -->
-          <button type="submit"
+          <Button type="submit"
             class="w-full md:w-auto mt-4 md:mt-0 md:ml-4 flex items-center justify-center px-8 py-2 bg-blue-600 text-white rounded-full shadow-md hover:bg-blue-700 transition-transform transform hover:scale-105 focus:ring-4 focus:ring-blue-300 focus:outline-none">
             Search
           </button>
@@ -101,20 +101,16 @@ import { defineComponent, ref, onMounted, onUnmounted } from 'vue';
 import DateSelector from './date-home-search/DateSelector.vue';
 import DestinationSelect from './DestinationSelect.vue';
 import MainSearchBar from './NewSearchBar/MainSearchBar.vue';
+import Button from './Button.vue';
+
 import {
-  MenubarCheckboxItem,
   MenubarContent,
   MenubarItem,
-  MenubarItemIndicator,
   MenubarMenu,
   MenubarPortal,
-  MenubarRadioGroup,
-  MenubarRadioItem,
+
   MenubarRoot,
-  MenubarSeparator,
-  MenubarSub,
-  MenubarSubContent,
-  MenubarSubTrigger,
+
   MenubarTrigger,
 } from 'radix-vue'
 import { RangeCalendarCell, RangeCalendarCellTrigger, RangeCalendarGrid, RangeCalendarGridBody, RangeCalendarGridHead, RangeCalendarGridRow, RangeCalendarHeadCell, RangeCalendarHeader, RangeCalendarHeading, RangeCalendarNext, RangeCalendarPrev, RangeCalendarRoot } from 'radix-vue'
@@ -198,5 +194,16 @@ export default defineComponent({
 <style scoped>
 input {
   color: black;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* For Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
 }
 </style>

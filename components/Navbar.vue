@@ -18,7 +18,7 @@
           <nav class="nav-container flex space-x-4">
             <a href="#"
               class="nav-link hover:text-gray-900 hover:border-2 hover:border-gray-300 hover:rounded-full">Housing</a>
-            <a href="/experiences"
+            <a href="/experiences "
               class="nav-link hover:text-gray-900 hover:border-2 hover:border-gray-300 hover:rounded-full">
               Experiences
             </a>

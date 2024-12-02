@@ -3,14 +3,14 @@
     class="flex overflow-hidden flex-col items-start font-bold text-zinc-700 px-8 md:px-16 lg:px-24 pt-12 pb-12"
     aria-labelledby="airbnb-plus-title"
   >
-    <h1 id="airbnb-plus-title" class="text-2xl">Airbnb Plus Accommodations</h1>
+    <h1 id="airbnb-plus-title" class="text-2xl">Mega ChalupyPlus Accommodations</h1>
     <p class="mt-2 text-base font-light max-md:max-w-full">
       A selection of homes verified for quality and design standards.
     </p>
     <div
       class="flex relative flex-col justify-center items-center self-stretch px-20 py-14 mt-6 w-full text-xs uppercase rounded min-h-[310px] max-md:px-5 max-md:max-w-full"
       role="img"
-      aria-label="Background image representing an Airbnb Plus accommodation"
+      aria-label="Background image representing an Mega ChalupyPlus accommodation"
     >
       <img
         loading="lazy"
@@ -22,13 +22,13 @@
         <img
           loading="lazy"
           src="https://cdn.builder.io/api/v1/image/assets/TEMP/04319417f08c3d7738598437ca5b9eab5389dc5e1bc3727e34dd73fcde68fe43?placeholderIfAbsent=true&apiKey=5b20c0d534a34f0091744edaaeed1afd"
-          alt="Airbnb Plus Logo"
+          alt="Mega ChalupyPlus Logo"
           class="object-contain self-center max-w-full aspect-square w-[124px]"
         />
         <button
           class="flex gap-5 px-5 py-4 mt-8 bg-white rounded hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-zinc-500"
           type="button"
-          aria-label="Explore Airbnb Plus accommodations"
+          aria-label="Explore Mega ChalupyPlus accommodations"
         >
           <span class="grow shrink w-[135px]">Explore Accommodations</span>
           <img
