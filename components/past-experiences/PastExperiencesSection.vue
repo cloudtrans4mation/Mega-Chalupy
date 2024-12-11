@@ -1,5 +1,5 @@
 <template>
-  <section class="relative rounded-xl mx-auto my-12 max-w-7xl px-10 py-16">
+  <section class="relative rounded-xl mx-auto my-12  px-10 py-16">
     <!-- Hero Section -->
     <FlexibleHero></FlexibleHero>
 
@@ -47,16 +47,12 @@
       </div>
     </div>
 
-
-    <ExperienceDiscovery></ExperienceDiscovery>
+<ExperienceDiscovery></ExperienceDiscovery>
   </section>
 </template>
 
 <style scoped>
 /* Section Background Gradient */
-section {
-  background: linear-gradient(120deg, #f9fafb, #e5e7eb);
-}
 
 /* Smooth transitions for buttons */
 button {
@@ -87,6 +83,7 @@ import { defineComponent } from 'vue';
 import ExperienceCard from './ExperienceCard.vue';
 import type { Experience } from '~/types';
 import FlexibleHero from '../FlexibleHero.vue';
+import ExperienceDiscovery from '../ExperienceDiscovery.vue';
 
 export default defineComponent({
   name: 'PastExperiencesSection',

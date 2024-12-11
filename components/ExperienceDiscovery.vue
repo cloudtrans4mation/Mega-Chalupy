@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import ExperienceCard from "./ExperienceCard.vue"; 
+import ExperienceCardForDiscovery from "./ExperienceCardForDiscovery.vue";
 </script>
 
 <template>
@@ -10,12 +10,12 @@ import ExperienceCard from "./ExperienceCard.vue";
     <div
       class="flex flex-wrap gap-6 items-start mt-12 w-full max-md:mt-10 max-md:max-w-full"
     >
-      <ExperienceCard
+      <ExperienceCardForDiscovery
         title="Things to do"
         subtitle="on your trip"
         buttonText="Experiences"
       />
-      <ExperienceCard
+      <ExperienceCardForDiscovery
         title="Things to do"
         subtitle="from home"
         buttonText="Online Experiences"

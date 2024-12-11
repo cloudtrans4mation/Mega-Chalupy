@@ -21,8 +21,8 @@ defineProps<ExperienceCardProps>();
     </div>
     <div
       class="flex items-start self-start mt-6 text-base text-gray-700"
-      :class="{ 'whitespace-nowrap': buttonText.length > 15 }"
-    >
+      :class="{ 'whitespace-nowrap': buttonText && buttonText.length > 15 }"
+      >
       <button
         class="gap-2 self-stretch px-6 py-4 bg-white rounded-lg border-0 border border-solid shadow-sm max-md:px-5"
         tabindex="0"
