@@ -55,7 +55,7 @@ export default defineEventHandler(async event => {
       squareMeterCount,
       smokingAllowance,
       propertyType,
-      propertyAccessories,
+      
       PropertyAccessoriesSelected,
       PropertyGuidelinesSelected,
       RoomInfoFormSelected,
@@ -90,7 +90,6 @@ export default defineEventHandler(async event => {
       squareMeterCount,
       smokingAllowance,
       propertyType: propertyType ?? null,
-      propertyAccessories: JSON.stringify(propertyAccessories ?? []), // Serialize array for storage
       PropertyAccessoriesSelected: PropertyAccessoriesSelected ?? null,
       PropertyGuidelinesSelected: PropertyGuidelinesSelected ?? null,
       RoomInfoFormSelected: RoomInfoFormSelected ?? null,

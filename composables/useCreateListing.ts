@@ -44,15 +44,14 @@ export function useCreateListing() {
     guestCount: 1,
     roomCount: 1,
     bathroomCount: 1,
-    imageSrc: '',
-    imagePublicId: '',
+    imageSrc: [] as string[],  // imageSrc is an empty array of strings 
     price: 1,
     title: '',
     description: '',
   
     // Additional fields
     cotAvailability: 'true', // Default as empty string or null if optional
-    ownersMessage: 'hhhh', // Default as empty string or null if optional
+    ownersMessage: 'Welcome', // Default as empty string or null if optional
     childrenAllowance: 'Allowed', // Default to an allowed enum value
     cotAvailabilityChild: 'Available', // Default to an available enum value
     neighboringActivity: 'yes', // Default as empty string
