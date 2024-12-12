@@ -76,6 +76,7 @@ if (import.meta.client) {
 
       <GiftCard></GiftCard>
 
+
       <!-- Bouton "Afficher la carte" -->
 
 
@@ -83,6 +84,7 @@ if (import.meta.client) {
       
       <MegaChalupyPlusSection></MegaChalupyPlusSection>
       <MoreListings></MoreListings>
+
       <TopAuthors></TopAuthors>
 
 

@@ -21,7 +21,7 @@
       <div class="flex relative flex-col max-w-full w-[200px]">
         <img
           loading="lazy"
-          src="https://cdn.builder.io/api/v1/image/assets/TEMP/04319417f08c3d7738598437ca5b9eab5389dc5e1bc3727e34dd73fcde68fe43?placeholderIfAbsent=true&apiKey=5b20c0d534a34f0091744edaaeed1afd"
+          src="/logo.png"
           alt="Mega ChalupyPlus Logo"
           class="object-contain self-center max-w-full aspect-square w-[124px]"
         />

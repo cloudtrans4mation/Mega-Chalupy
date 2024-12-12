@@ -20,7 +20,7 @@ export default defineComponent({
     return {
       modules: [Pagination, Navigation],
       images: [
-        'https://swiperjs.com/demos/images/nature-1.jpg',
+        'https://a0.muscache.com/im/pictures/miso/Hosting-634092978468676421/original/33702451-a463-4a03-88b4-ccb8f994360a.jpeg?im_w=1200&im_format=avif',
         'https://swiperjs.com/demos/images/nature-2.jpg',
         'https://swiperjs.com/demos/images/nature-3.jpg',
         'https://swiperjs.com/demos/images/nature-4.jpg',
