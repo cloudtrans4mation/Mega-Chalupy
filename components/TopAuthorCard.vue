@@ -1,116 +1,121 @@
 <template>
-    <div class="flex flex-col items-center" :class="cardStyles">
-      <div class="flex gap-5 justify-between items-start self-start max-w-full" :class="headerWidth">
-        <div :class="rankStyles">
-          #{{ rank }}
-        </div>
-        <div class="flex overflow-hidden justify-center items-center mt-4 w-20 h-20 rounded-full shadow-sm bg-white bg-opacity-0 min-h-[80px]">
-          <img
-            :src="avatar"
-            :alt="`Profile photo of ${name}`"
-            class="object-contain self-stretch my-auto w-20 rounded-full aspect-square"
-            loading="lazy"
-          />
-        </div>
+  <div class="flex flex-col items-center p-6 bg-white shadow-md rounded-xl max-w-[270px] transition-transform transform hover:scale-105">
+    <!-- Card Header -->
+    <div class="flex items-center gap-4 w-full mb-4">
+      <!-- Ranking Badge -->
+      <div v-if="ranking" :class="rankingColorClasses" class="px-3 py-1 text-xs font-semibold text-gray-800 bg-gray-100 rounded-full">
+        #{{ ranking }}
       </div>
-      <div class="flex flex-col pt-3 max-w-full text-center" :class="nameWidth">
-        <div class="flex flex-col w-full">
-          <div class="overflow-hidden w-full text-base font-medium text-gray-900">
-            {{ name }}
-          </div>
-          <div class="px-6 mt-1.5 w-full text-sm leading-none text-gray-500 max-md:px-5">
-            {{ location }}
-          </div>
-        </div>
-      </div>
-      <div class="flex flex-col pt-4">
-        <div 
-          class="flex justify-center items-center px-5 py-2 bg-gray-100 rounded-full"
-          role="status"
-          :aria-label="`Rating: ${rating} out of 5 stars`"
-        >
-          <div class="self-stretch pt-px my-auto text-xs font-medium leading-none text-center text-gray-900 whitespace-nowrap">
-            {{ rating }}
-          </div>
-          <div class="flex flex-col items-start self-stretch pl-2 my-auto w-7 min-h-[20px]">
-            <div class="flex overflow-hidden flex-col justify-center items-center w-5 min-h-[20px]">
-              <img
-                src="https://cdn.builder.io/api/v1/image/assets/TEMP/31940b31533b6271a97455d1079bec557edfa0a23dcf69737c0c67b5f7d5c051?placeholderIfAbsent=true&apiKey=5b20c0d534a34f0091744edaaeed1afd"
-                alt=""
-                class="object-contain flex-1 w-full aspect-square"
-                loading="lazy"
-              />
-            </div>
-          </div>
-        </div>
+      
+      <!-- Profile Image -->
+      <div class="flex items-center justify-center w-20 h-20 rounded-full bg-gray-50 shadow-md">
+        <img :src="profileImage" :alt="profileName" loading="lazy" class="w-full h-full object-cover rounded-full" />
       </div>
     </div>
-  </template>
-  
-  <script lang="ts">
-  import { defineComponent } from 'vue'
-  
-  interface Props {
-    name: string
-    location: string
-    avatar: string
-    rating: number
-    rank: number
-    rankColor: string
-  }
-  
-  export default defineComponent({
-    name: 'LeaderboardCard',
-    props: {
-      name: {
-        type: String,
-        required: true
-      },
-      location: {
-        type: String,
-        required: true
-      },
-      avatar: {
-        type: String,
-        required: true
-      },
-      rating: {
-        type: Number,
-        required: true
-      },
-      rank: {
-        type: Number,
-        required: true
-      },
-      rankColor: {
-        type: String,
-        required: true
-      }
+
+    <!-- Profile Information -->
+    <div class="flex flex-col items-center mt-3 text-center">
+      <!-- Name -->
+      <div class="text-sm font-semibold text-gray-800 truncate w-full">
+        {{ profileName }}
+      </div>
+      
+      <!-- Location -->
+      <div class="text-xs text-gray-500 mt-1">
+        {{ location }}
+      </div>
+    </div>
+
+    <!-- Rating Section -->
+    <div class="flex items-center gap-2 mt-3 px-4 py-2 bg-gray-100 rounded-full w-max mx-auto">
+      <div class="text-xs font-medium text-gray-700">
+        {{ rating }}
+      </div>
+      <img :src="starImage" alt="Rating Star" class="w-5 h-5 object-contain" />
+    </div>
+  </div>
+</template>
+
+<style scoped>
+/* Updated shadow effect for the card, removing large background */
+.card-hover:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for hover effect */
+}
+</style>
+
+
+
+
+<script lang="ts">
+import { defineComponent } from 'vue'
+
+interface ProfileCardProps {
+  ranking?: number
+  profileImage: string
+  profileName: string
+  location: string
+  rating: string
+  starImage: string
+  containerClasses?: string
+  headerWidth?: string
+  nameWidth?: string
+  locationPadding?: string
+}
+
+export default defineComponent({
+  name: 'TopAuthorCard',
+  props: {
+    ranking: {
+      type: Number,
+      required: false
     },
-    computed: {
-      cardStyles() {
-        return {
-          'pt-3.5 pr-12 pb-7 pl-3.5 bg-white rounded-3xl border border-solid border-gray-200 border-opacity-70 max-md:pr-5': true
-        }
-      },
-      headerWidth() {
-        return {
-          'w-[142px]': true
-        }
-      },
-      nameWidth() {
-        return {
-          'w-[109px]': true
-        }
-      },
-      rankStyles() {
-        return {
-          'px-2.5 py-1 text-xs font-medium leading-none text-center whitespace-nowrap rounded-full': true,
-          'text-red-800 bg-red-100': this.rankColor === 'red',
-          'text-blue-800 bg-blue-100': this.rankColor === 'blue',
-          'text-green-800 bg-green-100': this.rankColor === 'green'
-        }
-      }
+    profileImage: {
+      type: String,
+      required: true
+    },
+    profileName: {
+      type: String,
+      required: true
+    },
+    location: {
+      type: String,
+      required: true
+    },
+    rating: {
+      type: String,
+      required: true
+    },
+    starImage: {
+      type: String,
+      required: true
+    },
+    containerClasses: {
+      type: String,
+      default: 'pt-3.5 pr-12 pb-7 pl-3.5'
+    },
+    headerWidth: {
+      type: String,
+      default: 'w-[142px]'
+    },
+    nameWidth: {
+      type: String,
+      default: 'w-[109px]'
+    },
+    locationPadding: {
+      type: String,
+      default: 'px-6 max-md:px-5'
     }
-  })
-  </script>
+  },
+  computed: {
+    rankingColorClasses(): string {
+      const colors = {
+        1: 'text-red-800 bg-red-100',
+        2: 'text-blue-800 bg-blue-100',
+        3: 'text-green-800 bg-green-100'
+      }
+      return colors[this.ranking as keyof typeof colors] || ''
+    }
+  }
+})
+</script>

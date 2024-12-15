@@ -1,7 +1,7 @@
 import { useToast } from 'vue-toastification'
 import type { CountrySelectValue } from '~/types'
 
-export enum STEPS {
+export enum STEPSFOREXPERIENCE {
     YOUR_IDEA = 0,                 // Votre idée
     WHAT_WE_ARE_LOOKING_FOR = 1,   // Ce que nous recherchons
     EXPERIENCE_PAGE = 2,           // Page de l'expérience
@@ -19,18 +19,51 @@ export enum STEPS {
   
 
   export const STEP_LABELS = {
-    [STEPS.YOUR_IDEA]: 'Your Idea',                   // Votre idée
-    [STEPS.WHAT_WE_ARE_LOOKING_FOR]: 'What We Are Looking For', // Ce que nous recherchons
-    [STEPS.EXPERIENCE_PAGE]: 'Experience Page',       // Page de l'expérience
-    [STEPS.PROGRAM_DETAILS]: 'Program Details',       // Au programme
-    [STEPS.ABOUT_YOU]: 'About You',                   // À propos de vous
-    [STEPS.LOCATION]: 'Location',                     // Emplacement
-    [STEPS.PROVIDED_ITEMS]: 'Provided Items',         // Ce qui est fourni
-    [STEPS.WHAT_TRAVELERS_SHOULD_BRING]: 'Traveler Requirements', // Ce que les voyageurs doivent apporter
-    [STEPS.TRAVELER_REQUIREMENTS]: 'Traveler Conditions', // Conditions relatives aux voyageurs
-    [STEPS.TITLE]: 'Title',                           // Titre
-    [STEPS.PHOTOS]: 'Photos',                         // Photos
-    [STEPS.SETTINGS]: 'Settings',                     // Paramètres
-    [STEPS.PROPOSAL_SENT]: 'Proposal Sent',           // Proposition envoyée
+    [STEPSFOREXPERIENCE.YOUR_IDEA]: 'Your Idea',                   // Votre idée
+    [STEPSFOREXPERIENCE.WHAT_WE_ARE_LOOKING_FOR]: 'What We Are Looking For', // Ce que nous recherchons
+    [STEPSFOREXPERIENCE.EXPERIENCE_PAGE]: 'Experience Page',       // Page de l'expérience
+    [STEPSFOREXPERIENCE.PROGRAM_DETAILS]: 'Program Details',       // Au programme
+    [STEPSFOREXPERIENCE.ABOUT_YOU]: 'About You',                   // À propos de vous
+    [STEPSFOREXPERIENCE.LOCATION]: 'Location',                     // Emplacement
+    [STEPSFOREXPERIENCE.PROVIDED_ITEMS]: 'Provided Items',         // Ce qui est fourni
+    [STEPSFOREXPERIENCE.WHAT_TRAVELERS_SHOULD_BRING]: 'Traveler Requirements', // Ce que les voyageurs doivent apporter
+    [STEPSFOREXPERIENCE.TRAVELER_REQUIREMENTS]: 'Traveler Conditions', // Conditions relatives aux voyageurs
+    [STEPSFOREXPERIENCE.TITLE]: 'Title',                           // Titre
+    [STEPSFOREXPERIENCE.PHOTOS]: 'Photos',                         // Photos
+    [STEPSFOREXPERIENCE.SETTINGS]: 'Settings',                     // Paramètres
+    [STEPSFOREXPERIENCE.PROPOSAL_SENT]: 'Proposal Sent',           // Proposition envoyée
   };
   
+
+  export function useCreateExperience() {  
+    const listingValues = reactive({
+      category: '',
+      locationValue: null as CountrySelectValue | null,
+      guestCount: 1,
+      theme: 1,
+      bathroomCount: 1,
+      imageSrc: [] as string[],  // imageSrc is an empty array of strings 
+      price: 1,
+      title: '',
+      description: '',
+    
+      // Additional fields
+      cotAvailability: 'true', // Default as empty string or null if optional
+      ownersMessage: 'Welcome', // Default as empty string or null if optional
+      childrenAllowance: 'Allowed', // Default to an allowed enum value
+      cotAvailabilityChild: 'Available', // Default to an available enum value
+      neighboringActivity: 'yes', // Default as empty string
+      eventsAllowance: 'Allowed', // Default to an allowed enum value
+      numberOfRooms: 1, // Default as 1
+      squareMeterCount: 1, // Default as 1
+      smokingAllowance: 'Allowed', // Default to an allowed enum value
+      propertyType: 'Entire', // Default to an enum value
+    
+      // Selection fields
+      PropertyAccessoriesSelected: 'dd',
+      PropertyGuidelinesSelected: 'dd',
+      RoomInfoFormSelected: 'dd',
+      AccommodationSelectionSelected: 'dd',
+      RoomAmenitiesSelected: 'dd',
+    });
+  }

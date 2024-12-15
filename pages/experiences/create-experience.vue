@@ -1,14 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { useCreateListing } from '~/composables/useCreateListing'; // Assuming a custom composable for managing listings
-import { STEPS, STEP_LABELS } from '~/data/constants';
-import AccommodationSelection from '~/components/host-special/AccommodationSelection.vue';
-import RoomAmenities from '~/components/host-special/RoomAmenities.vue';
-import PropertyAccessories from '~/components/host-special/PropertyAccessories.vue';
-import RoomInfoForm from '~/components/host-special/room-info-form/RoomInfoForm.vue';
-import PropertyGuidelines from '~/components/host-special/room-info-form/PropertyGuidelines.vue';
-import ImageUploadForListingCreation from '~/components/ImageUploadForListingCreation.vue';
-import GettingStarted from '~/components/experiences/GettingStarted.vue';
+
+
 
 const {
   listingValues,
@@ -31,7 +24,7 @@ const {
 } = useCreateListing();
 
 useSeoMeta({
-  title: 'Create Listing',
+  title: 'Create Experience',
 });
 
 const selectedButton = ref<string | null>(null);
@@ -68,7 +61,7 @@ function toggleSelection(label: string) {
       <div :key="steps">
         <!-- Step 1: Getting Started -->
         
-
+<ExperiencesGettingStarted></ExperiencesGettingStarted>
         <!-- Step 2: Category Selection -->
     
 
