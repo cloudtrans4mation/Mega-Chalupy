@@ -1,5 +1,5 @@
 <template>
-    <section class="explore-stays flex flex-col items-center w-full max-w-screen-lg mx-auto px-5 mt-8 md:mt-16">
+    <section class="explore-stays flex flex-col items-center w-full max-w-screen-lg mx-auto px-5 py-8 mt-8 md:mt-16">
         <header class="header">
             <h2 class="header-title">Explore by types of stays</h2>
             <p class="header-subtitle">Explore houses based on 10 types of stays</p>
@@ -13,7 +13,7 @@
             </ul>
         </main>
 
-        <footer class="flex justify-center items-center gap-3 mt-10">
+        <!-- <footer class="flex justify-center items-center gap-3 mt-10">
             <button class="button-nav" aria-label="Previous">
                 <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/f59f749797d1232d0b4a64e81c6627d52eb21dd88d949c36fe54c77c794f0dad?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa"
                     alt="Previous" class="icon" />
@@ -22,7 +22,7 @@
                 <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/1ef1aea3f3bf5c1d736bf1b2d89001ba446eaa4f2a38cef904378009c4f27757?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa"
                     alt="Next" class="icon" />
             </button>
-        </footer>
+        </footer> -->
     </section>
 </template>
 

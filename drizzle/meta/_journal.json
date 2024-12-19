@@ -78,6 +78,13 @@
       "when": 1732549370493,
       "tag": "0010_gifted_warbound",
       "breakpoints": true
+    },
+    {
+      "idx": 11,
+      "version": "6",
+      "when": 1734376171492,
+      "tag": "0011_overconfident_vance_astro",
+      "breakpoints": true
     }
   ]
 }

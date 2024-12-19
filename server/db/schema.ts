@@ -137,3 +137,49 @@ export const reservationRelations = relations(reservation, ({ one }) => ({
     relationName: 'reservations',
   }),
 }))
+
+
+export const experience = pgTable('experiences', {
+  id: text('id').primaryKey(),
+  userId: text('user_id')
+    .notNull()
+    .references(() => user.id, { onDelete: 'cascade' }),
+
+  // Basic information
+  title: text('title').notNull(),
+  description: varchar('description', { length: 500 }).notNull(),
+  category: text('category').notNull(),
+  imageSrc: text('image_src').notNull(),
+  imagePublicId: text('image_public_id'),
+
+  // Experience-specific fields
+  duration: integer('duration').notNull(), // Duration in minutes
+  groupSize: integer('group_size').notNull(), // Maximum number of participants
+  pricePerPerson: integer('price_per_person').notNull(),
+  location: text('location').notNull(),
+  meetingPoint: text('meeting_point').notNull(),
+
+  // Additional details
+  language: text('language').notNull(), // Language in which the experience is conducted
+  providedItems: text('provided_items'), // Items provided by the host
+  travelerRequirements: text('traveler_requirements'), // Requirements for travelers
+  whatToBring: text('what_to_bring'), // Suggested items for travelers to bring
+
+  // Guidelines and Rules
+  ageRestriction: text('age_restriction'), // Age restrictions, if any
+  cancellationPolicy: text('cancellation_policy'), // Policy for cancellations
+  safetyGuidelines: text('safety_guidelines'), // Safety tips or guidelines
+
+  // Time-related fields
+  availableDates: text('available_dates'), // JSON string of available dates
+  startTime: text('start_time'), // Time of day the experience starts
+  endTime: text('end_time'), // Time of day the experience ends
+
+  // Selection fields
+  experienceAccessoriesSelected: text('experience_accessories_selected'),
+  experienceGuidelinesSelected: text('experience_guidelines_selected'),
+
+  // Metadata
+  createdAt: timestamp('created_at').defaultNow().notNull(),
+  updatedAt: timestamp('updated_at').$onUpdate(() => new Date()),
+});

@@ -1,38 +1,40 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import { StepperDescription, StepperIndicator, StepperItem, StepperRoot, StepperSeparator, StepperTitle, StepperTrigger } from 'radix-vue'
+import { Icon } from '@iconify/vue'
 
 
 
 const {
-  listingValues,
+  ExperienceValues,
   steps,
   isLoading,
   errors,
   onNext,
   onBack,
-  add,
-  reduce,
-  categorySelected,
-  locationSelected,
-  createListing,
-  imagePublicId,
-  setPropertyAccessoriesSelected,
-  setPropertyGuidelinesSelected,
-  setRoomInfoFormSelected,
-  setAccommodationSelectionSelected,
-  setRoomAmenitiesSelected,
-} = useCreateListing();
+  // add,
+  // reduce,
+  // categorySelected,
+  // locationSelected,
+  // createListing,
+  // imagePublicId,
+  // setPropertyAccessoriesSelected,
+  // setPropertyGuidelinesSelected,
+  // setRoomInfoFormSelected,
+  // setAccommodationSelectionSelected,
+  // setRoomAmenitiesSelected,
+} = useCreateExperience();
 
 useSeoMeta({
   title: 'Create Experience',
 });
 
 const selectedButton = ref<string | null>(null);
-const currentStep = ref<STEPS>(STEPS.YOUR_IDEA); // Default to the first step
-const currentTitle = ref<string>(STEP_LABELS[STEPS.YOUR_IDEA]);
+const currentStep = ref<STEPSFOREXPERIENCE>(STEPSFOREXPERIENCE.YOUR_IDEA); // Default to the first step
+const currentTitle = ref<string>(STEP_LABELS[STEPSFOREXPERIENCE.YOUR_IDEA]);
 const currentNumber = ref<number>(0);
 
-const updateNavigation = (step: STEPS) => {
+const updateNavigation = (step: STEPSFOREXPERIENCE) => {
   currentStep.value = step;
   currentTitle.value = STEP_LABELS[step];
   currentNumber.value = Object.keys(STEP_LABELS).indexOf(step.toString());
@@ -43,57 +45,89 @@ function toggleSelection(label: string) {
 
   const step = Object.entries(STEP_LABELS).find(
     ([, stepLabel]) => stepLabel === label
-  )?.[0] as STEPS | undefined;
+  )?.[0] as STEPSFOREXPERIENCE | undefined;
 
   if (step !== undefined) {
     updateNavigation(step);
   }
 }
+
+
+
+
 </script>
 
 
 <template>
-
-
-
   <section class="relative w-full h-full max-w-2xl px-4 mx-auto my-6 mt-16 md:h-auto lg:h-auto md:px-0">
     <transition name="fade" mode="out-in">
       <div :key="steps">
         <!-- Step 1: Getting Started -->
-        
-<ExperiencesGettingStarted></ExperiencesGettingStarted>
+        <div v-if="steps === STEPSFOREXPERIENCE.GETTINGSTARTED">
+          <ExperiencesGettingStarted></ExperiencesGettingStarted>
+          <Button class="bg-blue-500 text-white px-4 py-2 rounded-md" label="Next" @click="onNext" />
+        </div>
         <!-- Step 2: Category Selection -->
-    
+        <div v-if="steps === STEPSFOREXPERIENCE.YOUR_IDEA">
+          <Heading title="In which city do you want to organize your experience ?" subTitle="Exact location ." />
+          <div class="">
+            <ExperiencesAutoCompletePlace></ExperiencesAutoCompletePlace>
+          </div>
 
+          <div class="flex flex-col gap-4 md:flex-row pt-4">
+            <Button label="Back" outline @click="onBack" />
+            <Button style="background-color: blue;" label="Next" :disabled="!ExperienceValues.category"
+              @click="onNext" />
+          </div>
+
+        </div>
         <!-- Step 3: Accessories -->
+        <div v-if="steps === STEPSFOREXPERIENCE.WHAT_WE_ARE_LOOKING_FOR">
+          <Heading title="Where Your Rental Located?" subTitle="Pick a category" />
+          <div class="grid grid-cols-1 gap-3 overflow-y-auto md:grid-cols-2 lg:grid-cols-3">
+          </div>
 
-
+          <div class="flex flex-col gap-4 md:flex-row pt-4">
+            <Button label="Back" outline @click="onBack" />
+            <Button style="background-color: blue;" label="Next" :disabled="!ExperienceValues.category"
+              @click="onNext" />
+          </div>
+        </div>
+        
         <!-- Step 4: Specifications -->
 
+        <div v-if="steps === STEPSFOREXPERIENCE.EXPERIENCE_PAGE">
+          <Heading title="Where Your Rental Located?" subTitle="Pick a category" />
+          <div class="grid grid-cols-1 gap-3 overflow-y-auto md:grid-cols-2 lg:grid-cols-3">
+          </div>
+
+          <div class="flex flex-col gap-4 md:flex-row pt-4">
+            <Button label="Back" outline @click="onBack" />
+            <Button style="background-color: blue;" label="Next" :disabled="!ExperienceValues.category"
+              @click="onNext" />
+          </div>
+        </div>
 
         <!-- Step 5: Hosting Options -->
 
         <!-- Step 6: Room Amenities -->
- 
+
         <!-- Step 7: Things -->
-  
+
         <!-- Step 8: Images -->
 
-
         <!-- Step 9: Location -->
-   
 
         <!-- Step 10: Type -->
-   
+
         <!-- Step 11: Info -->
-    
 
         <!-- Step 12: Description -->
-        
+
         <!----------------------------------------------------------->
-    
+
         <!----------------------------------------------------------->
-        <div class="flex flex-col gap-8" v-if="steps === STEPS.PUBLISH">
+        <div class="flex flex-col gap-8" v-if="steps === STEPSFOREXPERIENCE.PROPOSAL_SENT">
           <section class="flex flex-wrap gap-10 justify-between items-center w-full max-md:max-w-full">
             <div class="flex flex-wrap gap-10 justify-between items-center w-full max-md:max-w-full">
               <article class="flex flex-col self-stretch my-auto min-w-[240px] w-[342px]">
@@ -107,7 +141,8 @@ function toggleSelection(label: string) {
                   Finally, you'll choose booking settings...
                 </p>
 
-                <video loading="eager" src="public/finish.mp4" alt="Illustration representing the finish and publish step"
+                <video loading="eager" src="public/finish.mp4"
+                  alt="Illustration representing the finish and publish step"
                   class="object-contain self-stretch my-auto aspect-square min-w-[240px] w-[70px] max-md:max-w-full"
                   autoplay muted loop>
                 </video>
@@ -128,55 +163,3 @@ function toggleSelection(label: string) {
   <NavigationForm :currentStep="currentStep" :currentTitle="currentTitle" :currentNumber="currentNumber" />
 
 </template>
-
-
-<style>
-input {
-  border: none;
-  outline: none;
-  /* Removes the outline when input is focused */
-}
-
-/* Basic Fade Transition */
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s ease-in-out;
-}
-
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
-}
-
-/* Slide Transition Example */
-.slide-enter-active,
-.slide-leave-active {
-  transition: transform 0.5s ease-in-out;
-}
-
-.slide-enter,
-.slide-leave-to {
-  transform: translateX(100%);
-  /* Slide in from the right */
-}
-
-/* You can customize more animations depending on your needs */
-
-/* Slide Transition Example */
-.slide-enter-active,
-.slide-leave-active {
-  transition: transform 0.5s ease-in-out;
-}
-
-.slide-enter,
-.slide-leave-to {
-  transform: translateX(100%);
-  /* Slide in from the right */
-}
-
-.slide-enter-to,
-.slide-leave {
-  transform: translateX(0);
-  /* After entering, return to original position */
-}
-</style>

@@ -72,9 +72,6 @@ function toggleSelection(label: string) {
 
 
 <template>
-
-
-
   <section class="relative w-full h-full max-w-2xl px-4 mx-auto my-6 mt-16 md:h-auto lg:h-auto md:px-0">
     <transition name="fade" mode="out-in">
       <div :key="steps">
