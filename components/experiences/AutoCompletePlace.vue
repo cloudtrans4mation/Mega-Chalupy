@@ -9,7 +9,7 @@
         <Heading title="Which language(s) will you offer your experience in??" subTitle="" />
 
         <TagsInputRoot v-model="modelValue"
-            class="flex gap-2 items-center border p-2 rounded-lg w-full max-w-[480px] flex-wrap border-blackA7 bg-white">
+            class="flex gap-2 items-center py-4 border p-2 rounded-lg w-full max-w-[480px] flex-wrap border-blackA7 bg-white">
             <TagsInputItem v-for="item in modelValue" :key="item" :value="item"
                 class="text-white flex shadow-md items-center justify-center gap-2 bg-green8 aria-[current=true]:bg-green9 rounded p-1">
                 <TagsInputItemText class="text-sm pl-1" />
