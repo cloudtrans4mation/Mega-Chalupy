@@ -13,24 +13,25 @@
       <!-- Filter and Search -->
       <div class="flex flex-col md:flex-row justify-between items-center gap-6 mb-12">
         <!-- Sort By -->
-        <div class="flex items-center gap-4">
+        <!-- <div class="flex items-center gap-4">
           <label for="sortBy" class="text-base font-medium text-gray-700">Sort by:</label>
           <select id="sortBy"
             class="px-4 py-2 bg-white rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-indigo-500 text-gray-700">
             <option value="date">Date</option>
             <option value="popularity">Popularity</option>
           </select>
-        </div>
+        </div> -->
         <!-- Search Bar -->
-        <div>
+        <!-- <div>
           <input type="text" placeholder="Search experiences"
             class="px-4 py-3 w-72 bg-white rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-indigo-500 text-gray-700" />
-        </div>
+        </div> -->
       </div>
 
       <!-- Experiences Grid -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <ExperienceCard v-for="(experience, index) in experiences" :key="index" :experience="experience"
+          :images="experience.images"
           class="bg-white rounded-lg shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl" />
       </div>
 
@@ -90,28 +91,43 @@ export default defineComponent({
     ExperienceCard,
   },
   setup() {
+
+
     const experiences: Experience[] = [
       {
-        title: 'La Belle Carthagène',
+        title: 'La Belle Roman Experience',
         host: 'Amine Melliti',
         status: 'Sold out',
-        imageUrl: 'https://cdn.builder.io/api/v1/image/assets/TEMP/4c3d042103a0d7adbf3f265c2d7feb67fc3bb6204c604b66792e4daad5e94969?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa',
+        images: [
+
+          '/experiences/roman2.jpeg',
+          '/experiences/romancolisuim.jpeg',
+        ],
       },
       {
-        title: "Shrek's Swamp",
-        host: 'Donkey',
+        title: "Czech Christmas For Couples",
+        host: 'Matthew Drabek',
         status: 'Sold out',
-        imageUrl: 'https://cdn.builder.io/api/v1/image/assets/TEMP/4c3d042103a0d7adbf3f265c2d7feb67fc3bb6204c604b66792e4daad5e94969?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa',
+        images: [
+          '/images/christimas2.jpeg',
+          '/images/couples.jpeg',
+          '/images/christimas3.jpeg',
+          '/images/christmas.jpeg'
+        ],
       },
       {
-        title: "Barbie's Malibu DreamHouse, Ken's Way",
-        host: 'Ken',
+        title: "The Plague Doctor of Prague",
+        host: 'Matthew Drabek',
         status: 'Sold out',
-        imageUrl: 'https://cdn.builder.io/api/v1/image/assets/TEMP/a3e2692df285e1dfed52919a4c759a0831e730096432b9d2f2a0dd16173b5855?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa',
+        images: [
+          '/images/plague.jpeg',
+          '/images/plague2.avif',
+          '/images/plague3.avif'
+
+        ],
       },
-
-
     ];
+
 
     return {
       experiences,

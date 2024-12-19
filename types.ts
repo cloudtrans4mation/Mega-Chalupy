@@ -136,5 +136,5 @@ export type Experience  = {
   title: string;
   host: string;
   status: string;
-  imageUrl: string;
+  images: string[];
 }

@@ -1,9 +1,10 @@
 <script setup lang="ts">
-// Define the expected props structure if not defined in ExperienceTypes
+// Define props for the ExperienceCardForDiscovery component
 interface ExperienceCardProps {
   title: string;
   subtitle: string;
   buttonText: string;
+  image: string; // Add image prop
 }
 
 defineProps<ExperienceCardProps>();
@@ -12,6 +13,7 @@ defineProps<ExperienceCardProps>();
 <template>
   <div
     class="custom-card relative flex flex-col justify-between p-10 rounded-2xl shadow-lg text-white overflow-hidden max-md:p-6"
+    :style="{ backgroundImage: `url(${image})` }" 
   >
     <!-- Background overlay for better text contrast -->
     <div class="absolute inset-0 bg-gradient-to-r from-black via-transparent to-black opacity-40"></div>
@@ -40,11 +42,10 @@ defineProps<ExperienceCardProps>();
 
 <style scoped>
 .custom-card {
-  background-image: url('/experiences/bar.jpeg'); /* Replace with your image URL */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 300px; /* Adjust the height as needed */
+  height: 300px; /* Default card height */
   max-width: 100%;
   display: flex;
   flex-direction: column;

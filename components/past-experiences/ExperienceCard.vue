@@ -15,21 +15,14 @@ export default defineComponent({
       type: Object as PropType<Experience>,
       required: true,
     },
+    images: {
+      type: Array as PropType<string[]>,  // Accept an array of strings (URLs of images)
+      required: true,
+    },
   },
   setup() {
     return {
       modules: [Pagination, Navigation],
-      images: [
-        'https://a0.muscache.com/im/pictures/miso/Hosting-634092978468676421/original/33702451-a463-4a03-88b4-ccb8f994360a.jpeg?im_w=1200&im_format=avif',
-        'https://swiperjs.com/demos/images/nature-2.jpg',
-        'https://swiperjs.com/demos/images/nature-3.jpg',
-        'https://swiperjs.com/demos/images/nature-4.jpg',
-        'https://swiperjs.com/demos/images/nature-5.jpg',
-        'https://swiperjs.com/demos/images/nature-6.jpg',
-        'https://swiperjs.com/demos/images/nature-7.jpg',
-        'https://swiperjs.com/demos/images/nature-8.jpg',
-        'https://swiperjs.com/demos/images/nature-9.jpg',
-      ],
     };
   },
   components: {
@@ -38,7 +31,6 @@ export default defineComponent({
   },
 });
 </script>
-
 
 <template>
   <article class="experience-card">
