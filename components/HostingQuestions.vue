@@ -13,7 +13,7 @@ const props = withDefaults(defineProps<HostingQuestionsProps>(), {
       class="flex flex-col justify-between px-10 py-16 font-medium rounded-lg overflow-hidden max-w-7xl mx-auto my-12"
       role="region"
       aria-label="Hosting Questions Section"
-      :style="{ backgroundImage: `url('../public/experiences/barbie.jpeg')`, backgroundSize: 'cover', backgroundPosition: 'center' }"
+      :style="{ backgroundImage: `url('/experiences/barbie.jpeg')`, backgroundSize: 'cover', backgroundPosition: 'center' }"
     >
       <h1
         class="text-8xl text-white leading-[96px] max-md:text-4xl max-md:leading-10 max-md:text-center max-md:leading-[52px]"

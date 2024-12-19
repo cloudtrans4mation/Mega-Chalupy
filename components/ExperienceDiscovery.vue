@@ -20,6 +20,19 @@ import ExperienceCardForDiscovery from "./ExperienceCardForDiscovery.vue";
         subtitle="from home"
         buttonText="Online Experiences"
       />
+
+      <ExperienceCardForDiscovery
+        title="Things to do"
+        subtitle="from home"
+        buttonText="Online Experiences"
+      />
+
+      <ExperienceCardForDiscovery
+        title="Things to do"
+        subtitle="from home"
+        buttonText="Online Experiences"
+      />
+      
     </div>
   </div>
 </template>

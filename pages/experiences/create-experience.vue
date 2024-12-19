@@ -76,7 +76,7 @@ function toggleSelection(label: string) {
 
           <div class="flex flex-col gap-4 md:flex-row pt-4">
             <Button label="Back" outline @click="onBack" />
-            <Button style="background-color: blue;" label="Next" :disabled="!ExperienceValues.category"
+            <Button style="background-color: blue;" label="Next" 
               @click="onNext" />
           </div>
 
