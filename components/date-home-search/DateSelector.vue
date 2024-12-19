@@ -23,17 +23,19 @@ import {
   Label,
 } from 'radix-vue';
 
+
 const emits = defineEmits(['dates-selected']);
 const selectedStartDate = ref('');
 const selectedEndDate = ref('');
 
-// Fonction pour mettre à jour les dates sélectionnées
-const updateStartDate = (date) => {
-  selectedStartDate.value = date;
+const updateStartDate = (event:any) => {
+  selectedStartDate.value = event.target.value;
+  console.log('Updated start date:', selectedStartDate.value);
+
 };
 
-const updateEndDate = (date) => {
-  selectedEndDate.value = date;
+const updateEndDate = (event:any) => {
+  selectedEndDate.value = event.target.value;
 };
 
 const emitSelectedDates = () => {
@@ -42,13 +44,15 @@ const emitSelectedDates = () => {
   emits('dates-selected', dates);
 };
 
-// Surveillez les changements des dates de début et de fin
-watch([selectedStartDate, selectedEndDate], () => {
-  console.log('Start Date:', selectedStartDate.value, 'End Date:', selectedEndDate.value);
-  if (selectedStartDate.value && selectedEndDate.value) {
+watch([selectedStartDate, selectedEndDate], ([start, end]) => {
+  console.log('Watcher triggered:', { start, end });
+
+  if (start && end) {
     emitSelectedDates();
   }
 });
+
+
 </script>
 
 <template>

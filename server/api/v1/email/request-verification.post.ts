@@ -25,7 +25,7 @@ export default defineEventHandler(async event => {
     )
 
     const data = await resend.emails.send({
-      from: 'Mega Chalupy <Mega Chalupy@atalek.com>',
+      from: 'cloud@trans4mation-bs.cz',
       to: [email],
       subject: 'Verify email',
       html: htmlContent,

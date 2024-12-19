@@ -43,6 +43,7 @@
           </MenubarMenu>
 
           <!-- Edit Menu -->
+
           <MenubarMenu value="Edit" class="w-full md:w-auto">
             <MenubarTrigger
               class="w-full md:w-auto flex py-2 px-3 font-semibold rounded text-grass11 text-[13px] items-center justify-between gap-[2px] hover:bg-green4 transition-colors">
@@ -58,12 +59,11 @@
             </MenubarTrigger>
             <MenubarPortal>
               <MenubarContent class="min-w-[220px] bg-white rounded-md p-[5px] shadow-lg">
-                <!-- Date Picker Component Here -->
+                <!-- Date Picker Component -->
                 <DateSelector @dates-selected="updateSelectedDates" />
               </MenubarContent>
             </MenubarPortal>
           </MenubarMenu>
-
           <!-- View Menu -->
           <MenubarMenu value="View" class="w-full md:w-auto">
             <MenubarTrigger
@@ -130,9 +130,6 @@ export default defineComponent({
     const selectedDates = ref('');
     const selectedDestination = ref('');
 
-    const updateSelectedDates = (dates: string) => {
-      selectedDates.value = dates;
-    };
 
     const updateSelectedDestination = (destination: string) => {
       selectedDestination.value = destination;
@@ -144,6 +141,10 @@ export default defineComponent({
       if (isAccordionOpen.value) {
         isDateSelectorOpen.value = false; // Close DateSelector if DestinationSelect is opened
       }
+    };
+
+   const updateSelectedDates = (selectedDate) =>{
+      this.selectedDates = selectedDate; // Update input field with selected date
     };
 
     // Toggle the DateSelector and close the accordion when opening DateSelector
@@ -205,5 +206,5 @@ input[type="number"]::-webkit-outer-spin-button {
 /* For Firefox */
 input[type="number"] {
   -moz-appearance: textfield;
-}  
+}
 </style>
