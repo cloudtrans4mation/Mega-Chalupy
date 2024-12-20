@@ -1,5 +1,5 @@
 import { relations, sql } from 'drizzle-orm'
-import { date, integer, pgTable, text, timestamp, varchar } from 'drizzle-orm/pg-core'
+import { boolean, date, integer, pgTable, text, timestamp, varchar } from 'drizzle-orm/pg-core'
 
 export const user = pgTable('auth_users', {
   id: text('id').primaryKey(),
@@ -90,7 +90,6 @@ export const listing = pgTable('listings', {
   updatedAt: timestamp('updated_at').$onUpdate(() => new Date()),
 });
 
-
 export const reservation = pgTable('reservations', {
   id: text('id').primaryKey(),
   userId: text('user_id')
@@ -103,7 +102,12 @@ export const reservation = pgTable('reservations', {
   startDate: date('start_date').notNull(),
   endDate: date('end_date').notNull(),
   createdAt: timestamp('created_at').defaultNow(),
-})
+  
+  // New attributes
+  status: boolean('status').notNull().default(false), // Field to indicate acceptance
+  reservationDescription: text('reservation_description') // Optional field for description
+    .default('Nothing!'), // Default is null if no description is provided
+});
 
 export const userRelations = relations(user, ({ many }) => ({
   listings: many(listing, {

@@ -89,9 +89,15 @@ export const ReservationSchema = z.object({
   startDate: z
     .string()
     .min(10, { message: 'Invalid start date' })
-    .regex(/^\d{4}-\d{2}-\d{2}$/),
+    .regex(/^\d{4}-\d{2}-\d{2}$/, { message: 'Start date must be in the format YYYY-MM-DD' }),
   endDate: z
     .string()
     .min(10, { message: 'Invalid end date' })
-    .regex(/^\d{4}-\d{2}-\d{2}$/),
+    .regex(/^\d{4}-\d{2}-\d{2}$/, { message: 'End date must be in the format YYYY-MM-DD' }),
+  isAccepted: z.boolean().optional().default(false), // Indicates if the reservation is accepted
+  reservationDescription: z
+    .string()
+    .min(10, { message: 'Description must be at least 10 characters long' })
+    .max(400, { message: 'Description must be less than 400 characters' })
+    .optional(),
 });

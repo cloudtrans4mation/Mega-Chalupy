@@ -54,7 +54,7 @@
                   alt="dates-icon" class="w-5 h-5 mr-2" />
                 <label for="dates" class="sr-only">Dates</label>
                 <input type="text" id="dates" :value="selectedDates" placeholder="Select dates"
-                  class="w-full bg-transparent border-none outline-none placeholder-gray-500" readonly />
+                  class="w-full bg-transparent border-none outline-none placeholder-gray-500"  />
               </div>
             </MenubarTrigger>
             <MenubarPortal>
@@ -85,7 +85,7 @@
           <Button type="submit"
             class="w-full md:w-auto mt-4 md:mt-0 md:ml-4 flex items-center justify-center px-8 py-2 bg-blue-600 text-white rounded-full shadow-md hover:bg-blue-700 transition-transform transform hover:scale-105 focus:ring-4 focus:ring-blue-300 focus:outline-none">
             Search
-          </button>
+          </Button>
 
         </MenubarRoot>
 
