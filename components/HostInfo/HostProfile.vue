@@ -58,10 +58,6 @@ export default defineComponent({
     setup() {
         const hostInfo = [
             { icon: 'https://cdn.builder.io/api/v1/image/assets/TEMP/97702fe00810722bf0277b83cd62e20741b54b80e6a3b6c33b5c221f11abd4f2?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa', label: 'Where I went to school', value: 'George Washington High School' },
-            { icon: 'https://cdn.builder.io/api/v1/image/assets/TEMP/33feeedf4921ba685924298986934442715c0e624d3e17e489cb78560aabe0cb?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa', label: 'My work', value: 'Comedian/businessman' },
-            { icon: 'https://cdn.builder.io/api/v1/image/assets/TEMP/b29bc769eb3e1a78a84198834a32b1732e4efcc1108ee8056fd76f218e4ebb82?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa', label: 'Fun fact', value: 'I was a nationally competitive swimmer' },
-            { icon: 'https://cdn.builder.io/api/v1/image/assets/TEMP/646574d12492649664dd992d7713e37b5b42a2d3e1abc1764da9c7915f2c5285?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa', label: 'I spend too much time', value: 'Working' },
-            { icon: 'https://cdn.builder.io/api/v1/image/assets/TEMP/8b0324757b082db406e72fd2b62ceafdc8638db8ed5abb0e202bec6111c15960?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa', label: 'Pets', value: 'My two dogs' },
         ];
 
         return {
