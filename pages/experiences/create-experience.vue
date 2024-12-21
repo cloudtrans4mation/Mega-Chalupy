@@ -146,9 +146,7 @@ function toggleSelection(label: string) {
         <!-- Step 6: Room Amenities -->
         <div v-if="steps === STEPSFOREXPERIENCE.ABOUT_YOU">
           <div class="grid ">
-  
             <ExperiencesWhatWillYouProvide></ExperiencesWhatWillYouProvide>
-
           </div>
 
           <div class="flex flex-col gap-4 md:flex-row pt-4">
@@ -156,7 +154,20 @@ function toggleSelection(label: string) {
             <Button style="background-color: blue;" label="Next" @click="onNext" />
           </div>
         </div>
+
+
         <!-- Step 7: Things -->
+
+        <div v-if="steps === STEPSFOREXPERIENCE.LOCATION">
+          <div class="grid ">
+            <ExperiencesWhatWillYouProvide></ExperiencesWhatWillYouProvide>
+          </div>
+
+          <div class="flex flex-col gap-4 md:flex-row pt-4">
+            <Button label="Back" outline @click="onBack" />
+            <Button style="background-color: blue;" label="Next" @click="onNext" />
+          </div>
+        </div>
 
         <!-- Step 8: Images -->
 
