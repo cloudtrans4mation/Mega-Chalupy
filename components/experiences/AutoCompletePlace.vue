@@ -5,13 +5,13 @@
     </div>
 
     <div class="py-4">
-
         <Heading title="Which language(s) will you offer your experience in??" subTitle="" />
 
         <TagsInputRoot v-model="modelValue"
+            @update:modelValue="emitLanguages"
             class="flex gap-2 items-center py-4 border p-2 rounded-lg w-full max-w-[480px] flex-wrap border-blackA7 bg-white">
             <TagsInputItem v-for="item in modelValue" :key="item" :value="item"
-                class="text-white flex shadow-md items-center justify-center gap-2 bg-green8 aria-[current=true]:bg-green9 rounded p-1">
+                class="text-blue flex shadow-md items-center justify-center gap-2 bg-green8 aria-[current=true]:bg-green9 rounded p-1">
                 <TagsInputItemText class="text-sm pl-1" />
                 <TagsInputItemDelete class="p-0.5 rounded bg-transparent hover:bg-blackA4">
                     <Icon icon="lucide:x" />
@@ -24,17 +24,26 @@
     </div>
 </template>
 
+
 <script lang="ts" setup>
-
-import { TagsInputInput, TagsInputItem, TagsInputItemDelete, TagsInputItemText, TagsInputRoot } from 'radix-vue'
-import { Icon } from '@iconify/vue'
-
-const modelValue = ref(['Apple', 'Banana'])
-import { onMounted, ref } from "vue";
+import { TagsInputInput, TagsInputItem, TagsInputItemDelete, TagsInputItemText, TagsInputRoot } from 'radix-vue';
+import { Icon } from '@iconify/vue';
+import { ref, onMounted, defineEmits } from 'vue';
 import "maplibre-gl/dist/maplibre-gl.css";
 import maplibregl from "maplibre-gl";
 import MaplibreGeocoder from "@maplibre/maplibre-gl-geocoder";
 import "@maplibre/maplibre-gl-geocoder/dist/maplibre-gl-geocoder.css";
+
+// Emit function for the parent component
+const emit = defineEmits(['update:place', 'update:languages']);
+
+// State for languages
+const modelValue = ref(['Czech', 'English']);
+
+// Emit updated languages
+const emitLanguages = () => {
+    emit('update:languages', modelValue.value);
+};
 
 // Ref for the map container
 const mapContainer = ref<HTMLDivElement | null>(null);
@@ -46,6 +55,11 @@ const selectedLocation = ref<{ lat: number; lng: number } | null>(null);
 const saveLocationToDB = async (location: { lat: number; lng: number }) => {
     console.log("Saving location to DB:", location);
     // Replace this with your API call to save the location
+};
+
+// Emit the selected location
+const emitPlace = (location: { lat: number; lng: number }) => {
+    emit('update:place', location);
 };
 
 onMounted(() => {
@@ -122,12 +136,14 @@ onMounted(() => {
         };
         console.log("Selected Location:", selectedLocation.value);
         saveLocationToDB(selectedLocation.value!);
+        emitPlace(selectedLocation.value!);
     });
 
     // Attach geocoder to the custom container
     document.getElementById("geocoder")!.appendChild(geocoder.onAdd(map));
 });
 </script>
+
 
 <style scoped>
 /* Center the geocoder input in the middle of the map */

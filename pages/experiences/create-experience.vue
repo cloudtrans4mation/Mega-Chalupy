@@ -2,8 +2,24 @@
 import { ref } from 'vue';
 import { StepperDescription, StepperIndicator, StepperItem, StepperRoot, StepperSeparator, StepperTitle, StepperTrigger } from 'radix-vue'
 import { Icon } from '@iconify/vue'
+import WhatWeAreLookingFor from '~/components/experiences/WhatWeAreLookingFor.vue';
 
 
+
+
+const selectedPlace = ref<{ lat: number; lng: number } | null>(null);
+const selectedLanguages = ref<string[]>([]);
+
+
+const handlePlace = (place: { lat: number; lng: number }) => {
+  selectedPlace.value = place;
+  console.log('Selected Place:', selectedPlace.value);
+};
+
+const handleLanguages = (languages: string[]) => {
+  selectedLanguages.value = languages;
+  console.log('Selected Languages:', selectedLanguages.value);
+};
 
 const {
   ExperienceValues,
@@ -70,48 +86,76 @@ function toggleSelection(label: string) {
         <!-- Step 2: Category Selection -->
         <div v-if="steps === STEPSFOREXPERIENCE.YOUR_IDEA">
           <Heading title="In which city do you want to organize your experience ?" subTitle="Exact location ." />
-          <div class="">
-            <ExperiencesAutoCompletePlace></ExperiencesAutoCompletePlace>
+          <div class="py-8" style="padding-bottom: 150px;">
+            <ExperiencesAutoCompletePlace @update:place="handlePlace" @update:languages="handleLanguages" />
+
+            <Heading title="Theme" subTitle="You can pick mutiple categories" />
+            <ExperiencesThemeExperience></ExperiencesThemeExperience>
+
           </div>
 
           <div class="flex flex-col gap-4 md:flex-row pt-4">
             <Button label="Back" outline @click="onBack" />
-            <Button style="background-color: blue;" label="Next" 
-              @click="onNext" />
+            <Button style="background-color: blue;" label="Next" @click="onNext" />
           </div>
 
         </div>
         <!-- Step 3: Accessories -->
         <div v-if="steps === STEPSFOREXPERIENCE.WHAT_WE_ARE_LOOKING_FOR">
-          <Heading title="Where Your Rental Located?" subTitle="Pick a category" />
-          <div class="grid grid-cols-1 gap-3 overflow-y-auto md:grid-cols-2 lg:grid-cols-3">
+          <Heading title="Theme" subTitle="You can pick mutiple categories" />
+          <div class="py-8">
+            <ExperiencesWhatWeAreLookingFor></ExperiencesWhatWeAreLookingFor>
           </div>
 
-          <div class="flex flex-col gap-4 md:flex-row pt-4">
+          <div class="flex flex-col gap-4 md:flex-row pt-4 ">
             <Button label="Back" outline @click="onBack" />
-            <Button style="background-color: blue;" label="Next" :disabled="!ExperienceValues.category"
-              @click="onNext" />
+            <Button style="background-color: blue;" label="Next" @click="onNext" />
           </div>
         </div>
-        
+
         <!-- Step 4: Specifications -->
 
         <div v-if="steps === STEPSFOREXPERIENCE.EXPERIENCE_PAGE">
-          <Heading title="Where Your Rental Located?" subTitle="Pick a category" />
-          <div class="grid grid-cols-1 gap-3 overflow-y-auto md:grid-cols-2 lg:grid-cols-3">
+          <div class="grid ">
+            <ExperiencesExperiencePage></ExperiencesExperiencePage>
+
+
           </div>
 
           <div class="flex flex-col gap-4 md:flex-row pt-4">
             <Button label="Back" outline @click="onBack" />
-            <Button style="background-color: blue;" label="Next" :disabled="!ExperienceValues.category"
-              @click="onNext" />
+            <Button style="background-color: blue;" label="Next" @click="onNext" />
           </div>
         </div>
 
         <!-- Step 5: Hosting Options -->
 
-        <!-- Step 6: Room Amenities -->
+        
+        <div v-if="steps === STEPSFOREXPERIENCE.PROGRAM_DETAILS">
+          <div class="grid ">
 
+            <ExperiencesWhatWillYouProvide></ExperiencesWhatWillYouProvide>
+
+          </div>
+
+          <div class="flex flex-col gap-4 md:flex-row pt-4">
+            <Button label="Back" outline @click="onBack" />
+            <Button style="background-color: blue;" label="Next" @click="onNext" />
+          </div>
+        </div>
+        <!-- Step 6: Room Amenities -->
+        <div v-if="steps === STEPSFOREXPERIENCE.ABOUT_YOU">
+          <div class="grid ">
+  
+            <ExperiencesWhatWillYouProvide></ExperiencesWhatWillYouProvide>
+
+          </div>
+
+          <div class="flex flex-col gap-4 md:flex-row pt-4">
+            <Button label="Back" outline @click="onBack" />
+            <Button style="background-color: blue;" label="Next" @click="onNext" />
+          </div>
+        </div>
         <!-- Step 7: Things -->
 
         <!-- Step 8: Images -->
@@ -160,6 +204,6 @@ function toggleSelection(label: string) {
   </section>
 
 
-  <NavigationForm :currentStep="currentStep" :currentTitle="currentTitle" :currentNumber="currentNumber" />
+  <!-- <NavigationForm :currentStep="currentStep" :currentTitle="currentTitle" :currentNumber="currentNumber" /> -->
 
 </template>
