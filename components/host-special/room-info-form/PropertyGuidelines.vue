@@ -13,8 +13,10 @@
                         <div
                             class="flex flex-wrap gap-10 justify-between items-center px-2.5 py-3 mt-2 w-full text-sm font-medium text-center bg-white rounded-lg border border-solid border-black border-opacity-10 min-h-[40px] text-neutral-500 max-md:max-w-full">
                             <label for="squareMeterCount" class="sr-only">Square meter count</label>
-                            <input type="number" id="squareMeterCount" placeholder="please enter Square meter count"
-                                class="self-stretch my-auto w-full bg-transparent" />
+                            <input type="number" id="squareMeterCount" :value="squareMeterCount"
+                                placeholder="Please enter square meter count"
+                                class="self-stretch my-auto w-full bg-transparent"
+                                @input="$emit('update:squareMeterCount', $event.target.value)" />
                             <img loading="lazy"
                                 src="https://cdn.builder.io/api/v1/image/assets/TEMP/8b73d3f214689eb3f115a12f33782f63308a49aceec3cd2ea4d1bc900aead8ca?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa"
                                 alt="" class="object-contain shrink-0 self-stretch my-auto w-1.5 aspect-[2]" />
@@ -59,7 +61,6 @@
                                     alt="" class="object-contain shrink-0 self-stretch my-auto w-1.5 aspect-[2]" />
                             </div>
 
-                            <!-- Check-out Date Input -->
                             <div
                                 class="flex flex-1 shrink gap-10 justify-between items-center px-2.5 py-3 bg-white rounded-lg border border-solid basis-0 border-black border-opacity-10 min-h-[40px] min-w-[240px]">
                                 <label for="checkOutDate" class="sr-only">Check-out date</label>
@@ -84,12 +85,11 @@
                                 class="flex flex-1 shrink gap-10 justify-between items-center px-2.5 py-3 bg-white rounded-lg border border-solid basis-0 border-black border-opacity-10 min-h-[40px] min-w-[240px]">
                                 <label for="childrenAllowance" class="sr-only">Children Allowance</label>
 
-                                <select id="childrenAllowance"
-                                    class="self-stretch my-auto w-full bg-transparent appearance-none">
+                                <select id="childrenAllowance" :value="childrenAllowance"
+                                    class="self-stretch my-auto w-full bg-transparent appearance-none"
+                                    @change="$emit('update:childrenAllowance', $event.target.value)">
                                     <option value="">Children Allowance</option>
-
                                     <option value="allowed">Allowed</option>
-
                                     <option value="not-allowed">Not Allowed</option>
                                 </select>
 
@@ -102,12 +102,11 @@
                                 class="flex flex-1 shrink gap-10 justify-between items-center px-2.5 py-3 bg-white rounded-lg border border-solid basis-0 border-black border-opacity-10 min-h-[40px] min-w-[240px]">
                                 <label for="cotAvailability" class="sr-only">Cot availability</label>
 
-                                <select id="cotAvailability"
-                                    class="self-stretch my-auto w-full bg-transparent appearance-none">
+                                <select id="cotAvailability" :value="cotAvailability"
+                                    class="self-stretch my-auto w-full bg-transparent appearance-none"
+                                    @change="$emit('update:cotAvailability', $event.target.value)">
                                     <option value="">Cot availability</option>
-
                                     <option value="available">Available</option>
-
                                     <option value="not-available">Not Available</option>
                                 </select>
 
@@ -133,9 +132,13 @@
                                 class="flex flex-1 shrink gap-10 justify-between items-center px-2.5 py-3 text-center bg-white rounded-lg border border-solid basis-0 border-black border-opacity-10 min-h-[40px] min-w-[240px]">
                                 <label for="activitySelect" class="sr-only">Choose Activity</label>
 
-                                <select id="activitySelect"
-                                    class="self-stretch my-auto w-full bg-transparent appearance-none">
+                                <select id="activitySelect" :value="activity"
+                                    class="self-stretch my-auto w-full bg-transparent appearance-none"
+                                    @change="$emit('update:activity', $event.target.value)">
                                     <option value="">Choose Activity</option>
+                                    <option value="hiking">Hiking</option>
+                                    <option value="cycling">Cycling</option>
+                                    <option value="swimming">Swimming</option>
                                 </select>
 
                                 <img loading="lazy"
@@ -147,8 +150,9 @@
                                 class="flex flex-1 shrink self-stretch px-2.5 py-3 bg-white rounded-lg border border-solid border-black border-opacity-10 min-h-[40px] min-w-[240px]">
                                 <label for="kmInput" class="sr-only">Number of KM</label>
 
-                                <input type="number" id="kmInput" placeholder="Type number of KM"
-                                    class="self-stretch my-auto w-full bg-transparent" />
+                                <input type="number" id="kmInput" :value="km" placeholder="Type number of KM"
+                                    class="self-stretch my-auto w-full bg-transparent"
+                                    @input="$emit('update:km', $event.target.value)" />
                             </div>
                         </div>
                     </div>
@@ -160,7 +164,6 @@
 
                         <div
                             class="flex flex-wrap gap-5 items-start mt-2 w-full text-sm font-medium text-center text-neutral-500 max-md:max-w-full">
-                            <!-- Parties/Events Allowance -->
                             <div
                                 class="flex flex-1 shrink gap-10 justify-between items-center px-2.5 py-3 bg-white rounded-lg border border-solid basis-0 border-black border-opacity-10 min-h-[40px] min-w-[240px]">
                                 <label for="eventsAllowance" class="sr-only">Parties/Events Allowance</label>
@@ -179,7 +182,6 @@
                                     alt="" class="object-contain shrink-0 self-stretch my-auto w-1.5 aspect-[2]" />
                             </div>
 
-                            <!-- Quiet Hours -->
                             <div
                                 class="flex flex-1 shrink gap-10 justify-between items-center px-2.5 py-3 bg-white rounded-lg border border-solid basis-0 border-black border-opacity-10 min-h-[40px] min-w-[240px]">
                                 <label for="quietHours" class="sr-only">Quiet Hours</label>
@@ -201,49 +203,133 @@
                 </div>
             </div>
         </div>
+
     </section>
 </template>
 
 <script lang="ts">
+import { defineComponent } from 'vue';
 
-import { defineComponent } from 'vue'; export default defineComponent({
+export default defineComponent({
+  name: 'PropertyGuidelines',
 
-    name: 'PropertyGuidelines',
-
-    props: {
-        checkIn: {
-            type: String,
-            required: false,
-            default: ''
-        },
-        checkOut: {
-            type: String,
-            required: false,
-            default: ''
-        },
-        value: {
-            type: String,
-            required: false,
-            default: '',
-        },
-
-        eventsAllowance: {
-            type: String,
-            required: false,
-            default: '',
-        },
-        quietHours: {
-            type: String,
-            required: false,
-            default: '',
-        },
+  props: {
+    checkIn: {
+      type: String,
+      required: false,
+      default: ''
     },
-    emits: ['update:checkIn', 'update:checkOut', 'update:value','update:eventsAllowance', 'update:quietHours']
-    // Add any necessary component logic here
+    checkOut: {
+      type: String,
+      required: false,
+      default: ''
+    },
+    value: {
+      type: String,
+      required: false,
+      default: '',
+    },
+    eventsAllowance: {
+      type: String,
+      required: false,
+      default: '',
+    },
+    quietHours: {
+      type: String,
+      required: false,
+      default: '',
+    },
+    squareMeterCount: {
+      type: Number,
+      required: false,
+      default: 0,
+    },
+    childrenAllowance: {
+      type: String,
+      required: false,
+      default: '',
+    },
+    activity: {
+      type: String,
+      required: false,
+      default: '',
+    },
+    km: {
+      type: [String, Number],
+      required: false,
+      default: '',
+    },
+    cotAvailability: {
+      type: String,
+      required: false,
+      default: '',
+    },
+  },
 
+  emits: ['PropertyGuidelinesSelected'],
 
+  methods: {
+    // Emit all form data as a single object
+    emitAllFields() {
+      const data = {
+        checkInDate: this.checkIn,
+        checkOutDate: this.checkOut,
+        ownerMessage: this.value,
+        eventsAllowance: this.eventsAllowance,
+        quietHours: this.quietHours,
+        squareMeterCount: this.squareMeterCount,
+        childrenAllowance: this.childrenAllowance,
+        activity: this.activity,
+        km: this.km,
+        cotAvailability: this.cotAvailability
+      };
+      
+      // Emit the entire form data object to the parent
+      this.$emit('PropertyGuidelinesSelected', data);
+    }
+  },
+
+  watch: {
+    // Watch for changes in any property and emit the updated data
+    checkIn() {
+      this.emitAllFields();
+    },
+    checkOut() {
+      this.emitAllFields();
+    },
+    value() {
+      this.emitAllFields();
+    },
+    eventsAllowance() {
+      this.emitAllFields();
+    },
+    quietHours() {
+      this.emitAllFields();
+    },
+    squareMeterCount() {
+      this.emitAllFields();
+    },
+    childrenAllowance() {
+      this.emitAllFields();
+    },
+    activity() {
+      this.emitAllFields();
+    },
+    km() {
+      this.emitAllFields();
+    },
+    cotAvailability() {
+      this.emitAllFields();
+    }
+  },
+
+  // Optional lifecycle hook to emit data on component mounted
+  mounted() {
+    this.emitAllFields();
+  }
 });
 </script>
+
 
 <style>
 input,

@@ -10,6 +10,8 @@ import GettingStarted from '~/components/GettingStarted.vue';
 import ImageUploadForListingCreation from '~/components/ImageUploadForListingCreation.vue';
 
 
+
+// Import your custom hook or methods
 const {
   listingValues,
   steps,
@@ -28,23 +30,28 @@ const {
   setRoomInfoFormSelected,
   setAccommodationSelectionSelected,
   setRoomAmenitiesSelected,
-} = useCreateListing()
+} = useCreateListing();
+
+
+
 
 useSeoMeta({
   title: 'Create Listing',
-})
+});
 
+// Define state variables
 const selectedButton = ref<string | null>(null);
-
 const currentStep = ref(STEPS.GETTINGSTARTED);
 const currentTitle = ref('');
 const currentNumber = ref(0);
 
+// Function to update navigation titles and step numbers
 const updateNavigation = (title: string, number: number) => {
   currentTitle.value = title;
   currentNumber.value = number;
 };
 
+// Function to toggle selection state for buttons
 function toggleSelection(label: string) {
   selectedButton.value = selectedButton.value === label ? null : label;
   currentStep.value = STEPS.GETTINGSTARTED; // Default to first step
@@ -67,6 +74,7 @@ function toggleSelection(label: string) {
 
   if (stepMap[label]) currentStep.value = stepMap[label];
 }
+
 
 </script>
 

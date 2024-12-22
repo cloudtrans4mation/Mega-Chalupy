@@ -55,7 +55,6 @@ export default defineEventHandler(async event => {
       squareMeterCount,
       smokingAllowance,
       propertyType,
-      
       PropertyAccessoriesSelected,
       PropertyGuidelinesSelected,
       RoomInfoFormSelected,
