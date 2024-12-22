@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import type { Listing, Reservation } from '~/types'
 import { format } from 'date-fns'
-import { ref } from 'vue'
-import ShowRequests from './ShowRequests.vue';
+import { ref, computed } from 'vue'
+import ShowRequests from './ShowRequests.vue'
 
 type ListingCardProps = {
   listing: Listing
@@ -14,28 +14,33 @@ type ListingCardProps = {
 }
 
 const { listing, reservation } = defineProps<ListingCardProps>()
-const showRequestsModal = ref(false)  // State for modal visibility
-const requests = ref([                // Dummy request data for example
+const emit = defineEmits(['action', 'favorited'])
+
+const showRequestsModal = ref(false) // State for modal visibility
+const requests = ref([
   { name: 'John Doe', message: 'Looking to book this cabin for a weekend.' },
   { name: 'Jane Smith', message: 'Is this listing still available?' },
 ])
-
 const { getByValue } = useCountries()
 const location = getByValue(listing.locationValue)
-
 const price = computed(() => (reservation ? reservation.totalPrice : listing.price))
-
 const reservationDate = computed(() => {
   if (!reservation) return null
-
   const start = new Date(reservation?.startDate)
   const end = new Date(reservation?.endDate)
-
   return `${format(start, 'PP')} - ${format(end, 'PP')}`
 })
-
-const emit = defineEmits(['action', 'favorited'])
-
+const parsedImageSrc = computed(() => {
+  try {
+    if (!listing.imageSrc) return []
+    const decodedData = decodeURIComponent(listing.imageSrc)
+    const validJson = decodedData.replace("{", "[").replace("}", "]")
+    return JSON.parse(validJson)
+  } catch (error) {
+    console.error('Error parsing imageSrc:', error)
+    return []
+  }
+})
 function action(id: string) {
   emit('action', id)
 }
@@ -45,15 +50,17 @@ function favorited(id: string) {
 </script>
 
 
+
 <template>
   <div class="col-span-1 group">
     <div class="flex flex-col w-full gap-3 bg-white rounded-lg shadow-lg overflow-hidden transition-transform duration-300 transform group-hover:scale-105">
       <!-- Image Section -->
       <div class="relative w-full overflow-hidden aspect-square">
         <NuxtImg
+          v-if="parsedImageSrc[0]"
           provider="cloudinary"
           sizes="100vw sm:80vw md:350px"
-          :src="listing.imageSrc"
+          :src="parsedImageSrc[0]"
           :alt="`Image of ${listing.title}`"
           format="webp"
           class="object-cover w-full h-full transition-transform duration-300 transform group-hover:scale-110"
@@ -93,7 +100,6 @@ function favorited(id: string) {
 
         <!-- Show Requests Button -->
         <div>
-          <!-- Dialog Trigger Button -->
           <DialogRoot>
             <DialogTrigger
               class="bg-green-500 border-2 border-green-600 text-white text-center relative disabled:bg-slate-400 disabled:text-gray-300 disabled:border-slate-400 text-lg font-medium rounded-lg hover:bg-green-600 hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-green-300 transition-all duration-200 w-full px-3 py-1.5"
@@ -107,9 +113,7 @@ function favorited(id: string) {
               <DialogContent
                 class="data-[state=open]:animate-contentShow fixed top-[50%] left-[50%] max-h-[85vh] w-[90vw] max-w-[450px] translate-x-[-50%] translate-y-[-50%] rounded-[6px] bg-white p-[25px] shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,_hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] focus:outline-none z-[100]"
               >
-                <!-- Your modal content goes here -->
-               <ShowRequests></ShowRequests>
-               
+                <ShowRequests :requests="requests" />
               </DialogContent>
             </DialogPortal>
           </DialogRoot>
@@ -118,4 +122,5 @@ function favorited(id: string) {
     </div>
   </div>
 </template>
+
 

@@ -160,11 +160,6 @@ const images = [
 
 <style scoped>
 
-.swiper-wrapper {
-    boxSizing: "border-box",
-  }
-
-
 .image-slider {
   width: 100%;
   height: 200px;
