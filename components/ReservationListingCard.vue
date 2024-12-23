@@ -68,6 +68,8 @@ import type { AuthUser, Listing } from '~/types'; // Ensure necessary types are 
 import { Pagination, Navigation } from 'swiper/modules';
 import 'swiper/css/effect-cards';
 
+// import styles bundle
+import 'swiper/css/bundle';
 
 import 'swiper/css';
 import 'swiper/css/pagination';
