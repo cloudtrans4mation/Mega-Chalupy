@@ -64,10 +64,15 @@
 <script lang="ts" setup>
 import { format } from 'date-fns';
 import { Swiper, SwiperSlide } from 'swiper/vue';
-import 'swiper/css';
 import type { AuthUser, Listing } from '~/types'; // Ensure necessary types are imported
 import { Pagination, Navigation } from 'swiper/modules';
 import 'swiper/css/effect-cards';
+
+
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+
 
 type ListingCardProps = {
   listing: Listing;
