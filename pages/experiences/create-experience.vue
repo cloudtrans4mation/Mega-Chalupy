@@ -1,12 +1,5 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { StepperDescription, StepperIndicator, StepperItem, StepperRoot, StepperSeparator, StepperTitle, StepperTrigger } from 'radix-vue'
-import { Icon } from '@iconify/vue'
-import WhatWeAreLookingFor from '~/components/experiences/WhatWeAreLookingFor.vue';
-
-
-
-
 const selectedPlace = ref<{ lat: number; lng: number } | null>(null);
 const selectedLanguages = ref<string[]>([]);
 
@@ -67,10 +60,6 @@ function toggleSelection(label: string) {
     updateNavigation(step);
   }
 }
-
-
-
-
 </script>
 
 
