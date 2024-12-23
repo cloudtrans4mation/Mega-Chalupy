@@ -64,17 +64,15 @@
 <script lang="ts" setup>
 import { format } from 'date-fns';
 import { Swiper, SwiperSlide } from 'swiper/vue';
-import type { AuthUser, Listing } from '~/types'; // Ensure necessary types are imported
 import { Pagination, Navigation } from 'swiper/modules';
-import 'swiper/css/effect-cards';
+import type { AuthUser, Listing } from '~/types'; // Ensure necessary types are imported
 
-// import styles bundle
-import 'swiper/css/bundle';
-
+// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-
+import 'swiper/css/effect-cards';
+import 'swiper/css/bundle';
 
 type ListingCardProps = {
   listing: Listing;
@@ -90,15 +88,15 @@ type ListingCardProps = {
   description?: string;
   locationValue: string;
   category:
-  | {
-    icon: string;
-    label: string;
-    description: string;
-  }
-  | undefined;
+    | {
+        icon: string;
+        label: string;
+        description: string;
+      }
+    | undefined;
 };
 
-// Correct usage: defineProps should be called once
+// Define props
 const props = defineProps<ListingCardProps>();
 
 // Destructure the props directly from the props object
@@ -115,6 +113,7 @@ const reservationDate = computed(() => {
   return `${format(start, 'PP')} - ${format(end, 'PP')}`;
 });
 
+// Emit actions
 const emit = defineEmits(['action', 'favorited']);
 
 function action(id: string) {
@@ -125,7 +124,7 @@ function favorited(id: string) {
   emit('favorited', id);
 }
 
-// Swiper modules
+// Swiper modules and settings
 const modules = [Pagination, Navigation];
 
 // Parsing logic for listing images
@@ -143,7 +142,6 @@ const parsedImages = computed(() => {
       const cleanedStr = decodedStr.replace(/[{}"]/g, '');
 
       // Step 3: Split by commas if there are multiple URLs and trim whitespace
-      // This handles cases where multiple images are separated by commas
       const imageUrls = cleanedStr.split(',').map(url => url.trim());
 
       // Optional: Filter out any empty strings resulting from the split
@@ -158,6 +156,7 @@ const parsedImages = computed(() => {
   return [];
 });
 </script>
+
 
 
 <style scoped>
