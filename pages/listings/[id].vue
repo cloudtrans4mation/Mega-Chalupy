@@ -110,44 +110,39 @@ useSeoMeta({
 <template>
   <section>
     <Container>
-      <div
-        class="max-w-screen-lg mx-auto"
-        v-if="!!listing && !error && status === 'success'">
+
+
+      <div class="max-w-screen-lg mx-auto" v-if="!!listing && !error && status === 'success'">
+
+
         <div class="flex flex-col gap-6">
-          <ListingHead
-            :title="listing.title"
-            :imageSrc="listing.imageSrc"
-            :locationValue="listing.locationValue"
+          <ListingHead :title="listing.title" :imageSrc="listing.imageSrc" :locationValue="listing.locationValue"
             :id="listing.id" />
+
+
+          <Gallery :listing="listing" />
+
+          <!-- Proceed to Payment Button -->
+          <ProceedToPaymentFromListing />
+
           <div class="grid grid-cols-1 mt-6 md:grid-cols-7 md:gap-10">
-            <ListingInfo
-              :user="listing.auth_user"
-              :category="category"
-              :description="listing?.description"
-              :roomCount="listing?.roomCount"
-              :guestCount="listing?.guestCount"
-              :bathroomCount="listing?.bathroomCount"
+            <ListingInfo :user="listing.auth_user" :category="category" :description="listing?.description"
+              :roomCount="listing?.roomCount" :guestCount="listing?.guestCount" :bathroomCount="listing?.bathroomCount"
               :locationValue="listing.locationValue" />
 
             <div class="order-first mb-10 md:order-last md:col-span-3">
-              <ListingReservation
-                @createReservation="createReservation"
-                :price="listing?.price"
-                :totalPrice="totalPrice"
-                :disabledDates
-                :disabled="isLoading"
-                v-model="dateRange" />
+              <ListingReservation @createReservation="createReservation" :price="listing?.price"
+                :totalPrice="totalPrice" :disabledDates :disabled="isLoading" v-model="dateRange" />
             </div>
+
+
           </div>
         </div>
       </div>
     </Container>
 
     <div v-if="error">
-      <IsEmpty
-        :subTitle="error.data.message"
-        showReset
-        label="Go back home" />
+      <IsEmpty :subTitle="error.data.message" showReset label="Go back home" />
     </div>
   </section>
 </template>

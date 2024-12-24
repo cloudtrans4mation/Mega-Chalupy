@@ -8,17 +8,17 @@
             <div class="flex relative flex-col flex-wrap justify-center px-6 py-8 w-full rounded-3xl min-h-[230px] shadow-[0px_6px_20px_rgba(0,0,0,0.2)] max-md:px-5 max-md:max-w-full">
                 <img loading="lazy"
                     src="https://cdn.builder.io/api/v1/image/assets/TEMP/b6d006ab309d410985aa59569c02ade5ca5b69f6a26eae456dad64a481ebd118?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa"
-                    alt="" class="object-cover absolute inset-0 size-full" style="border-radius: 20px;" />
+                    alt="" class="object-cover absolute inset-0 w-full h-full rounded-3xl" />
 
                 <div class="flex relative flex-col flex-1 shrink justify-center items-center px-24 w-full basis-0 min-w-[240px] max-md:px-5 max-md:max-w-full">
                     <div class="flex relative flex-col max-w-full w-[104px]">
                         <!-- Avatar with badge -->
                         <div class="relative w-full">
                             <img loading="lazy" src="/avatar.webp" alt="Profile picture of Joe Biden"
-                                class="object-contain w-full aspect-square" />
+                                class="object-cover w-full aspect-square rounded-full" />
                             <!-- Verified badge -->
                             <img src="/verified.svg" alt="Verified Badge"
-                                class="absolute bottom-0 right-0 rounded-full  " />
+                                class="absolute bottom-0 right-0 w-6 h-6 rounded-full border-2 border-white" />
                         </div>
                     </div>
 
@@ -40,6 +40,9 @@
         </div>
     </section>
 </template>
+
+
+
 
 <script lang="ts">
 import { defineComponent } from 'vue';

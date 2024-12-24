@@ -1,56 +1,107 @@
 <template>
-    <section class="flex flex-col font-semibold text-center">
-      <!-- Main Image Section -->
+  <section class="flex flex-col font-semibold text-center" aria-label="Image Gallery">
+    <NuxtImg
+        v-if="parsedImages[0]"
+        provider="cloudinary"
+        sizes="100vw sm:80vw md:60vw lg:50vw"
+        :src="parsedImages[0]"
+        :alt="`Main Image of ${listing.title}`"
+        format="webp"
+        class="object-cover w-full h-96 transition-transform duration-300 transform hover:scale-110 rounded-xl"
+      />
+    <div class="flex flex-wrap justify-between mt-5 w-full max-md:max-w-full">
+      <div
+        class="flex flex-wrap flex-1 shrink gap-2.5 h-full text-4xl leading-5 basis-[100px] min-w-[240px] text-neutral-800 max-md:max-w-full"
+        role="list"
+      >
+
+      <NuxtImg
+        provider="cloudinary"
+        tabindex="0"
+
+        sizes="100vw sm:80vw md:60vw lg:50vw"
+        :src="parsedImages[1]"
+        :alt="`Main Image of ${listing.title}`"
+        format="webp"
+        class="object-contain flex-1 shrink gap-1.5 py-1.5 rounded-md aspect-[1.32] basis-0 w-[212px]"/>
+
   
-  
-      <!-- Replaced Thumbnail Grid Section from Second Component -->
-      <div class="flex overflow-hidden flex-wrap gap-2 rounded-2xl mt-5 w-full max-md:max-w-full">
-        <!-- Large Image in Grid -->
-        <img loading="lazy" :src="mainImageSrc" alt="Large image in grid" class="object-contain flex-1 shrink w-full aspect-[1.39] basis-0 min-w-[240px] max-md:max-w-full" />
-  
-        <!-- Thumbnail Rows -->
-        <div class="flex flex-col flex-1 shrink basis-0 min-w-[240px] max-md:max-w-full">
-          <div class="flex flex-wrap flex-1 gap-2 w-full">
-            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/869d2ba2c502006f97ac6934539ae7b00f3c7d28f3ea5a9caae62010a44a9efd?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa" alt="Image in top row" class="object-contain flex-1 shrink aspect-[1.4] basis-0 min-w-[240px]" />
-            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/6e8fcf4ca1aca3d1486c5bf8514558ac44c3300eb5026eff99f48ffda07235e6?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa" alt="Image in top row" class="object-contain flex-1 shrink aspect-[1.4] basis-0 min-w-[240px]" />
-          </div>
-          <div class="flex flex-wrap flex-1 gap-2 mt-2">
-            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/39d92fc5c8fae65e370360c78e3212478c2a98f47425574f5028254db538dd38?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa" alt="Image in bottom row" class="object-contain flex-1 shrink aspect-[1.4] basis-0 min-w-[240px]" />
-            <div class="flex flex-col flex-1 shrink basis-0 min-w-[240px] relative items-start px-16 pt-36 pb-6 w-full aspect-[1.398] max-md:px-5 max-md:pt-24">
-              <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/576147ebab4097b23957102ef03d8a2065813fac7acc7995a8b1968511439320?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa" alt="Background image for button" class="object-cover absolute inset-0 size-full" />
-              <button class="flex gap-2 justify-center items-center px-4 py-2 bg-white rounded-lg border border-black border-solid shadow-sm relative">
-                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/4f6a7eaf3a5efc939b47531ace8d2b83796379b911ea13e81edda54e7535adc6?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa" alt="" class="object-contain shrink-0 my-auto w-5 aspect-square" />
-                <span>Show all photos</span>
-              </button>
-            </div>
-          </div>
-        </div>
+        <NuxtImg
+        provider="cloudinary"
+        tabindex="0"
+        sizes="100vw sm:80vw md:60vw lg:50vw"
+        :src="parsedImages[2]"
+        :alt="`Main Image of ${listing.title}`"
+        format="webp"
+        class="object-contain flex-1 shrink gap-1.5 py-1.5 rounded-md aspect-[1.32] basis-0 w-[212px]"/>
+
+
+        <img
+          loading="lazy"
+          src="https://cdn.builder.io/api/v1/image/assets/5b20c0d534a34f0091744edaaeed1afd/01699fb66170dac75e08029090bfffe944bceb65f363028fe21635d36b12c28b?apiKey=5b20c0d534a34f0091744edaaeed1afd&"
+          class="object-contain flex-1 shrink gap-1.5 py-1.5 rounded-md aspect-[1.32] basis-0 w-[212px]"
+          alt="Gallery thumbnail 3"
+          role="listitem"
+          tabindex="0"
+        />
       </div>
-  
-      <!-- Proceed to Payment Button -->
-      <ProceedToPaymentFromListing />
-    </section>
-  </template>
-  
-  <script lang="ts">
-  import { defineComponent } from 'vue';
-  import ProceedToPaymentFromListing from './ProceedToPaymentFromListing.vue';
-  
-  export default defineComponent({
-    name: 'CombinedGallery',
-    components: {
-      ProceedToPaymentFromListing,
+    </div>
+  </section>
+
+</template>
+
+
+
+<script lang="ts">
+import { defineComponent } from 'vue';
+import ProceedToPaymentFromListing from './ProceedToPaymentFromListing.vue';
+
+export default defineComponent({
+  name: 'CombinedGallery',
+  components: {
+    ProceedToPaymentFromListing,
+  },
+  props: {
+    // Accept the listing object as a prop from the parent component
+    listing: {
+      type: Object as () => { imageSrc: string | string[] },
+      required: true,
     },
-    props: {
-      mainImageSrc: {
-        type: String,
-        required: true,
-      },
+  },
+  computed: {
+    parsedImages(): string[] {
+      if (Array.isArray(this.listing.imageSrc)) {
+        return this.listing.imageSrc; // Return as-is if it's already an array
+      }
+
+      if (typeof this.listing.imageSrc === 'string') {
+        try {
+          // Step 1: Decode the URL-encoded string
+          const decodedStr = decodeURIComponent(this.listing.imageSrc);
+
+          // Step 2: Remove unnecessary characters {, }, and "
+          const cleanedStr = decodedStr.replace(/[{}"]/g, '');
+
+          // Step 3: Split by commas if there are multiple URLs and trim whitespace
+          const imageUrls = cleanedStr.split(',').map(url => url.trim());
+
+          // Optional: Filter out any empty strings resulting from the split
+          return imageUrls.filter(url => url.length > 0);
+        } catch (error) {
+          console.error('Error decoding imageSrc:', error);
+          return []; // Return an empty array in case of an error
+        }
+      }
+
+      // If imageSrc is neither an array nor a string, return an empty array
+      return [];
     },
-  });
-  </script>
-  
-  <style scoped>
-  /* Additional styling if needed */
-  </style>
-  
+  },
+});
+</script>
+
+
+
+<style scoped>
+/* Additional styling if needed */
+</style>

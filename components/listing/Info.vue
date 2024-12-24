@@ -36,7 +36,6 @@ const coordinates = getByValue(locationValue)?.latlng
         <div>{{ bathroomCount }} bathrooms</div>
       </div>
     </div>
-    <hr />
     <div v-if="category">
       <ListingCategory
         :icon="category.icon"

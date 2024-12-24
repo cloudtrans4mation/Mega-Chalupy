@@ -44,8 +44,8 @@ const { isLoading } = useImage({ src: imageSrc })
         :alt="`Image of ${location?.label}`"
         class="object-fill object-center h-full w-full rounded-xl" /> --->
 
-          <Gallery  :mainImageSrc="imageSrc" 
-           ></Gallery>
+        <!-- <Gallery  /> -->
+
 
       <div class="absolute top-5 right-5">
     <!----    <HeartButton :listingId="id" /> --->
