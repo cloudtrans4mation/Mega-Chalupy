@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import Loading from '~/components/Loading.vue';
+
 
 const loading = ref(true);
 
@@ -11,7 +13,7 @@ setTimeout(() => {
 
 <template>
 
-  
+  <Loading></Loading>
   <div v-if="!loading" class="flex flex-col min-h-screen">
     <Navbar />
     <main style="padding-top: 0;" class="flex-1 pt-12 pb-20">
