@@ -1,103 +1,57 @@
 <template>
-  <div ref="regionSearch" class="region-search-container">
-    <h2 class="region-search-title">Search by region</h2>
+  <div ref="regionSearch" class="region-search-container p-4">
+    <h2 class="region-search-title text-2xl font-bold text-center mb-6">
+      Search by region
+    </h2>
 
-    <div class="region-buttons-container">
-      <div class="region-buttons-row">
+    <div class="region-buttons-container grid gap-3">
+      <!-- First Row -->
+      <div
+        class="region-buttons-row grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3"
+      >
         <button
           v-for="(region, index) in regions.slice(0, 3)"
           :key="index"
-          class="region-button"
+          class="region-button bg-white shadow-md rounded-lg overflow-hidden transform hover:scale-105 transition-transform"
           @click="selectDestination(region.name)"
         >
           <img
             :src="region.imageSrc"
             :alt="region.name"
-            class="region-image"
+            class="region-image w-full h-32 object-cover"
           />
-          <div class="region-name">{{ region.name }}</div>
+          <div class="region-name text-center p-1 text-sm font-medium">
+            {{ region.name }}
+          </div>
         </button>
       </div>
 
-      <div class="region-buttons-row">
+      <!-- Second Row -->
+      <div
+        class="region-buttons-row grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3"
+      >
         <button
           v-for="(region, index) in regions.slice(3)"
           :key="index + 3"
-          class="region-button"
+          class="region-button bg-white shadow-md rounded-lg overflow-hidden transform hover:scale-105 transition-transform"
           @click="selectDestination(region.name)"
         >
           <img
             :src="region.imageSrc"
             :alt="region.name"
-            class="region-image"
+            class="region-image w-full h-32 object-cover"
           />
-          <div class="region-name">{{ region.name }}</div>
+          <div class="region-name text-center p-1 text-sm font-medium">
+            {{ region.name }}
+          </div>
         </button>
       </div>
     </div>
   </div>
 </template>
 
-<style scoped>
-.region-search-container {
-  display: flex;
-  flex-direction: column;
-  color: black;
-  min-width: 240px;
-  padding: 16px;
-  background-color: #white;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
 
-.region-search-title {
-  font-size: 1rem;
-  font-weight: 600;
-  margin-bottom: 16px;
-}
 
-.region-buttons-container {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.region-buttons-row {
-  display: flex;
-  gap: 16px;
-  justify-content: flex-start;
-}
-
-.region-button {
-  display: flex;
-  flex-direction: column;
-  width: 124px;
-  background-color: white;
-  border-radius: 8px;
-  overflow: hidden;
-  transition: transform 0.3s, box-shadow 0.3s;
-  cursor: pointer;
-}
-
-.region-button:hover {
-  background-color: #e0e0e0;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-  transform: translateY(-4px);
-}
-
-.region-image {
-  object-fit: contain;
-  width: 100%;
-  aspect-ratio: 1;
-}
-
-.region-name {
-  margin-top: 8px;
-  text-align: center;
-  font-size: 0.875rem;
-  font-weight: 500;
-}
-</style>
 
 <script lang="ts">
 import { defineComponent } from 'vue';

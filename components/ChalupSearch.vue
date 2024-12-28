@@ -32,10 +32,10 @@
                   class="w-full bg-transparent border-none outline-none placeholder-gray-500" />
               </div>
             </MenubarTrigger>
-            <MenubarPortal>
-              <MenubarContent class="min-w-[220px] bg-white rounded-md p-[5px] shadow-lg">
+            <MenubarPortal >
+              <MenubarContent style="z-index: 9999;" class="min-w-[220px] bg-white rounded-md p-[5px] shadow-lg">
                 <MenubarItem class="flex items-center rounded hover:bg-green4">
-                  <DestinationSelect @destination-selected="updateSelectedDestination" />
+                  <DestinationSelect  @destination-selected="updateSelectedDestination" />
                 </MenubarItem>
                 <!-- Additional items here... -->
               </MenubarContent>
