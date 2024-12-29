@@ -2,8 +2,8 @@
   <section class="z-10 w-full shadow-sm">
     <Container>
       <nav class="flex flex-col w-full">
-        <div
-          class="flex flex-wrap justify-between items-center px-6 py-4 w-full bg-white border-opacity-40 shadow-[0px_1px_1px_rgba(0,0,0,0.13)]">
+        <!-- Top Navigation -->
+        <div class="flex flex-wrap items-center justify-between px-6 py-4 bg-white shadow-md border-opacity-40">
 
           <!-- Logo -->
           <div class="flex items-center py-2 w-8 md:w-10 lg:w-12">
@@ -14,49 +14,83 @@
             </a>
           </div>
 
-          <!-- Navigation Links -->
-          <nav class="nav-container flex space-x-4">
+          <!-- Navigation Links (Desktop Only) -->
+          <div v-if="!user && !isMobile"
+            class="hidden md:flex justify-center items-center space-x-8 md:space-x-10 h-full">
             <a href="#"
-              class="nav-link hover:text-gray-900 hover:border-2 hover:border-gray-300 hover:rounded-full">Housing</a>
-            <a href="/experiences "
-              class="nav-link hover:text-gray-900 hover:border-2 hover:border-gray-300 hover:rounded-full">
+              class="nav-link px-6 py-3 text-center text-gray-800 font-semibold hover:text-gray-900 hover:border-2 hover:border-gray-300 hover:rounded-full transition-all duration-300 ease-in-out">
+              Housing
+            </a>
+            <a href="/experiences"
+              class="nav-link px-6 py-3 text-center text-gray-800 font-semibold hover:text-gray-900 hover:border-2 hover:border-gray-300 hover:rounded-full transition-all duration-300 ease-in-out">
               Experiences
             </a>
-          </nav>
+          </div>
 
-          <NavSearch></NavSearch>
+
+
+
+          <!-- Search Component -->
+          <div v-if="!user" class="hidden md:block">
+            <NavSearch />
+          </div>
+
           <!-- User Options -->
-          <div class="flex gap-2 items-center py-2 text-sm text-blue-600 rounded-full">
+          <div class="flex gap-2 items-center py-2 text-sm text-blue-600">
             <!-- Dropdown Menu -->
             <div class="relative">
-              <FlagsTranslation></FlagsTranslation>
+              <FlagsTranslation />
             </div>
-
             <!-- User Menu Component -->
             <NavUserMenu />
           </div>
+
+          <!-- Mobile Menu Toggle -->
+          <div v-if="!user && isMobile" class="md:hidden flex items-center">
+            <button @click="toggleMobileMenu" class="text-gray-700 focus:outline-none">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+              </svg>
+            </button>
+          </div>
         </div>
 
-        <!-- Search Component -->
-        <!---<div class="flex justify-center py-4">
-          <Search/>
-        </div>--->
-      </nav>
-    </Container>
+        <!-- Mobile Menu -->
+        <transition enter-active-class="transition duration-200 ease-out"
+          leave-active-class="transition duration-150 ease-in">
+          <div v-if="mobileMenuOpen" class="md:hidden flex flex-col space-y-6 px-8 py-6 bg-white shadow-md rounded-lg">
+            <a href="#"
+              class="nav-link px-6 py-3 text-center text-gray-800 font-semibold hover:text-gray-900 hover:border-2 hover:border-gray-300 hover:rounded-full transition-all duration-300 ease-in-out">
+              Housing
+            </a>
+            <a href="/experiences"
+              class="nav-link px-6 py-3 text-center text-gray-800 font-semibold hover:text-gray-900 hover:border-2 hover:border-gray-300 hover:rounded-full transition-all duration-300 ease-in-out">
+              Experiences
+            </a>
+            <NavSearch />
+          </div>
+        </transition>
 
-    <!-- Categories Section -->
-    <Categories />
+
+      </nav>
+
+      <!-- Categories Section -->
+      <Categories />
+    </Container>
   </section>
 </template>
 
-
 <script setup lang="ts">
-import { ref, computed, onMounted } from 'vue';
+import { ref, computed, onMounted, onUnmounted } from 'vue';
 import Container from '~/components/Container.vue';
 import NavSearch from './nav/Search.vue';
 import FlagsTranslation from '~/components/FlagsTranslation.vue';
 import NavUserMenu from '~/components/nav/UserMenu.vue';
 import Categories from '~/components/Categories.vue';
+
+// User state
+const user = useUser();
 
 // State to detect screen size
 const isMobile = ref(false);
@@ -64,6 +98,14 @@ const isMobile = ref(false);
 // Function to check if the view is mobile
 function checkMobileView() {
   isMobile.value = window.innerWidth < 768; // Adjust breakpoint as needed
+}
+
+// Mobile menu toggle state
+const mobileMenuOpen = ref(false);
+
+// Toggle function for mobile menu
+function toggleMobileMenu() {
+  mobileMenuOpen.value = !mobileMenuOpen.value;
 }
 
 // Set up event listeners to update on resize
@@ -76,6 +118,8 @@ onUnmounted(() => {
   window.removeEventListener('resize', checkMobileView);
 });
 </script>
+
+
 
 <style scoped>
 /* Base styles for desktop */

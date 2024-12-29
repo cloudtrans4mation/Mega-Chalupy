@@ -18,9 +18,9 @@
           <img
             :src="region.imageSrc"
             :alt="region.name"
-            class="region-image w-full h-32 object-cover"
+            class="region-image w-full h-16 object-contain"
           />
-          <div class="region-name text-center p-1 text-sm font-medium">
+          <div class="region-name text-center p-2 text-sm font-medium">
             {{ region.name }}
           </div>
         </button>
@@ -39,9 +39,9 @@
           <img
             :src="region.imageSrc"
             :alt="region.name"
-            class="region-image w-full h-32 object-cover"
+            class="region-image w-full h-16 object-contain"
           />
-          <div class="region-name text-center p-1 text-sm font-medium">
+          <div class="region-name text-center p-2 text-sm font-medium">
             {{ region.name }}
           </div>
         </button>
@@ -49,6 +49,35 @@
     </div>
   </div>
 </template>
+
+<style scoped>
+.region-search-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.region-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.region-button:hover {
+  transform: scale(1.05);
+}
+
+.region-image {
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+.region-name {
+  margin-top: 0.5rem;
+}
+</style>
 
 
 

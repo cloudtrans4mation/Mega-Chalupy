@@ -8,6 +8,9 @@ const user = useUser(); // Assuming useUser returns a ref of User object or null
 // State for menu open/close
 const isOpen = ref(false);
 
+// State to detect screen size
+const isMobile = ref(false);
+
 // Function to log out the user
 function logout() {
   $fetch('/api/v1/auth/logout', { method: 'POST' })
@@ -23,13 +26,21 @@ function handleClickOutside(event: Event) {
   }
 }
 
+// Function to check if the view is mobile
+function checkMobileView() {
+  isMobile.value = window.innerWidth < 768; // Adjust breakpoint as needed
+}
+
 // Event listeners for clicking outside the menu
 onMounted(() => {
   document.addEventListener('click', handleClickOutside);
+  checkMobileView();
+  window.addEventListener('resize', checkMobileView);
 });
 
 onBeforeUnmount(() => {
   document.removeEventListener('click', handleClickOutside);
+  window.removeEventListener('resize', checkMobileView);
 });
 
 // Computed property to filter routes based on clientType
@@ -93,8 +104,10 @@ const filteredRoutes = computed(() => {
                 </NuxtLink>
               </div>
               <hr class="my-2">
-              <!-- Filtered routes based on clientType -->
+              <!-- Routes including Housing and Experiences -->
               <div>
+                <MenuItem href="#" icon="heroicons-solid:home" label="Housing" />
+                <MenuItem href="/experiences" icon="heroicons-solid:star" label="Experiences" />
                 <MenuItem v-for="route in filteredRoutes" :key="route.label" :href="route.href" :icon="route.icon"
                   :label="route.label" />
               </div>

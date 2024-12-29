@@ -48,7 +48,7 @@ onUnmounted(() => {
   <Container v-if="isMainPage">
     <div 
     :class="{ 'sticky top-0 left-0 right-0 z-10': isSticky }"
-    class="menu flex flex-row items-center justify-between overflow-x-auto w-full px-12 pb-0.5 text-xs font-medium whitespace-nowrap backdrop-blur-lg bg-gradient-to-r from-white/60 via-white/40 to-white/60 border-b border-black border-opacity-10 rounded-lg text-zinc-600 max-md:px-5">
+    class="menu bg-white flex flex-row items-center justify-between overflow-x-auto w-full px-12 pb-0.5 text-xs font-medium whitespace-nowrap backdrop-blur-lg bg-gradient-to-r from-white/60 via-white/40 to-white/60 border-b border-black border-opacity-10 rounded-lg text-zinc-600 max-md:px-5">
     
     <CategoryBox 
         v-for="item in categories" 

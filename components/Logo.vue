@@ -5,7 +5,7 @@ defineProps({
 </script>
 <template>
   <NuxtImg
-    src="/logo.png"
+    src="/newbiglogoformogin.png"
     class="block"
     :height="big ? '32' : '32'"
     :width="big ? '32' : '32'"
