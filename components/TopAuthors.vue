@@ -1,6 +1,8 @@
 <template>
-  <div class="flex flex-wrap gap-6 w-full px-16 py-4 max-md:max-w-full">
-    <!-- Card Container -->
+      <h1 class="py-8 text-2xl font-bold mb-8 text-center">Top 3 Creators of the Month</h1>
+
+      <div class="flex flex-wrap gap-6 w-full px-16 py-4 max-md:max-w-full justify-center items-center">
+        <!-- Card Container -->
     <div 
       v-for="profile in profiles" 
       :key="profile.id" 
@@ -52,28 +54,28 @@ export default defineComponent({
         {
           id: 1,
           ranking: 1,
-          image: 'https://cdn.builder.io/api/v1/image/assets/5b20c0d534a34f0091744edaaeed1afd/d96fe7cb1a05cecc57905c666afb63211e6a7b35852f021c56b7fc288b8d9001?apiKey=5b20c0d534a34f0091744edaaeed1afd&',
+          image: 'matthew.jpeg',
           name: 'Matthew Drabek',
-          location: 'Egypt',
-          rating: '4.9',
+          location: 'Prague',
+          rating: '0',
           starImage: 'https://cdn.builder.io/api/v1/image/assets/5b20c0d534a34f0091744edaaeed1afd/31940b31533b6271a97455d1079bec557edfa0a23dcf69737c0c67b5f7d5c051?apiKey=5b20c0d534a34f0091744edaaeed1afd&'
         },
         {
           id: 2,
           ranking: 2,
-          image: 'https://cdn.builder.io/api/v1/image/assets/5b20c0d534a34f0091744edaaeed1afd/5d56b1f63e3097ef3ce5b7f23b6e67a5127e2d1670b3db0cc1633e5a92497ebd?apiKey=5b20c0d534a34f0091744edaaeed1afd&',
+          image: 'ismaeil.jpeg',
           name: 'Mohamed Ismail',
           location: 'Prague',
-          rating: '4.9',
+          rating: '0',
           starImage: 'https://cdn.builder.io/api/v1/image/assets/5b20c0d534a34f0091744edaaeed1afd/8e63073c75323a38f8a216098b96caf1df19012de920ec4d94b47e5a8cb82e12?apiKey=5b20c0d534a34f0091744edaaeed1afd&'
         },
         {
           id: 3,
           ranking: 3,
-          image: 'https://cdn.builder.io/api/v1/image/assets/5b20c0d534a34f0091744edaaeed1afd/d1b228224003e3384abfd54a2885c0c5b773399a4f696a42ea03edfb186401f2?apiKey=5b20c0d534a34f0091744edaaeed1afd&',
+          image: 'amine.jpeg',
           name: 'Amine Melliti',
           location: 'Tunis',
-          rating: '4.9',
+          rating: '0',
           starImage: 'https://cdn.builder.io/api/v1/image/assets/5b20c0d534a34f0091744edaaeed1afd/fd91147230d24bae788e95f53d949ce5d313c7d6d57064204c18cb4ba8217c65?apiKey=5b20c0d534a34f0091744edaaeed1afd&',
           nameWidth: 'w-[142px]',
           locationPadding: 'px-10 max-md:px-5'
