@@ -10,6 +10,8 @@
       <!-- Centered Main Content -->
       <div style="z-index: 1;"
         class="relative z-10 flex flex-col items-center justify-center w-full max-w-[1479px] text-center text-white px-4">
+
+
         <h1 class="text-3xl md:text-4xl font-extrabold leading-snug mb-4 drop-shadow-lg">
           Welcome, look for a cottage </h1>
 
@@ -32,10 +34,10 @@
                   class="w-full bg-transparent border-none outline-none placeholder-gray-500" />
               </div>
             </MenubarTrigger>
-            <MenubarPortal >
+            <MenubarPortal>
               <MenubarContent style="z-index: 9999;" class="min-w-[220px] bg-white rounded-md p-[5px] shadow-lg">
                 <MenubarItem class="flex items-center rounded hover:bg-green4">
-                  <DestinationSelect  @destination-selected="updateSelectedDestination" />
+                  <DestinationSelect @destination-selected="updateSelectedDestination" />
                 </MenubarItem>
                 <!-- Additional items here... -->
               </MenubarContent>
@@ -54,7 +56,7 @@
                   alt="dates-icon" class="w-5 h-5 mr-2" />
                 <label for="dates" class="sr-only">Dates</label>
                 <input type="text" id="dates" :value="selectedDates" placeholder="Select dates"
-                  class="w-full bg-transparent border-none outline-none placeholder-gray-500"  />
+                  class="w-full bg-transparent border-none outline-none placeholder-gray-500" />
               </div>
             </MenubarTrigger>
             <MenubarPortal>
@@ -82,10 +84,12 @@
           </MenubarMenu>
 
           <!-- Search Button -->
-          <Button type="submit"
+
+          <Button type="button" @click="handleSearch"
             class="w-full md:w-auto mt-4 md:mt-0 md:ml-4 flex items-center justify-center px-8 py-2 bg-blue-600 text-white rounded-full shadow-md hover:bg-blue-700 transition-transform transform hover:scale-105 focus:ring-4 focus:ring-blue-300 focus:outline-none">
             Search
           </Button>
+
 
         </MenubarRoot>
 
@@ -98,9 +102,6 @@
 
 <script lang="ts">
 import { defineComponent, ref, onMounted, onUnmounted } from 'vue';
-import DateSelector from './date-home-search/DateSelector.vue';
-import DestinationSelect from './DestinationSelect.vue';
-import MainSearchBar from './NewSearchBar/MainSearchBar.vue';
 import Button from './Button.vue';
 
 import {
@@ -108,57 +109,80 @@ import {
   MenubarItem,
   MenubarMenu,
   MenubarPortal,
-
   MenubarRoot,
-
   MenubarTrigger,
 } from 'radix-vue'
 import { RangeCalendarCell, RangeCalendarCellTrigger, RangeCalendarGrid, RangeCalendarGridBody, RangeCalendarGridHead, RangeCalendarGridRow, RangeCalendarHeadCell, RangeCalendarHeader, RangeCalendarHeading, RangeCalendarNext, RangeCalendarPrev, RangeCalendarRoot } from 'radix-vue'
 import type { DateValue } from '@internationalized/date'
 import { Icon } from '@iconify/vue'
 
+
+import { useRouter } from 'vue-router';
+import DateSelector from './date-home-search/DateSelector.vue';
+import DestinationSelect from './DestinationSelect.vue';
+import MainSearchBar from './MainSearchBar.vue';
+
 export default defineComponent({
   name: 'ChalupSearch',
   components: {
     DateSelector,
     DestinationSelect,
-    MainSearchBar
+    MainSearchBar,
   },
+
   setup() {
+    const router = useRouter();
+
+    // State for query parameters
+    const queryParams = ref({
+      locationValue: '',
+      category: '',
+      favoriteIds: [],
+    });
+
+    // State for dropdowns
     const isAccordionOpen = ref(false);
     const isDateSelectorOpen = ref(false);
     const selectedDates = ref('');
     const selectedDestination = ref('');
 
-
+    // Update selected destination
     const updateSelectedDestination = (destination: string) => {
       selectedDestination.value = destination;
+      queryParams.value.locationValue = destination; // Update queryParams
     };
 
-    // Toggle the accordion and close the DateSelector when opening the accordion
+    // Update selected dates
+    const updateSelectedDates = (dates: string) => {
+      selectedDates.value = dates;
+    };
+
+    // Handle search button click
+    const handleSearch = () => {
+      console.log('Selected Dates:', selectedDates.value); // Debugging output
+      const searchParams = new URLSearchParams(queryParams.value as any).toString();
+      router.push(`/advanced-search?${searchParams}`);
+    };
+
+    // Toggle the accordion and close DateSelector if needed
     const toggleAccordion = () => {
       isAccordionOpen.value = !isAccordionOpen.value;
       if (isAccordionOpen.value) {
-        isDateSelectorOpen.value = false; // Close DateSelector if DestinationSelect is opened
+        isDateSelectorOpen.value = false;
       }
     };
 
-   const updateSelectedDates = (selectedDate) =>{
-      this.selectedDates = selectedDate; // Update input field with selected date
-    };
-
-    // Toggle the DateSelector and close the accordion when opening DateSelector
+    // Toggle the DateSelector and close accordion if needed
     const toggleDateSelector = () => {
       isDateSelectorOpen.value = !isDateSelectorOpen.value;
       if (isDateSelectorOpen.value) {
-        isAccordionOpen.value = false; // Close DestinationSelect if DateSelector is opened
+        isAccordionOpen.value = false;
       }
     };
 
     // Close dropdowns when clicking outside
     const closeDropdowns = (event: Event) => {
       const target = event.target as HTMLElement;
-      // Close both dropdowns if clicked outside
       if (!target.closest('.relative')) {
         isAccordionOpen.value = false;
         isDateSelectorOpen.value = false;
@@ -173,11 +197,12 @@ export default defineComponent({
       window.removeEventListener('click', closeDropdowns);
     });
 
-    function isDateUnavailable(date: DateValue) {
-      return date.day === 17 || date.day === 18
-    }
+    const isDateUnavailable = (date: DateValue) => {
+      return date.day === 17 || date.day === 18;
+    };
 
     return {
+      queryParams,
       isAccordionOpen,
       toggleAccordion,
       isDateSelectorOpen,
@@ -185,7 +210,9 @@ export default defineComponent({
       selectedDates,
       updateSelectedDates,
       selectedDestination,
-      updateSelectedDestination
+      updateSelectedDestination,
+      handleSearch,
+      isDateUnavailable,
     };
   },
 });

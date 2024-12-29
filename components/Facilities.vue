@@ -75,10 +75,7 @@ const amenities: AmenityItem[] = [
 <template>
   <section class="flex flex-col w-full" aria-label="Facilities and Amenities">
     <!-- Facilities Section -->
-    <header>
-      <h2 class="text-2xl font-semibold leading-none text-black">Facilities of Eilot</h2>
-      <p class="mt-1 text-base text-zinc-600">Great facilities! Review score, 8.7</p>
-    </header>
+    
     <ul class="flex flex-wrap gap-6 items-center mt-6 w-full text-sm font-medium leading-none" role="list">
       <li v-for="facility in facilities" :key="facility.name" class="flex gap-3 items-center">
         <img :src="facility.icon" :alt="`${facility.name} icon`" loading="lazy"

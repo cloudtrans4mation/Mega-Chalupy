@@ -8,7 +8,7 @@
         </div>
   
         <!-- Second Column -->
-        <div class="flex flex-col min-w-[240px] w-[280px] p-5 text-zinc-900 bg-neutral-50 rounded-lg shadow-sm">
+        <div class="flex flex-col justify-between gap-6 min-w-[240px] w-[280px] p-5 bg-neutral-50 rounded-lg shadow-sm">
           <!-- Content for the second column -->
           <PropertyRating />
 

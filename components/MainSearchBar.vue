@@ -11,7 +11,7 @@ import {
   NavigationMenuTrigger,
   NavigationMenuViewport,
 } from 'radix-vue'
-import NavigationMenuListItem from './NavigationMenuListItem.vue'
+import NavigationMenuListItem from './NewSearchBar/NavigationMenuListItem.vue'
 
 const currentTrigger = ref('')
 </script>

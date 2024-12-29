@@ -36,14 +36,7 @@
         class="object-contain flex-1 shrink gap-1.5 py-1.5 rounded-md aspect-[1.32] basis-0 w-[212px]"/>
 
 
-        <img
-          loading="lazy"
-          src="https://cdn.builder.io/api/v1/image/assets/5b20c0d534a34f0091744edaaeed1afd/01699fb66170dac75e08029090bfffe944bceb65f363028fe21635d36b12c28b?apiKey=5b20c0d534a34f0091744edaaeed1afd&"
-          class="object-contain flex-1 shrink gap-1.5 py-1.5 rounded-md aspect-[1.32] basis-0 w-[212px]"
-          alt="Gallery thumbnail 3"
-          role="listitem"
-          tabindex="0"
-        />
+      
       </div>
     </div>
   </section>
