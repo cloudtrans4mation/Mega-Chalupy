@@ -105,9 +105,9 @@ const filteredRoutes = computed(() => {
               </div>
               <hr class="my-2">
               <!-- Routes including Housing and Experiences -->
-              <div>
-                <MenuItem href="#" icon="heroicons-solid:home" label="Housing" />
-                <MenuItem href="/experiences" icon="heroicons-solid:star" label="Experiences" />
+              <div  >
+                <MenuItem v-if="isMobile" href="#" icon="heroicons-solid:home" label="Housing" />
+                <MenuItem v-if="isMobile" href="/experiences" icon="heroicons-solid:star" label="Experiences" />
                 <MenuItem v-for="route in filteredRoutes" :key="route.label" :href="route.href" :icon="route.icon"
                   :label="route.label" />
               </div>
