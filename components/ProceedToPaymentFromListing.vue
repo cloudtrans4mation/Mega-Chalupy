@@ -1,6 +1,6 @@
 <template>
 
-    <aside class="flex flex-col px-12 pt-8 pb-6 my-auto bg-white rounded-xl border border-solid shadow-lg border-black border-opacity-10 min-w-[240px] w-[316px] max-md:px-5">
+    <!-- <aside class="flex flex-col px-12 pt-8 pb-6 my-auto bg-white rounded-xl border border-solid shadow-lg border-black border-opacity-10 min-w-[240px] w-[316px] max-md:px-5">
   
       <h2 class="text-2xl leading-none text-neutral-800">
   
@@ -16,7 +16,7 @@
   
       </button>
   
-    </aside>
+    </aside> -->
   
   </template>
   

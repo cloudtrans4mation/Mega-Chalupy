@@ -55,18 +55,18 @@ import {
 
 const steps = [{
   step: 1,
-  title: 'Address',
-  description: 'Add your address here',
+  title: 'Requests',
+  description: 'Accept the request you want',
   icon: 'radix-icons:home',
 }, {
     step: 2,
-    title: 'Shipping',
+    title: 'Payment of Approved requests',
     description: 'Set your preferred shipping method',
     icon: 'radix-icons:archive',
-    }, {
+  }, {
     step: 3,
-    title: 'Checkout',
-    description: 'Confirm your order',
+    title: 'Checkin & Checkout',
+    description: 'Checkin & Checkout',
     icon: 'radix-icons:check',
     }]
     </script>

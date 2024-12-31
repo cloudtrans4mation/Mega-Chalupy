@@ -13,9 +13,7 @@ export default defineNuxtConfig({
     'nuxt-rate-limit',
     'shadcn-nuxt',
     'radix-vue/nuxt',
-  
-
-
+    "@nuxtjs/i18n"
   ],
 
   plugins: [
