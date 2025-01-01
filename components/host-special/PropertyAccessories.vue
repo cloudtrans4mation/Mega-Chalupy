@@ -1,8 +1,9 @@
 <template>
   <section class="flex flex-col">
-    <main class="flex flex-col mt-9 w-full text-sm font-medium text-black max-md:max-w-full">
+    <main class="flex  flex-col mt-9 w-full text-sm font-medium text-black max-md:max-w-full">
       <!-- Accessory Item List -->
-      <AccessoryItem
+       <div  style="padding-bottom: 20px;">
+      <AccessoryItem 
         v-for="(item, index) in accessoryItems"
         :key="index"
         :icon="item.icon"
@@ -10,6 +11,7 @@
         v-model:selected="item.selected"
         @update:selected="handleAccessorySelection(item)"
       />
+      </div>
 
       <!-- Help Link -->
       <a href="#" class="mt-5 text-xs tracking-wide underline text-slate-800 max-md:max-w-full">

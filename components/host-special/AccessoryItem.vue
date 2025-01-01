@@ -1,7 +1,7 @@
 <template>
   <div
-    :class="[ 
-      'flex gap-4 justify-between p-8 w-full rounded-3xl border-2 border-solid min-h-[106px] max-md:px-5 max-md:max-w-full',
+    :class="[
+      'flex gap-4 justify-between p-8 pb-16 w-full rounded-3xl border-2 border-solid min-h-[106px] max-md:px-5 max-md:max-w-full',
       selected ? 'bg-neutral-100 border-black' : 'bg-white border-black border-opacity-10',
       'max-md:flex-col max-md:gap-4 max-md:items-start'
     ]"
@@ -27,7 +27,7 @@
           alt=""
           class="object-contain aspect-square w-[30px]"
         />
-        <span v-if="selected" class="checkmark">&#10003;</span>
+        <span v-if="true" class="checkmark">&#10003;</span>
       </span>
     </label>
   </div>
@@ -86,6 +86,12 @@ export default defineComponent({
   background-color: white;
   border-radius: 50%;
   border: 2px solid black;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.checkbox-custom:hover {
+  background-color: #f0f0f0;
+  border-color: #333;
 }
 
 .checkmark {
