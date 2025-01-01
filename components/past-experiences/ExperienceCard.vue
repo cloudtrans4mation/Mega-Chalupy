@@ -138,4 +138,68 @@ export default defineComponent({
   font-weight: 600;
   color: #555;
 }
+
+/* Custom Navigation Buttons */
+:deep(.swiper-button-next),
+:deep(.swiper-button-prev) {
+  background-color: rgba(255, 255, 255, 0.8);
+  /* White with transparency */
+  color: #000;
+  /* Black arrow */
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  /* Circular buttons */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  position: absolute;
+  top: 60%;
+  transform: translateY(-50%);
+}
+
+:deep(.swiper-button-next) {
+  right: 10px; /* Adjust the position from the right */
+}
+
+:deep(.swiper-button-prev) {
+  left: 10px; /* Adjust the position from the left */
+}
+
+:deep(.swiper-button-next):hover,
+:deep(.swiper-button-prev):hover {
+  background-color: rgba(255, 255, 255, 1);
+  /* Solid white on hover */
+  transform: scale(1.1);
+}
+
+:deep(.swiper-button-next::after),
+:deep(.swiper-button-prev::after) {
+  font-size: 14px;
+  /* Smaller arrow */
+  font-weight: bold;
+}
+
+/* Custom Pagination Dots */
+:deep(.swiper-pagination-bullet) {
+  background-color: rgba(0, 0, 0, 0.3);
+  /* Inactive dot: grayish */
+  opacity: 1;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+:deep(.swiper-pagination-bullet-active) {
+  background-color: #000;
+  /* Active dot: black */
+  width: 10px;
+  height: 10px;
+  transform: scale(1.2);
+  /* Slightly enlarge active dot */
+}
 </style>
+
