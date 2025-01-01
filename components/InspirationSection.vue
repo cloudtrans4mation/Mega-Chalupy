@@ -1,5 +1,5 @@
 <template>
-  <div class="relative flex justify-center items-center w-full max-w-[2520px] mx-auto overflow-hidden py-8 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500">
+  <div class="relative flex justify-center items-center w-full max-w-[2520px] mx-auto overflow-hidden py-8 px-4 sm:px-6 md:px-8 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500">
     <!-- Previous Button -->
     <button
       @click="prevSlide"
@@ -14,7 +14,7 @@
       <div
         v-for="(slide, index) in slides"
         :key="index"
-        class="min-w-full flex-shrink-0 flex items-center justify-center p-8 bg-cover bg-center rounded-lg shadow-xl transform hover:scale-105 transition-transform duration-500 ease-out"
+        class="min-w-full flex-shrink-0 flex items-center justify-center px-4 py-8 bg-cover bg-center rounded-lg shadow-xl transform hover:scale-105 transition-transform duration-500 ease-out"
         :style="{ backgroundImage: `url(${slide.image})` }"
       >
         <!-- Slide Content -->
@@ -90,5 +90,25 @@ export default {
 
 div {
   background: linear-gradient(to right, rgba(255, 255, 255, 0.8), rgba(240, 240, 240, 0.9));
+}
+
+/* Adjusted padding and centering for the overall component */
+.relative {
+  padding: 0 16px; /* Adjust left and right padding */
+}
+
+button {
+  padding: 12px; /* Increase button padding for better touch targets */
+}
+
+button:hover {
+  background-color: #e5e7eb; /* Slightly lighter hover effect */
+}
+
+/* Add responsive padding for smaller screens */
+@media (max-width: 768px) {
+  .relative {
+    padding: 0 12px; /* Reduce padding on smaller screens */
+  }
 }
 </style>
