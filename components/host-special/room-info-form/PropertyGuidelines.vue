@@ -1,41 +1,28 @@
 <template>
-  <section class="flex flex-col gap-12 p-6 bg-gray-50 rounded-lg shadow-md">
+  <section class=" bg-white flex flex-col gap-12 p-6 bg-gray-50 rounded-lg shadow-md">
     <!-- Cot Availability -->
     <div class="flex flex-col w-full">
       <h3 class="text-lg font-semibold text-gray-800 mb-2">Cot Availability</h3>
-      <div
-        class="flex gap-3 items-center p-4 bg-white border rounded-lg shadow-sm hover:shadow-md focus-within:ring focus-within:ring-blue-500 transition duration-200"
-      >
-        <input
-          type="number"
-          id="squareMeterCount"
-          :value="squareMeterCount"
-          placeholder="Enter square meter count"
-          class="w-full text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          @input="$emit('update:squareMeterCount', $event.target.value)"
-        />
-        <img
-          loading="lazy"
-          src="https://cdn.builder.io/api/v1/image/assets/TEMP/8b73d3f214689eb3f115a12f33782f63308a49aceec3cd2ea4d1bc900aead8ca?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa"
-          alt=""
-          class="h-5"
-        />
+      <div class="p-4 bg-white border rounded-lg shadow-sm">
+        <select id="cotAvailability" :value="isAvailable"
+          class="w-full p-2 text-gray-700 bg-white border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          @change="$emit('update:isAvailable', $event.target.value)">
+          <option value="available">Available</option>
+          <option value="not-available">Not Available</option>
+        </select>
       </div>
     </div>
+
+
 
     <!-- Owner's Message -->
     <div class="flex flex-col w-full">
       <h3 class="text-lg font-semibold text-gray-800 mb-2">Owner's Message</h3>
       <div
-        class="p-4 bg-white border rounded-lg shadow-sm hover:shadow-md focus-within:ring focus-within:ring-blue-500 transition duration-200"
-      >
-        <textarea
-          id="ownerMessage"
-          placeholder="Enter your custom message for hosts"
+        class="p-4 bg-white border rounded-lg shadow-sm hover:shadow-md focus-within:ring focus-within:ring-blue-500 transition duration-200">
+        <textarea id="ownerMessage" placeholder="Enter your custom message for hosts"
           class="w-full h-24 resize-none text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          :value="value"
-          @input="$emit('update:value', $event.target.value)"
-        ></textarea>
+          :value="value" @input="$emit('update:value', $event.target.value)"></textarea>
       </div>
     </div>
 
@@ -45,41 +32,19 @@
       <div class="flex flex-wrap gap-4">
         <!-- Check-in -->
         <div
-          class="flex gap-3 items-center p-4 bg-white border rounded-lg shadow-sm hover:shadow-md focus-within:ring focus-within:ring-blue-500 transition duration-200"
-        >
-          <input
-            type="date"
-            id="checkInDate"
-            placeholder="Check-in Date"
+          class="flex gap-3 items-center p-4 bg-white border rounded-lg shadow-sm hover:shadow-md focus-within:ring focus-within:ring-blue-500 transition duration-200">
+          <input type="date" id="checkInDate" placeholder="Check-in Date"
             class="w-full text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            :value="checkIn"
-            @input="$emit('update:checkIn', $event.target.value)"
-          />
-          <img
-            loading="lazy"
-            src="https://cdn.builder.io/api/v1/image/assets/TEMP/8b73d3f214689eb3f115a12f33782f63308a49aceec3cd2ea4d1bc900aead8ca?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa"
-            alt=""
-            class="h-5"
-          />
+            :value="checkIn" @input="$emit('update:checkIn', $event.target.value)" />
+
         </div>
         <!-- Check-out -->
         <div
-          class="flex gap-3 items-center p-4 bg-white border rounded-lg shadow-sm hover:shadow-md focus-within:ring focus-within:ring-blue-500 transition duration-200"
-        >
-          <input
-            type="date"
-            id="checkOutDate"
-            placeholder="Check-out Date"
+          class="flex gap-3 items-center p-4 bg-white border rounded-lg shadow-sm hover:shadow-md focus-within:ring focus-within:ring-blue-500 transition duration-200">
+          <input type="date" id="checkOutDate" placeholder="Check-out Date"
             class="w-full text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            :value="checkOut"
-            @input="$emit('update:checkOut', $event.target.value)"
-          />
-          <img
-            loading="lazy"
-            src="https://cdn.builder.io/api/v1/image/assets/TEMP/8b73d3f214689eb3f115a12f33782f63308a49aceec3cd2ea4d1bc900aead8ca?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa"
-            alt=""
-            class="h-5"
-          />
+            :value="checkOut" @input="$emit('update:checkOut', $event.target.value)" />
+
         </div>
       </div>
     </div>
@@ -89,12 +54,9 @@
       <!-- Dropdown with Label -->
       <div class="w-full sm:w-1/2">
         <h3 class="text-lg font-semibold text-gray-800 mb-2">Children Guidelines</h3>
-        <select
-          id="childrenAllowance"
-          :value="childrenAllowance"
+        <select id="childrenAllowance" :value="childrenAllowance"
           class="w-full p-4 text-gray-700 bg-white border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-          @change="$emit('update:childrenAllowance', $event.target.value)"
-        >
+          @change="$emit('update:childrenAllowance', $event.target.value)">
           <option value="">Select option</option>
           <option value="allowed">Allowed</option>
           <option value="not-allowed">Not Allowed</option>
@@ -104,14 +66,9 @@
       <!-- Numeric Input -->
       <div class="w-full sm:w-1/2">
         <h3 class="text-lg font-semibold text-gray-800 mb-2">Number of KM</h3>
-        <input
-          type="number"
-          id="kmInput"
-          :value="km"
-          placeholder="Type number of KM"
+        <input type="number" id="kmInput" :value="km" placeholder="Type number of KM"
           class="w-full p-4 text-gray-700 bg-white border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-          @input="$emit('update:km', $event.target.value)"
-        />
+          @input="$emit('update:km', $event.target.value)" />
       </div>
     </div>
   </section>
@@ -120,7 +77,6 @@
 <style scoped>
 /* General Styles */
 section {
-  background-color: #f9f9f9;
   border-radius: 12px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -253,7 +209,7 @@ export default defineComponent({
         km: this.km,
         cotAvailability: this.cotAvailability
       };
-      
+
       // Emit the entire form data object to the parent
       this.$emit('PropertyGuidelinesSelected', data);
     }
@@ -299,5 +255,3 @@ export default defineComponent({
   }
 });
 </script>
-
-

@@ -1,33 +1,64 @@
 <template>
-  <section class="flex flex-col">
-    <div class="flex flex-col w-full max-md:max-w-full"></div>
+  <section class="flex flex-col items-center">
+    <div class="flex flex-col w-full max-w-xl">
 
-    <div class="flex flex-col mt-12 w-full max-md:mt-10 max-md:max-w-full">
-      <div class="flex flex-col w-full max-md:max-w-full">
-
-        <!-- Room Inputs -->
-        <div class="flex flex-wrap gap-5 justify-center items-center w-full max-md:max-w-full">
-          <RoomInput 
-            label="Number of Rooms" 
-            placeholder="Please enter number of rooms" 
-            @updateValue="updateRooms"
-          />
-          <RoomInput 
-            label="Square meter count" 
-            placeholder="Please enter Square meter count" 
-            @updateValue="updateSquareMeterCount"
+      <!-- Room Inputs -->
+      <div class="flex flex-wrap gap-5 justify-between w-full">
+        <!-- Number of Rooms Input -->
+        <div class="flex flex-col w-full md:w-1/2">
+          <h3 class="text-lg font-semibold text-gray-800 mb-2">Number of Rooms</h3>
+          <input
+            type="number"
+            placeholder="Enter number of rooms"
+            class="w-full p-3 border rounded-lg shadow-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            @input="updateRooms"
           />
         </div>
 
-        <!-- Smoking Allowance Dropdown -->
-        <div class="flex gap-5 justify-center items-center mt-12 w-full max-md:mt-10 max-md:max-w-full">
-          <SmokingAllowance @updateSmokingAllowance="updateSmokingAllowance" />
+        <!-- Square Meter Count Input -->
+        <div class="flex flex-col w-full md:w-1/2">
+          <h3 class="text-lg font-semibold text-gray-800 mb-2">Square Meter Count</h3>
+          <input
+            type="number"
+            placeholder="Enter square meter count"
+            class="w-full p-3 border rounded-lg shadow-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            @input="updateSquareMeterCount"
+          />
         </div>
-
       </div>
+
+      <!-- Smoking Allowance -->
+      <div class="flex flex-col mt-8 w-full">
+        <h3 class="text-lg font-semibold text-gray-800 mb-2">Smoking Allowance</h3>
+        <div class="p-4 bg-white  rounded-lg shadow-sm">
+          <label class="flex items-center gap-3">
+            <input
+              type="radio"
+              name="smokingAllowance"
+              value="allowed"
+              class="focus:ring-2 focus:ring-blue-500"
+              @change="updateSmokingAllowance('allowed')"
+            />
+            Allowed
+          </label>
+          <label class="flex items-center gap-3 mt-3">
+            <input
+              type="radio"
+              name="smokingAllowance"
+              value="not-allowed"
+              class="focus:ring-2 focus:ring-blue-500"
+              @change="updateSmokingAllowance('not-allowed')"
+            />
+            Not Allowed
+          </label>
+        </div>
+      </div>
+
     </div>
   </section>
 </template>
+
+
 
 <script setup lang="ts">
 import { ref, computed, watch } from 'vue';

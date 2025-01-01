@@ -110,7 +110,7 @@ function toggleSelection(label: string) {
           <Heading title="Choose your Property Accessories ..." subTitle="Pick a category" />
           <div>
             <PropertyAccessories @handleAccessorySelection="setPropertyAccessoriesSelected"></PropertyAccessories>
-            <PropertyGuidelines  @PropertyGuidelinesSelected="setPropertyGuidelinesSelected"></PropertyGuidelines>
+            <PropertyGuidelines @PropertyGuidelinesSelected="setPropertyGuidelinesSelected"></PropertyGuidelines>
           </div>
           <div class="flex flex-col gap-4 md:flex-row pt-4">
             <Button label="Back" outline @click="onBack" />
@@ -201,8 +201,8 @@ function toggleSelection(label: string) {
           <section class="flex flex-col w-full max-md:max-w-full">
             <div class="flex flex-wrap gap-4 justify-center items-start w-full max-md:max-w-full">
               <button v-for="button in buttons" :key="button.label" :class="[
-                'flex gap-2.5 justify-center items-center px-5 py-2.5 text-sm font-medium whitespace-nowrap border-2 border-black border-solid bg-neutral-100 rounded-[31px]',
-                selectedButton === button.label ? 'bg-blue-500 text-white' : ''  // Apply blue background when selected
+                'flex gap-2.5 justify-center items-center px-5 py-2.5 text-sm font-medium whitespace-nowrap border-2 border-black border-solid rounded-[31px] transition-colors duration-300',
+                selectedButton === button.label ? 'bg-blue-500 text-white' : 'bg-neutral-100 text-black'
               ]" @click="toggleSelection(button.label)">
                 <img :src="button.imgSrc" alt=""
                   class="object-contain shrink-0 self-stretch my-auto aspect-square w-[18px]" />
@@ -277,7 +277,8 @@ function toggleSelection(label: string) {
                   Finally, you'll choose booking settings...
                 </p>
 
-                <video loading="eager" src="public/finish.mp4" alt="Illustration representing the finish and publish step"
+                <video loading="eager" src="public/finish.mp4"
+                  alt="Illustration representing the finish and publish step"
                   class="object-contain self-stretch my-auto aspect-square min-w-[240px] w-[70px] max-md:max-w-full"
                   autoplay muted loop>
                 </video>
