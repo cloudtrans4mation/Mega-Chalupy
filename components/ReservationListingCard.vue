@@ -215,8 +215,8 @@ const parsedImages = computed(() => {
   /* White with transparency */
   color: #000;
   /* Black arrow */
-  width: 35px;
-  height: 35px;
+  width: 25px;
+  height: 25px;
   border-radius: 50%;
   /* Circular buttons */
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
@@ -224,6 +224,17 @@ const parsedImages = computed(() => {
   align-items: center;
   justify-content: center;
   transition: background-color 0.3s ease, transform 0.3s ease;
+  position: absolute;
+  top: 60%;
+  transform: translateY(-50%);
+}
+
+:deep(.swiper-button-next) {
+  right: 10px; /* Adjust the position from the right */
+}
+
+:deep(.swiper-button-prev) {
+  left: 10px; /* Adjust the position from the left */
 }
 
 :deep(.swiper-button-next):hover,
@@ -235,7 +246,7 @@ const parsedImages = computed(() => {
 
 :deep(.swiper-button-next::after),
 :deep(.swiper-button-prev::after) {
-  font-size: 18px;
+  font-size: 14px;
   /* Smaller arrow */
   font-weight: bold;
 }
@@ -260,3 +271,5 @@ const parsedImages = computed(() => {
   /* Slightly enlarge active dot */
 }
 </style>
+
+
