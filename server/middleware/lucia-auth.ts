@@ -1,6 +1,7 @@
 import { verifyRequestOrigin } from 'lucia'
 
 import type { Session, User } from 'lucia'
+import { lucia } from '../utils/auth/lucia'
 
 export default defineEventHandler(async event => {
   const route = event.node.req.url as string
