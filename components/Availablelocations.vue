@@ -1,5 +1,5 @@
 <template>
-    <section class="flex flex-wrap justify-center gap-4 py-4 w-full font-semibold">
+    <section class="max-w-[2520px] mx-auto px-4 sm:px-2 md:px-6 xl:px-10 flex flex-wrap justify-center gap-4 py-4 w-full font-semibold">
 
         <header class="flex flex-col items-center w-full px-4 mb-6 max-md:px-0">
 

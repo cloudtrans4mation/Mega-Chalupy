@@ -78,7 +78,7 @@ const showSearch = computed(() => {
     <GiftCard></GiftCard>
     <Search />
     <MegaChalupyPlusSection></MegaChalupyPlusSection>
-    <MoreListings></MoreListings>
+    <!-- <MoreListings></MoreListings> -->
 
     <TopAuthors></TopAuthors>
 

@@ -1,6 +1,6 @@
 <template>
   <section
-    class="flex overflow-hidden flex-col items-start font-bold text-zinc-700 px-8 md:px-16 lg:px-24 pt-12 pb-12"
+    class=" max-w-[2520px] mx-auto px-4 sm:px-2 md:px-6 xl:px-10 flex overflow-hidden flex-col items-start font-bold text-zinc-700 px-8 md:px-16 lg:px-24 pt-12 pb-12"
     aria-labelledby="airbnb-plus-title"
   >
     <h1 id="airbnb-plus-title" class="text-2xl">Mega ChalupyPlus Accommodations</h1>
