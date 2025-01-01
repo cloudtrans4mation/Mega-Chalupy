@@ -1,3 +1,6 @@
+import { lucia } from "~/server/utils/auth/lucia"
+
+
 export default eventHandler(async event => {
   try {
     if (!event.context.session) {
