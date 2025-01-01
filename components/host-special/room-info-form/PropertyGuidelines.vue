@@ -1,211 +1,181 @@
 <template>
-    <section class="flex flex-col">
-        <div class="flex flex-col w-full max-md:max-w-full"></div>
+  <section class="flex flex-col gap-12 p-6 bg-gray-50 rounded-lg shadow-md">
+    <!-- Cot Availability -->
+    <div class="flex flex-col w-full">
+      <h3 class="text-lg font-semibold text-gray-800 mb-2">Cot Availability</h3>
+      <div
+        class="flex gap-3 items-center p-4 bg-white border rounded-lg shadow-sm hover:shadow-md focus-within:ring focus-within:ring-blue-500 transition duration-200"
+      >
+        <input
+          type="number"
+          id="squareMeterCount"
+          :value="squareMeterCount"
+          placeholder="Enter square meter count"
+          class="w-full text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          @input="$emit('update:squareMeterCount', $event.target.value)"
+        />
+        <img
+          loading="lazy"
+          src="https://cdn.builder.io/api/v1/image/assets/TEMP/8b73d3f214689eb3f115a12f33782f63308a49aceec3cd2ea4d1bc900aead8ca?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa"
+          alt=""
+          class="h-5"
+        />
+      </div>
+    </div>
 
-        <div class="flex flex-col mt-12 w-full max-md:mt-10 max-md:max-w-full">
-            <div class="flex flex-col mt-12 w-full max-md:mt-10 max-md:max-w-full">
-                <div class="flex flex-wrap gap-5 justify-center items-center w-full max-md:max-w-full">
-                    <div
-                        class="flex flex-col flex-1 shrink justify-center self-stretch my-auto basis-0 min-w-[240px] max-md:max-w-full">
-                        <h3 class="text-base font-semibold leading-none text-black max-md:max-w-full">
-                            Cot Availability
-                        </h3>
-                        <div
-                            class="flex flex-wrap gap-10 justify-between items-center px-2.5 py-3 mt-2 w-full text-sm font-medium text-center bg-white rounded-lg border border-solid border-black border-opacity-10 min-h-[40px] text-neutral-500 max-md:max-w-full">
-                            <label for="squareMeterCount" class="sr-only">Square meter count</label>
-                            <input type="number" id="squareMeterCount" :value="squareMeterCount"
-                                placeholder="Please enter square meter count"
-                                class="self-stretch my-auto w-full bg-transparent"
-                                @input="$emit('update:squareMeterCount', $event.target.value)" />
-                            <img loading="lazy"
-                                src="https://cdn.builder.io/api/v1/image/assets/TEMP/8b73d3f214689eb3f115a12f33782f63308a49aceec3cd2ea4d1bc900aead8ca?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa"
-                                alt="" class="object-contain shrink-0 self-stretch my-auto w-1.5 aspect-[2]" />
-                        </div>
-                    </div>
+    <!-- Owner's Message -->
+    <div class="flex flex-col w-full">
+      <h3 class="text-lg font-semibold text-gray-800 mb-2">Owner's Message</h3>
+      <div
+        class="p-4 bg-white border rounded-lg shadow-sm hover:shadow-md focus-within:ring focus-within:ring-blue-500 transition duration-200"
+      >
+        <textarea
+          id="ownerMessage"
+          placeholder="Enter your custom message for hosts"
+          class="w-full h-24 resize-none text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          :value="value"
+          @input="$emit('update:value', $event.target.value)"
+        ></textarea>
+      </div>
+    </div>
 
-                    <div
-                        class="flex flex-col flex-1 shrink justify-center self-stretch my-auto basis-0 min-w-[240px] max-md:max-w-full">
-                        <h3 class="text-base font-semibold leading-none text-black max-md:max-w-full">
-                            Owner's Message
-                        </h3>
-
-                        <div
-                            class="gap-2.5 self-stretch px-2.5 py-3 mt-2 w-full text-sm font-medium text-center bg-white rounded-lg border border-solid border-black border-opacity-10 min-h-[40px] text-neutral-500 max-md:max-w-full">
-                            <label for="ownerMessage" class="sr-only">Custom message to hosts</label>
-
-                            <textarea id="ownerMessage" placeholder="Please enter your custom message to your hosts."
-                                class="w-full bg-transparent resize-none" :value="value"
-                                @input="$emit('update:value', $event.target.value)"></textarea>
-                        </div>
-                    </div>
-                </div>
-
-                <div
-                    class="flex flex-wrap gap-5 justify-center items-center mt-12 w-full max-md:mt-10 max-md:max-w-full">
-                    <div
-                        class="flex flex-col flex-1 shrink justify-center self-stretch my-auto basis-0 min-w-[240px] max-md:max-w-full">
-                        <h3 class="text-base font-semibold leading-none text-black max-md:max-w-full">
-                            Check-in & Check-out Guidelines
-                        </h3>
-
-                        <div
-                            class="flex flex-wrap gap-5 items-start mt-2 w-full text-sm font-medium text-center whitespace-nowrap text-neutral-500 max-md:max-w-full">
-                            <div
-                                class="flex flex-1 shrink gap-10 justify-between items-center px-2.5 py-3 bg-white rounded-lg border border-solid basis-0 border-black border-opacity-10 min-h-[40px] min-w-[240px]">
-                                <label for="checkInDate" class="sr-only">Check-in date</label>
-                                <input type="date" id="checkInDate" placeholder="From"
-                                    class="self-stretch my-auto w-full bg-transparent" :value="checkIn"
-                                    @input="$emit('update:checkIn', $event.target.value)" />
-                                <img loading="lazy"
-                                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/8b73d3f214689eb3f115a12f33782f63308a49aceec3cd2ea4d1bc900aead8ca?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa"
-                                    alt="" class="object-contain shrink-0 self-stretch my-auto w-1.5 aspect-[2]" />
-                            </div>
-
-                            <div
-                                class="flex flex-1 shrink gap-10 justify-between items-center px-2.5 py-3 bg-white rounded-lg border border-solid basis-0 border-black border-opacity-10 min-h-[40px] min-w-[240px]">
-                                <label for="checkOutDate" class="sr-only">Check-out date</label>
-                                <input type="date" id="checkOutDate" placeholder="Till"
-                                    class="self-stretch my-auto w-full bg-transparent" :value="checkOut"
-                                    @input="$emit('update:checkOut', $event.target.value)" />
-                                <img loading="lazy"
-                                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/8b73d3f214689eb3f115a12f33782f63308a49aceec3cd2ea4d1bc900aead8ca?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa"
-                                    alt="" class="object-contain shrink-0 self-stretch my-auto w-1.5 aspect-[2]" />
-                            </div>
-                        </div>
-                    </div>
-
-                    <div
-                        class="flex flex-col flex-1 shrink justify-center self-stretch my-auto basis-0 min-w-[240px] max-md:max-w-full">
-                        <h3 class="text-base font-semibold leading-none text-black max-md:max-w-full">
-                            Children Guidelines
-                        </h3>
-                        <div
-                            class="flex flex-wrap gap-5 items-start mt-2 w-full text-sm font-medium text-center text-neutral-500 max-md:max-w-full">
-                            <div
-                                class="flex flex-1 shrink gap-10 justify-between items-center px-2.5 py-3 bg-white rounded-lg border border-solid basis-0 border-black border-opacity-10 min-h-[40px] min-w-[240px]">
-                                <label for="childrenAllowance" class="sr-only">Children Allowance</label>
-
-                                <select id="childrenAllowance" :value="childrenAllowance"
-                                    class="self-stretch my-auto w-full bg-transparent appearance-none"
-                                    @change="$emit('update:childrenAllowance', $event.target.value)">
-                                    <option value="">Children Allowance</option>
-                                    <option value="allowed">Allowed</option>
-                                    <option value="not-allowed">Not Allowed</option>
-                                </select>
-
-                                <img loading="lazy"
-                                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/8b73d3f214689eb3f115a12f33782f63308a49aceec3cd2ea4d1bc900aead8ca?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa"
-                                    alt="" class="object-contain shrink-0 self-stretch my-auto w-1.5 aspect-[2]" />
-                            </div>
-
-                            <div
-                                class="flex flex-1 shrink gap-10 justify-between items-center px-2.5 py-3 bg-white rounded-lg border border-solid basis-0 border-black border-opacity-10 min-h-[40px] min-w-[240px]">
-                                <label for="cotAvailability" class="sr-only">Cot availability</label>
-
-                                <select id="cotAvailability" :value="cotAvailability"
-                                    class="self-stretch my-auto w-full bg-transparent appearance-none"
-                                    @change="$emit('update:cotAvailability', $event.target.value)">
-                                    <option value="">Cot availability</option>
-                                    <option value="available">Available</option>
-                                    <option value="not-available">Not Available</option>
-                                </select>
-
-                                <img loading="lazy"
-                                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/8b73d3f214689eb3f115a12f33782f63308a49aceec3cd2ea4d1bc900aead8ca?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa"
-                                    alt="" class="object-contain shrink-0 self-stretch my-auto w-1.5 aspect-[2]" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div
-                    class="flex flex-col gap-5 justify-center items-center mt-12 w-full max-md:mt-10 max-md:max-w-full">
-                    <div
-                        class="flex flex-col justify-center self-stretch my-auto min-h-[70px] min-w-[240px] w-[522px] max-md:max-w-full">
-                        <h3 class="text-base font-semibold leading-none text-black max-md:max-w-full">
-                            Neighboring Activities Setup
-                        </h3>
-
-                        <div
-                            class="flex flex-wrap gap-5 items-start mt-2 w-full text-sm font-medium text-neutral-500 max-md:max-w-full">
-                            <div
-                                class="flex flex-1 shrink gap-10 justify-between items-center px-2.5 py-3 text-center bg-white rounded-lg border border-solid basis-0 border-black border-opacity-10 min-h-[40px] min-w-[240px]">
-                                <label for="activitySelect" class="sr-only">Choose Activity</label>
-
-                                <select id="activitySelect" :value="activity"
-                                    class="self-stretch my-auto w-full bg-transparent appearance-none"
-                                    @change="$emit('update:activity', $event.target.value)">
-                                    <option value="">Choose Activity</option>
-                                    <option value="hiking">Hiking</option>
-                                    <option value="cycling">Cycling</option>
-                                    <option value="swimming">Swimming</option>
-                                </select>
-
-                                <img loading="lazy"
-                                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/8b73d3f214689eb3f115a12f33782f63308a49aceec3cd2ea4d1bc900aead8ca?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa"
-                                    alt="" class="object-contain shrink-0 self-stretch my-auto w-1.5 aspect-[2]" />
-                            </div>
-
-                            <div
-                                class="flex flex-1 shrink self-stretch px-2.5 py-3 bg-white rounded-lg border border-solid border-black border-opacity-10 min-h-[40px] min-w-[240px]">
-                                <label for="kmInput" class="sr-only">Number of KM</label>
-
-                                <input type="number" id="kmInput" :value="km" placeholder="Type number of KM"
-                                    class="self-stretch my-auto w-full bg-transparent"
-                                    @input="$emit('update:km', $event.target.value)" />
-                            </div>
-                        </div>
-                    </div>
-                    <div
-                        class="flex flex-col flex-1 shrink justify-center self-stretch my-auto basis-0 min-w-[240px] max-md:max-w-full">
-                        <h3 class="text-base font-semibold leading-none text-black max-md:max-w-full">
-                            Events Setup
-                        </h3>
-
-                        <div
-                            class="flex flex-wrap gap-5 items-start mt-2 w-full text-sm font-medium text-center text-neutral-500 max-md:max-w-full">
-                            <div
-                                class="flex flex-1 shrink gap-10 justify-between items-center px-2.5 py-3 bg-white rounded-lg border border-solid basis-0 border-black border-opacity-10 min-h-[40px] min-w-[240px]">
-                                <label for="eventsAllowance" class="sr-only">Parties/Events Allowance</label>
-
-                                <select id="eventsAllowance"
-                                    class="self-stretch my-auto w-full bg-transparent appearance-none"
-                                    :value="eventsAllowance"
-                                    @change="$emit('update:eventsAllowance', $event.target.value)">
-                                    <option value="">Parties/Events Allowance</option>
-                                    <option value="allowed">Allowed</option>
-                                    <option value="not-allowed">Not Allowed</option>
-                                </select>
-
-                                <img loading="lazy"
-                                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/8b73d3f214689eb3f115a12f33782f63308a49aceec3cd2ea4d1bc900aead8ca?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa"
-                                    alt="" class="object-contain shrink-0 self-stretch my-auto w-1.5 aspect-[2]" />
-                            </div>
-
-                            <div
-                                class="flex flex-1 shrink gap-10 justify-between items-center px-2.5 py-3 bg-white rounded-lg border border-solid basis-0 border-black border-opacity-10 min-h-[40px] min-w-[240px]">
-                                <label for="quietHours" class="sr-only">Quiet Hours</label>
-
-                                <select id="quietHours"
-                                    class="self-stretch my-auto w-full bg-transparent appearance-none"
-                                    :value="quietHours" @change="$emit('update:quietHours', $event.target.value)">
-                                    <option value="">Quiet Hours</option>
-                                    <option value="22:00-06:00">22:00 - 06:00</option>
-                                    <option value="23:00-07:00">23:00 - 07:00</option>
-                                </select>
-
-                                <img loading="lazy"
-                                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/8b73d3f214689eb3f115a12f33782f63308a49aceec3cd2ea4d1bc900aead8ca?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa"
-                                    alt="" class="object-contain shrink-0 self-stretch my-auto w-1.5 aspect-[2]" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!-- Check-in & Check-out -->
+    <div class="flex flex-col w-full">
+      <h3 class="text-lg font-semibold text-gray-800 mb-2">Check-in & Check-out Guidelines</h3>
+      <div class="flex flex-wrap gap-4">
+        <!-- Check-in -->
+        <div
+          class="flex gap-3 items-center p-4 bg-white border rounded-lg shadow-sm hover:shadow-md focus-within:ring focus-within:ring-blue-500 transition duration-200"
+        >
+          <input
+            type="date"
+            id="checkInDate"
+            placeholder="Check-in Date"
+            class="w-full text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            :value="checkIn"
+            @input="$emit('update:checkIn', $event.target.value)"
+          />
+          <img
+            loading="lazy"
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/8b73d3f214689eb3f115a12f33782f63308a49aceec3cd2ea4d1bc900aead8ca?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa"
+            alt=""
+            class="h-5"
+          />
         </div>
+        <!-- Check-out -->
+        <div
+          class="flex gap-3 items-center p-4 bg-white border rounded-lg shadow-sm hover:shadow-md focus-within:ring focus-within:ring-blue-500 transition duration-200"
+        >
+          <input
+            type="date"
+            id="checkOutDate"
+            placeholder="Check-out Date"
+            class="w-full text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            :value="checkOut"
+            @input="$emit('update:checkOut', $event.target.value)"
+          />
+          <img
+            loading="lazy"
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/8b73d3f214689eb3f115a12f33782f63308a49aceec3cd2ea4d1bc900aead8ca?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa"
+            alt=""
+            class="h-5"
+          />
+        </div>
+      </div>
+    </div>
 
-    </section>
+    <!-- Additional Inputs -->
+    <div class="flex flex-wrap gap-4">
+      <!-- Dropdown with Label -->
+      <div class="w-full sm:w-1/2">
+        <h3 class="text-lg font-semibold text-gray-800 mb-2">Children Guidelines</h3>
+        <select
+          id="childrenAllowance"
+          :value="childrenAllowance"
+          class="w-full p-4 text-gray-700 bg-white border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+          @change="$emit('update:childrenAllowance', $event.target.value)"
+        >
+          <option value="">Select option</option>
+          <option value="allowed">Allowed</option>
+          <option value="not-allowed">Not Allowed</option>
+        </select>
+      </div>
+
+      <!-- Numeric Input -->
+      <div class="w-full sm:w-1/2">
+        <h3 class="text-lg font-semibold text-gray-800 mb-2">Number of KM</h3>
+        <input
+          type="number"
+          id="kmInput"
+          :value="km"
+          placeholder="Type number of KM"
+          class="w-full p-4 text-gray-700 bg-white border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+          @input="$emit('update:km', $event.target.value)"
+        />
+      </div>
+    </div>
+  </section>
 </template>
+
+<style scoped>
+/* General Styles */
+section {
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h3 {
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+/* Input Styles */
+input,
+textarea,
+select {
+  padding: 0.75rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  background-color: #fff;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #66afe9;
+  box-shadow: 0 0 0 3px rgba(102, 175, 233, 0.5);
+  outline: none;
+}
+
+/* Placeholder Styles */
+input::placeholder,
+textarea::placeholder {
+  color: #9ca3af;
+}
+
+/* Container Styles */
+.flex.gap-3.items-center.p-4.bg-white.border.rounded-lg.shadow-sm {
+  border-color: #e2e8f0;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.flex.gap-3.items-center.p-4.bg-white.border.rounded-lg.shadow-sm:hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.flex.gap-3.items-center.p-4.bg-white.border.rounded-lg.shadow-sm:focus-within {
+  border-color: #66afe9;
+  box-shadow: 0 0 0 3px rgba(102, 175, 233, 0.5);
+}
+
+/* Image Styles */
+img {
+  height: 1.25rem;
+  margin-left: 0.5rem;
+}
+</style>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
@@ -331,12 +301,3 @@ export default defineComponent({
 </script>
 
 
-<style>
-input,
-textarea,
-select {
-    border: none;
-    outline: none;
-    /* Removes the outline when input is focused */
-}
-</style>
