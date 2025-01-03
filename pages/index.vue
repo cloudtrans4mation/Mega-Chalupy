@@ -73,7 +73,7 @@ const showSearch = computed(() => {
 
     <ExploreByTypeSection></ExploreByTypeSection>
 
-    <!-- <InspirationSection></InspirationSection> -->
+    <InspirationSection></InspirationSection>
 
     <GiftCard></GiftCard>
     <Search />

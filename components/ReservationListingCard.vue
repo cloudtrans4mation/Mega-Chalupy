@@ -61,103 +61,6 @@
   </NuxtLink>
 </template>
 
-<script lang="ts" setup>
-import { format } from 'date-fns';
-import { Swiper, SwiperSlide } from 'swiper/vue';
-import { Pagination, Navigation } from 'swiper/modules';
-import type { AuthUser, Listing } from '~/types'; // Ensure necessary types are imported
-
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
-import 'swiper/css/effect-cards';
-import 'swiper/css/bundle';
-
-type ListingCardProps = {
-  listing: Listing;
-  disabled?: boolean;
-  actionLabel?: string;
-  actionId?: string;
-  totalPrice?: number;
-  title?: string;
-  user: AuthUser;
-  roomCount?: number;
-  guestCount?: number;
-  bathroomCount?: number;
-  description?: string;
-  locationValue: string;
-  category:
-    | {
-        icon: string;
-        label: string;
-        description: string;
-      }
-    | undefined;
-};
-
-// Define props
-const props = defineProps<ListingCardProps>();
-
-// Destructure the props directly from the props object
-const { listing, reservation, locationValue } = props;
-const { getByValue } = useCountries();
-const location = getByValue(listing.locationValue);
-
-const price = computed(() => (reservation ? reservation.totalPrice : listing.price));
-
-const reservationDate = computed(() => {
-  if (!reservation) return null;
-  const start = new Date(reservation?.startDate);
-  const end = new Date(reservation?.endDate);
-  return `${format(start, 'PP')} - ${format(end, 'PP')}`;
-});
-
-// Emit actions
-const emit = defineEmits(['action', 'favorited']);
-
-function action(id: string) {
-  emit('action', id);
-}
-
-function favorited(id: string) {
-  emit('favorited', id);
-}
-
-// Swiper modules and settings
-const modules = [Pagination, Navigation];
-
-// Parsing logic for listing images
-const parsedImages = computed(() => {
-  if (Array.isArray(listing.imageSrc)) {
-    return listing.imageSrc; // Return as-is if it's already an array
-  }
-
-  if (typeof listing.imageSrc === 'string') {
-    try {
-      // Step 1: Decode the URL-encoded string
-      const decodedStr = decodeURIComponent(listing.imageSrc);
-
-      // Step 2: Remove unnecessary characters {, }, and "
-      const cleanedStr = decodedStr.replace(/[{}"]/g, '');
-
-      // Step 3: Split by commas if there are multiple URLs and trim whitespace
-      const imageUrls = cleanedStr.split(',').map(url => url.trim());
-
-      // Optional: Filter out any empty strings resulting from the split
-      return imageUrls.filter(url => url.length > 0);
-    } catch (error) {
-      console.error('Error decoding imageSrc:', error);
-      return []; // Return an empty array in case of an error
-    }
-  }
-
-  // If imageSrc is neither an array nor a string, return an empty array
-  return [];
-});
-</script>
-
-
 
 <style scoped>
 .image-slider {
@@ -273,3 +176,100 @@ const parsedImages = computed(() => {
 </style>
 
 
+
+
+<script lang="ts" setup>
+import { format } from 'date-fns';
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import { Pagination, Navigation } from 'swiper/modules';
+import type { AuthUser, Listing } from '~/types'; // Ensure necessary types are imported
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import 'swiper/css/effect-cards';
+import 'swiper/css/bundle';
+
+type ListingCardProps = {
+  listing: Listing;
+  disabled?: boolean;
+  actionLabel?: string;
+  actionId?: string;
+  totalPrice?: number;
+  title?: string;
+  user: AuthUser;
+  roomCount?: number;
+  guestCount?: number;
+  bathroomCount?: number;
+  description?: string;
+  locationValue: string;
+  category:
+    | {
+        icon: string;
+        label: string;
+        description: string;
+      }
+    | undefined;
+};
+
+// Define props
+const props = defineProps<ListingCardProps>();
+
+// Destructure the props directly from the props object
+const { listing, reservation, locationValue } = props;
+const { getByValue } = useCountries();
+const location = getByValue(listing.locationValue);
+
+const price = computed(() => (reservation ? reservation.totalPrice : listing.price));
+
+const reservationDate = computed(() => {
+  if (!reservation) return null;
+  const start = new Date(reservation?.startDate);
+  const end = new Date(reservation?.endDate);
+  return `${format(start, 'PP')} - ${format(end, 'PP')}`;
+});
+
+// Emit actions
+const emit = defineEmits(['action', 'favorited']);
+
+function action(id: string) {
+  emit('action', id);
+}
+
+function favorited(id: string) {
+  emit('favorited', id);
+}
+
+// Swiper modules and settings
+const modules = [Pagination, Navigation];
+
+// Parsing logic for listing images
+const parsedImages = computed(() => {
+  if (Array.isArray(listing.imageSrc)) {
+    return listing.imageSrc; // Return as-is if it's already an array
+  }
+
+  if (typeof listing.imageSrc === 'string') {
+    try {
+      // Step 1: Decode the URL-encoded string
+      const decodedStr = decodeURIComponent(listing.imageSrc);
+
+      // Step 2: Remove unnecessary characters {, }, and "
+      const cleanedStr = decodedStr.replace(/[{}"]/g, '');
+
+      // Step 3: Split by commas if there are multiple URLs and trim whitespace
+      const imageUrls = cleanedStr.split(',').map(url => url.trim());
+
+      // Optional: Filter out any empty strings resulting from the split
+      return imageUrls.filter(url => url.length > 0);
+    } catch (error) {
+      console.error('Error decoding imageSrc:', error);
+      return []; // Return an empty array in case of an error
+    }
+  }
+
+  // If imageSrc is neither an array nor a string, return an empty array
+  return [];
+});
+</script>
