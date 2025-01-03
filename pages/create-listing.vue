@@ -201,14 +201,24 @@ function toggleSelection(label: string) {
           <Heading title="Choose What type of rental you offer?" subTitle="What type of rental you offer?" />
           <section class="flex flex-col w-full max-md:max-w-full">
             <div class="flex flex-wrap gap-4 justify-center items-start w-full max-md:max-w-full">
-              <button v-for="button in buttons" :key="button.label" :class="[
-                'flex gap-2.5 justify-center items-center px-5 py-2.5 text-sm font-medium whitespace-nowrap border-2 border-black border-solid rounded-[31px] transition-colors duration-300',
-                selectedButton === button.label ? 'bg-blue-500 text-white' : 'bg-neutral-100 text-black'
-              ]" @click="toggleSelection(button.label)">
-                <img :src="button.imgSrc" alt=""
-                  class="object-contain shrink-0 self-stretch my-auto aspect-square w-[18px]" />
-                <span class="self-stretch my-auto">{{ button.label }}</span>
-              </button>
+              <button
+      v-for="button in buttons"
+      :key="button.label"
+      :class="[
+        'flex gap-2.5 justify-center items-center px-5 py-2.5 text-sm font-medium whitespace-nowrap border-2 border-solid rounded-[31px] transition-colors duration-300',
+        selectedButton === button.label
+          ? 'bg-gray-500 border-black text-white'
+          : 'bg-neutral-100 border-black text-black'
+      ]"
+      @click="toggleSelection(button.label)"
+    >
+      <img
+        :src="button.imgSrc"
+        alt=""
+        class="object-contain shrink-0 self-stretch my-auto aspect-square w-[18px]"
+      />
+      <span class="self-stretch my-auto">{{ button.label }}</span>
+    </button>
             </div>
           </section>
           <div class="flex flex-col gap-4 md:flex-row pt-4">
@@ -350,5 +360,13 @@ input {
 .slide-leave {
   transform: translateX(0);
   /* After entering, return to original position */
+}
+
+.bg-gray-500 {
+  background-color: #6b7280;
+}
+
+.border-black {
+  border-color: #000;
 }
 </style>
