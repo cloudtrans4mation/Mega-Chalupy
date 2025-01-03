@@ -164,7 +164,7 @@ function toggleSelection(label: string) {
               @categorySelect="categorySelected" :label="thing.label" :icon="thing.icon" />
           </div>
           <div class="flex flex-col gap-4 md:flex-row pt-4">
-            <Button labe l="Back" outline @click="onBack" />
+            <Button label="Back" outline @click="onBack" />
             <Button style="background-color: blue;" label="Next" @click="onNext" />
           </div>
         </div>
@@ -185,6 +185,7 @@ function toggleSelection(label: string) {
         <div v-if="steps === STEPS.LOCATION">
           <Heading title="Where is your place located?" subTitle="Help guests find you!" />
           <ClientOnly>
+            <MapLibreLocation></MapLibreLocation>
             <CountrySelect :selectedCountry="listingValues?.locationValue" @countrySelect="locationSelected" />
             <Map :center="listingValues?.locationValue?.latlng" />
           </ClientOnly>
