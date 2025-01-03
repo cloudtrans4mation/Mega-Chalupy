@@ -69,7 +69,7 @@ async function register() {
     isLoading.value = true
 
     // Log data before sending to check if clientType is present
-    console.log('Sending Data to Backend:', registerData) 
+    console.log('Sending Data to Backend:', registerData)
 
     // Make a POST request to register the user
     const res = await $fetch('/api/v1/auth/register', {
@@ -113,7 +113,8 @@ useSeoMeta({
 
         <!-- Client Type Section -->
         <main class="flex flex-col items-center overflow-hidden">
-          <section class="flex gap-6 justify-center items-center w-full max-md:flex-col max-md:gap-4">
+          <section class="flex gap-12 justify-center items-center w-full max-md:flex-col max-md:gap-8 p-10"
+            style="height: 300px;">
             <article @click="setClientType('owner')"
               :class="['article-btn flex flex-col p-5 bg-white rounded-xl border border-solid shadow-lg border-black border-opacity-10 min-w-[100px] w-[400px] max-md:w-full cursor-pointer', { 'border-blue-500': isClientTypeSelected('owner') }]">
               <img loading="lazy"
