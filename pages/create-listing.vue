@@ -363,7 +363,7 @@ input {
 }
 
 .bg-gray-500 {
-  background-color: #6b7280;
+  background-color: #8e929e;
 }
 
 .border-black {
