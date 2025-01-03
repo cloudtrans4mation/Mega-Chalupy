@@ -201,24 +201,16 @@ function toggleSelection(label: string) {
           <Heading title="Choose What type of rental you offer?" subTitle="What type of rental you offer?" />
           <section class="flex flex-col w-full max-md:max-w-full">
             <div class="flex flex-wrap gap-4 justify-center items-start w-full max-md:max-w-full">
-              <button
-      v-for="button in buttons"
-      :key="button.label"
-      :class="[
-        'flex gap-2.5 justify-center items-center px-5 py-2.5 text-sm font-medium whitespace-nowrap border-2 border-solid rounded-[31px] transition-colors duration-300',
-        selectedButton === button.label
-          ? 'bg-gray-500 border-black text-white'
-          : 'bg-neutral-100 border-black text-black'
-      ]"
-      @click="toggleSelection(button.label)"
-    >
-      <img
-        :src="button.imgSrc"
-        alt=""
-        class="object-contain shrink-0 self-stretch my-auto aspect-square w-[18px]"
-      />
-      <span class="self-stretch my-auto">{{ button.label }}</span>
-    </button>
+              <button v-for="button in buttons" :key="button.label" :class="[
+                'flex gap-2.5 justify-center items-center px-5 py-2.5 text-sm font-medium whitespace-nowrap border-2 border-solid rounded-[31px] transition-colors duration-300',
+                selectedButton === button.label
+                  ? 'bg-gray-500 border-black text-white'
+                  : 'bg-neutral-100 border-black text-black'
+              ]" @click="toggleSelection(button.label)">
+                <img :src="button.imgSrc" alt=""
+                  class="object-contain shrink-0 self-stretch my-auto aspect-square w-[18px]" />
+                <span class="self-stretch my-auto">{{ button.label }}</span>
+              </button>
             </div>
           </section>
           <div class="flex flex-col gap-4 md:flex-row pt-4">
@@ -277,25 +269,26 @@ function toggleSelection(label: string) {
         <div class="flex flex-col gap-8" v-if="steps === STEPS.PUBLISH">
           <section class="flex flex-wrap gap-10 justify-between items-center w-full max-md:max-w-full">
             <div class="flex flex-wrap gap-10 justify-between items-center w-full max-md:max-w-full">
-              <article class="flex flex-col self-stretch my-auto min-w-[240px] w-[342px]">
+              <article class="flex flex-col self-stretch my-auto min-w-[240px] w-[342px] max-md:w-full">
                 <header class="flex flex-col w-full">
-                  <h2 lass="text-sm font-bold leading-none text-neutral-500">Step 3</h2>
+                  <h2 class="text-sm font-bold leading-none text-neutral-500">Step 3</h2>
                   <h1 class="mt-4 text-4xl font-semibold leading-[50px] text-slate-800">
                     Finish up and publish
                   </h1>
                 </header>
-                <p class="mt-16 text-lg text-black max-md:mt-10">
+                <p class="mt-8 text-lg text-black max-md:mt-6">
                   Finally, you'll choose booking settings...
                 </p>
-
+              </article>
+              <div class="relative flex items-center justify-center w-[342px] h-[342px] max-md:w-full max-md:h-auto">
                 <video loading="eager" src="public/finish.mp4"
                   alt="Illustration representing the finish and publish step"
-                  class="object-contain self-stretch my-auto aspect-square min-w-[240px] w-[70px] max-md:max-w-full"
-                  autoplay muted loop>
-                </video>
-              </article>
+                  class="object-contain self-stretch my-auto aspect-square min-w-[240px] w-full h-full max-md:max-w-full"
+                  autoplay muted loop></video>
+              </div>
             </div>
           </section>
+
           <div class="flex flex-col gap-4 md:flex-row">
             <Button label="Back" outline @click="onBack" />
             <Button label="Create" @click="createListing" style="background-color: blue;" />
@@ -369,4 +362,6 @@ input {
 .border-black {
   border-color: #000;
 }
+
+
 </style>
