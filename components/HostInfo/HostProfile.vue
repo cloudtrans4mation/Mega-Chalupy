@@ -16,7 +16,7 @@
                     <div class="flex relative flex-col max-w-full w-[104px]">
                         <!-- Avatar with badge -->
                         <div class="relative w-full">
-                            <img loading="lazy" :src="user.image" alt="Profile picture of Joe Biden"
+                            <img  :src="user.image" 
                                 class="object-cover w-full aspect-square rounded-full" />
 
                             <!-- Verified badge -->

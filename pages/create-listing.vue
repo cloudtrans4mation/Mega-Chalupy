@@ -215,7 +215,7 @@ function toggleSelection(label: string) {
           </ClientOnly>
           <div class="flex flex-col gap-4 md:flex-row pt-4">
             <Button label="Back" outline @click="onBack" />
-            <Button style="background-color: blue;" :disabled="!listingValues.locationValue" label="Next"
+            <Button style="background-color: blue;"  label="Next"
               @click="onNext" />
           </div>
         </div>
@@ -274,7 +274,7 @@ function toggleSelection(label: string) {
             :error="errors.description" required />
           <div class="flex flex-col gap-4 md:flex-row pt-4">
             <Button label="Back" outline @click="onBack" />
-            <Button style="background-color: blue;" :disabled="!listingValues.title || !listingValues.description"
+            <Button style="background-color: blue;" 
               label="Next" @click="onNext" />
           </div>
         </div>

@@ -1,42 +1,23 @@
 <template>
   <section class="flex flex-col font-semibold text-center" aria-label="Image Gallery">
-    <NuxtImg
-        v-if="parsedImages[0]"
-        provider="cloudinary"
-        sizes="100vw sm:80vw md:60vw lg:50vw"
-        :src="parsedImages[0]"
-        :alt="`Main Image of ${listing.title}`"
-        format="webp"
-        class="object-cover w-full h-96 transition-transform duration-300 transform hover:scale-110 rounded-xl"
-      />
+    <NuxtImg v-if="parsedImages[0]" provider="cloudinary" sizes="100vw sm:80vw md:60vw lg:50vw" :src="parsedImages[0]"
+      :alt="`Main Image of ${listing.title}`" format="webp"
+      class="object-cover w-full h-96 transition-transform duration-300 transform hover:scale-110 rounded-xl" />
     <div class="flex flex-wrap justify-between mt-5 w-full max-md:max-w-full">
       <div
         class="flex flex-wrap flex-1 shrink gap-2.5 h-full text-4xl leading-5 basis-[100px] min-w-[240px] text-neutral-800 max-md:max-w-full"
-        role="list"
-      >
+        role="list">
 
-      <NuxtImg
-        provider="cloudinary"
-        tabindex="0"
+        <NuxtImg v-if="parsedImages[1]" provider="cloudinary" tabindex="0" sizes="100vw sm:80vw md:60vw lg:50vw"
+          :src="parsedImages[1]" format="webp"
+          class="object-contain flex-1 shrink gap-1.5 py-1.5 rounded-md aspect-[1.32] basis-0 w-[212px]" />
 
-        sizes="100vw sm:80vw md:60vw lg:50vw"
-        :src="parsedImages[1]"
-        :alt="`Main Image of ${listing.title}`"
-        format="webp"
-        class="object-contain flex-1 shrink gap-1.5 py-1.5 rounded-md aspect-[1.32] basis-0 w-[212px]"/>
-
-  
-        <NuxtImg
-        provider="cloudinary"
-        tabindex="0"
-        sizes="100vw sm:80vw md:60vw lg:50vw"
-        :src="parsedImages[2]"
-        :alt="`Main Image of ${listing.title}`"
-        format="webp"
-        class="object-contain flex-1 shrink gap-1.5 py-1.5 rounded-md aspect-[1.32] basis-0 w-[212px]"/>
+        <!-- Check if parsedImages[2] exists before rendering the second image -->
+        <NuxtImg v-if="parsedImages[2]" provider="cloudinary" tabindex="0" sizes="100vw sm:80vw md:60vw lg:50vw"
+          :src="parsedImages[2]" format="webp"
+          class="object-contain flex-1 shrink gap-1.5 py-1.5 rounded-md aspect-[1.32] basis-0 w-[212px]" />
 
 
-      
       </div>
     </div>
   </section>
