@@ -55,17 +55,21 @@ const showSearch = computed(() => {
 
       <!-- Main content -->
       <div>
+        <!-- Empty State -->
         <IsEmpty v-if="!isLoading && allListings?.length === 0" :showReset="true" />
 
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mx-auto max-w-screen-xl px-4"
+        <!-- Listings Grid -->
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mx-auto max-w-screen-xl px-4 sm:px-6 md:px-8 xl:px-[100px]"
           style="text-align: center;" v-if="allListings && allListings.length > 0">
           <ReservationListingCard v-for="listing in allListings" :listing="listing" :key="listing.id"
             class="flex justify-center items-center" />
         </div>
 
-
+        <!-- Infinite Scroll Observer -->
         <Observer @intersect="fetchNextSet" />
+
+        <!-- Loading State -->
         <LoadingListingCards :cards="12" v-if="isLoading" />
       </div>
     </Container>
