@@ -1,6 +1,6 @@
 <template>
   <section
-    class=" max-w-[2520px] mx-auto px-4 sm:px-2 md:px-6 xl:px-10 flex overflow-hidden flex-col items-start font-bold text-zinc-700 px-8 md:px-16 lg:px-24 pt-12 pb-12"
+    class="max-w-[2520px] mx-auto px-4 sm:px-2 md:px-6 xl:px-[100px] flex overflow-hidden flex-col items-start font-bold text-zinc-700 pt-12 pb-12"
     aria-labelledby="airbnb-plus-title"
   >
     <h1 id="airbnb-plus-title" class="text-2xl">Mega ChalupyPlus Accommodations</h1>
@@ -10,7 +10,7 @@
     <div
       class="flex relative flex-col justify-center items-center self-stretch px-20 py-14 mt-6 w-full text-xs uppercase rounded min-h-[310px] max-md:px-5 max-md:max-w-full"
       role="img"
-      aria-label="Background image representing an Mega ChalupyPlus accommodation"
+      aria-label="Background image representing a Mega ChalupyPlus accommodation"
     >
       <img
         loading="lazy"
@@ -47,6 +47,6 @@
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-  name: 'Mega ChalupyPlusHero',
+  name: 'MegaChalupyPlusHero',
 });
 </script>

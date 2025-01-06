@@ -1,6 +1,6 @@
 <template>
   <section
-    class="max-w-[2520px] mx-auto px-4 sm:px-2 md:px-6 xl:px-10 flex flex-wrap items-center font-medium py-10 md:py-16 lg:py-20 bg-gray-50 rounded-2xl max-w-6xl mx-auto gap-10 md:gap-16">
+    class="max-w-[2520px] mx-auto px-4 sm:px-2 md:px-6 xl:px-[100px] flex flex-wrap items-center font-medium py-10 md:py-16 lg:py-20  rounded-2xl gap-10 md:gap-16">
     <!-- Text Container -->
     <div class="flex flex-col flex-1 shrink-0 min-w-[240px] md:basis-1/2 lg:basis-5/12 space-y-6">
       <h1 class="text-4xl md:text-5xl font-bold text-black leading-tight">
@@ -25,7 +25,6 @@
     </div>
   </section>
 </template>
-
 
 <script lang="ts">
 import { defineComponent } from 'vue';

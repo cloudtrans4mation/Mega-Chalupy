@@ -2,7 +2,6 @@
 import { useToast } from 'vue-toastification'
 import Search from '../components/nav/Search.vue'
 import AlwaysPresentFooter from '~/components/AlwaysPresentFooter.vue';
-import InspirationSection from '~/components/InspirationSection.vue';
 const router = useRouter()
 const route = useRoute()
 const toast = useToast()
@@ -14,7 +13,6 @@ setTimeout(() => {
 }, 3000); // 3 seconds
 
 import GiftCard from '~/components/GiftCard.vue';
-import PastExperiencesSection from '~/components/past-experiences/PastExperiencesSection.vue';
 
 const { allListings, isLoading, fetchNextSet } = useFilteredPagination()
 
@@ -78,7 +76,7 @@ const showSearch = computed(() => {
 
     <ExploreByTypeSection></ExploreByTypeSection>
 
-
+    <InspirujSe></InspirujSe>
     <GiftCard></GiftCard>
     <Search />
     <MegaChalupyPlusSection></MegaChalupyPlusSection>
