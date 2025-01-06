@@ -15,7 +15,7 @@ export enum STEPS {
   TYPE = 10,
   DESCRIPTION = 11,
   PRICE = 12,
-  PUBLISH = 13 
+  PUBLISH = 13
 }
 
 export const STEP_LABELS = {
@@ -48,7 +48,7 @@ export function useCreateListing() {
     price: 1,
     title: '',
     description: '',
-  
+
     // Additional fields
     cotAvailability: 'true', // Default as empty string or null if optional
     ownersMessage: 'Welcome', // Default as empty string or null if optional
@@ -60,7 +60,7 @@ export function useCreateListing() {
     squareMeterCount: 1, // Default as 1
     smokingAllowance: 'Allowed', // Default to an allowed enum value
     propertyType: 'Entire', // Default to an enum value
-  
+
     // Selection fields
     PropertyAccessoriesSelected: 'dd',
     PropertyGuidelinesSelected: 'dd',
@@ -68,10 +68,10 @@ export function useCreateListing() {
     AccommodationSelectionSelected: 'dd',
     RoomAmenitiesSelected: 'dd',
 
-    MapLibreLocation:'',        // New function for map location
-    FullAddress:'',             // New function for full address
+    MapLibreLocation: '',        // New function for map location
+    FullAddress: '',             // New function for full address
   });
-  
+
 
   const isLoading = ref(false)
   const steps = ref(STEPS.GETTINGSTARTED)
@@ -207,59 +207,55 @@ export function useCreateListing() {
     localStorage.removeItem(EXPIRATION_KEY)
   }
   ///////////////////////////////////
-// Function to set PropertyAccessoriesSelected
-function setPropertyAccessoriesSelected(accessories: string) {
-  listingValues.PropertyAccessoriesSelected = accessories;
-  saveToLocalStorage()
+  // Function to set PropertyAccessoriesSelected
+  function setPropertyAccessoriesSelected(accessories: string) {
+    listingValues.PropertyAccessoriesSelected = accessories;
+    saveToLocalStorage()
 
-}
+  }
 
-// Function to set PropertyGuidelinesSelected
-function setPropertyGuidelinesSelected(guidelines: string) {
-  listingValues.PropertyGuidelinesSelected = guidelines;
-  saveToLocalStorage()
+  // Function to set PropertyGuidelinesSelected
+  function setPropertyGuidelinesSelected(guidelines: string) {
+    listingValues.PropertyGuidelinesSelected = guidelines;
+    saveToLocalStorage()
 
-}
+  }
 
-function setMapLibreLocation(guidelines: string) {
-  listingValues.PropertyGuidelinesSelected = guidelines;
-  saveToLocalStorage()
+  function setMapLibreLocation(MapLibreLocation: any) {
+    listingValues.PropertyGuidelinesSelected = MapLibreLocation;
+    saveToLocalStorage()
 
-}
+  }
 
-function setCountrySelected(guidelines: string) {
-  listingValues.PropertyGuidelinesSelected = guidelines;
-  saveToLocalStorage()
+ 
 
-}
+  function setFullAddress(fullAddress: any) {
+    listingValues.FullAddress = fullAddress;
+    saveToLocalStorage()
 
-function setFullAddress(fullAddress: string) {
-  listingValues.f = guidelines;
-  saveToLocalStorage()
-
-}
+  }
 
 
-// Function to set RoomInfoFormSelected
-function setRoomInfoFormSelected(roomInfo: string) {
-  listingValues.RoomInfoFormSelected = roomInfo;
-  saveToLocalStorage()
+  // Function to set RoomInfoFormSelected
+  function setRoomInfoFormSelected(roomInfo: string) {
+    listingValues.RoomInfoFormSelected = roomInfo;
+    saveToLocalStorage()
 
-}
+  }
 
-// Function to set AccommodationSelectionSelected
-function setAccommodationSelectionSelected(accommodation: string) {
-  listingValues.AccommodationSelectionSelected = accommodation;
-  saveToLocalStorage()
+  // Function to set AccommodationSelectionSelected
+  function setAccommodationSelectionSelected(accommodation: string) {
+    listingValues.AccommodationSelectionSelected = accommodation;
+    saveToLocalStorage()
 
-}
+  }
 
-// Function to set RoomAmenitiesSelected
-function setRoomAmenitiesSelected(amenities: string) {
-  listingValues.RoomAmenitiesSelected = amenities;
-  saveToLocalStorage()
+  // Function to set RoomAmenitiesSelected
+  function setRoomAmenitiesSelected(amenities: string) {
+    listingValues.RoomAmenitiesSelected = amenities;
+    saveToLocalStorage()
 
-}
+  }
 
 
 
