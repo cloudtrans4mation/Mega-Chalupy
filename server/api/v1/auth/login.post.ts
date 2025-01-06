@@ -3,6 +3,7 @@ import { db } from '~/server/db/drizzle'
 import { user } from '~/server/db/schema'
 import { verify } from '@node-rs/argon2'
 import { LoginSchema } from '~/zod-schemas/auth-schemas'
+import { lucia } from "~/server/utils/auth/lucia"
 
 export default defineEventHandler(async event => {
   const parseResult = await readValidatedBody(event, LoginSchema.safeParse)
