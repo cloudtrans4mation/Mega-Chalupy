@@ -87,16 +87,16 @@ export const listing = pgTable('listings', {
   RoomAmenitiesSelected: text('room_amenities_selected'),
 
   // New fields for location and address-related components
-  mapLibreLocationLongitude: integer('map_libre_location_longitude').optional(),
-  mapLibreLocationLatitude: integer('map_libre_location_latitude').optional(),
+  mapLibreLocationLongitude: integer('map_libre_location_longitude') ,
+  mapLibreLocationLatitude: integer('map_libre_location_latitude') ,
 
-  countrySelectedCode: text('country_selected_code').optional(),
-  countrySelectedName: text('country_selected_name').optional(),
+  countrySelectedCode: text('country_selected_code') ,
+  countrySelectedName: text('country_selected_name') ,
 
-  fullAddressStreet: text('full_address_street').optional(),
-  fullAddressApt: text('full_address_apt').optional(),
-  fullAddressCity: text('full_address_city').optional(),
-  fullAddressRegion: text('full_address_region').optional(),
+  fullAddressStreet: text('full_address_street') ,
+  fullAddressApt: text('full_address_apt') ,
+  fullAddressCity: text('full_address_city') ,
+  fullAddressRegion: text('full_address_region') ,
 
   createdAt: timestamp('created_at').defaultNow().notNull(),
   updatedAt: timestamp('updated_at').$onUpdate(() => new Date()),
