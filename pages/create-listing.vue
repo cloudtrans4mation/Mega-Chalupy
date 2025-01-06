@@ -324,7 +324,7 @@ function toggleSelection(label: string) {
   </section>
 
 
-  <!-- <NavigationForm :currentStep="currentStep.toString()" :currentTitle="currentTitle" :currentNumber="currentNumber" /> -->
+  <NavigationForm :currentStep="currentStep" :currentTitle="currentTitle" :currentNumber="currentNumber" />
 
 </template>
 

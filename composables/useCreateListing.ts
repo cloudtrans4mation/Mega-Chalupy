@@ -284,7 +284,6 @@ export function useCreateListing() {
     setAccommodationSelectionSelected,
     setRoomAmenitiesSelected,
     setMapLibreLocation,
-    setCountrySelected,
     setFullAddress
   }
 }
