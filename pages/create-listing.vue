@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { categories, things, buttons } from '~/data/constants'
+import { categories, things, buttons } from '~/data/constants';
 import { ref } from 'vue';
 import AccommodationSelection from '~/components/host-special/AccommodationSelection.vue';
 import RoomAmenities from '~/components/host-special/RoomAmenities.vue';
@@ -10,7 +10,8 @@ import GettingStarted from '~/components/GettingStarted.vue';
 import ImageUploadForListingCreation from '~/components/ImageUploadForListingCreation.vue';
 import FullAddress from '~/components/FullAddress.vue';
 
-
+// Initialize `formValues` to store data from FullAddress
+const formValues = ref<Record<string, any>>({});
 
 // Import your custom hook or methods
 const {
@@ -33,9 +34,7 @@ const {
   setRoomAmenitiesSelected,
 } = useCreateListing();
 
-
-
-
+// Set SEO metadata
 useSeoMeta({
   title: 'Create Listing',
 });
@@ -46,21 +45,21 @@ const currentStep = ref(STEPS.GETTINGSTARTED);
 const currentTitle = ref('');
 const currentNumber = ref(0);
 
-// Function to update navigation titles and step numbers
-const updateNavigation = (title: string, number: number) => {
-  currentTitle.value = title;
-  currentNumber.value = number;
-};
+// Function to handle form data emitted by FullAddress
+function handleFormChange(updatedForm: any) {
+  formValues.value = updatedForm; // Update formValues with emitted data
+  console.log('Received Form Data:', formValues.value); // Debug or process the data as needed
+}
 
-
-function handleGeocode(address:any) {
-    console.log("Selected address:", address);
-  }
+// Function to handle geocode data emitted by FullAddress
+function handleGeocode(address: any) {
+  console.log('Selected address:', address);
+}
 
 // Function to toggle selection state for buttons
 function toggleSelection(label: string) {
   selectedButton.value = selectedButton.value === label ? null : label;
-  currentStep.value = STEPS.GETTINGSTARTED; // Default to first step
+  currentStep.value = STEPS.GETTINGSTARTED; // Default to the first step
 
   const stepMap = {
     'Getting Started': STEPS.GETTINGSTARTED,
@@ -78,11 +77,12 @@ function toggleSelection(label: string) {
     'Finish up': STEPS.PUBLISH,
   };
 
-  if (stepMap[label]) currentStep.value = stepMap[label];
+  if (stepMap[label]) {
+    currentStep.value = stepMap[label];
+  }
 }
-
-
 </script>
+
 
 
 <template>
@@ -191,10 +191,11 @@ function toggleSelection(label: string) {
         <div v-if="steps === STEPS.LOCATION">
           <Heading title="Where is your place located?" subTitle="Help guests find you!" />
           <ClientOnly>
-            <CountrySelect :selectedCountry="listingValues?.locationValue" @countrySelect="locationSelected" />
-            <MapLibreLocation @update:geocode="handleGeocode" ></MapLibreLocation>
-
-            <FullAddress></FullAddress>
+            <div class="component-container">
+              <MapLibreLocation @update:geocode="handleGeocode" />
+              <CountrySelect :selectedCountry="listingValues?.locationValue" @countrySelect="locationSelected" />
+              <FullAddress @formChange="handleFormChange" />
+            </div>
 
             <!-- <Map :center="listingValues?.locationValue?.latlng" /> -->
           </ClientOnly>
@@ -372,5 +373,21 @@ input {
   border-color: #000;
 }
 
+.component-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  /* Adjust this value to control the spacing */
+  padding: 10px;
+  /* Optional: add some padding around the entire container */
+}
 
+@media (max-width: 768px) {
+  .component-container {
+    gap: 15px;
+    /* Adjust the gap for smaller screens if needed */
+    padding: 8px;
+    /* Adjust the padding for smaller screens */
+  }
+}
 </style>

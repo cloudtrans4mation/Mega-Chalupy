@@ -12,7 +12,6 @@ export default {
   emits: ["update:geocode"], // Define the event to emit geocode value
   setup(_, { emit }) {
     onMounted(() => {
-      // Load Maplibre and Geocoder styles dynamically
       const loadStyles = (href) => {
         const link = document.createElement("link");
         link.rel = "stylesheet";
@@ -39,7 +38,6 @@ export default {
       document.head.appendChild(maplibreScript);
 
       function initializeMap() {
-        // Initialize the map
         const map = new maplibregl.Map({
           container: "map",
           style: {
@@ -57,7 +55,7 @@ export default {
               {
                 id: "background",
                 type: "background",
-                paint: { "background-color": "#e0dfdf" },
+                paint: { "background-color": "#f7f7f7" },
               },
               {
                 id: "simple-tiles",
@@ -70,7 +68,6 @@ export default {
           zoom: 2,
         });
 
-        // Geocoder API configuration
         const geocoderApi = {
           forwardGeocode: async (config) => {
             const features = [];
@@ -101,27 +98,24 @@ export default {
           },
         };
 
-        // Add geocoder control to the map
         const geocoder = new MaplibreGeocoder(geocoderApi, {
           maplibregl,
         });
         map.addControl(geocoder);
 
-        // Emit geocode value when the user selects a result
         geocoder.on("result", (e) => {
-          const location = e.result.place_name; // Get selected place name
-          emit("update:geocode", location); // Emit the geocode value to the parent component
+          const location = e.result.place_name;
+          emit("update:geocode", location);
         });
 
-        // Style the geocoder input field to center it
         const geocoderInput = document.querySelector(".maplibregl-geocoder");
         if (geocoderInput) {
           geocoderInput.style.position = "absolute";
-          geocoderInput.style.top = "20px";
+          geocoderInput.style.top = "10px";
           geocoderInput.style.left = "50%";
           geocoderInput.style.transform = "translateX(-50%)";
           geocoderInput.style.zIndex = "1";
-          geocoderInput.style.width = "300px";
+          geocoderInput.style.width = "280px";
         }
       }
     });
@@ -132,12 +126,21 @@ export default {
 <style scoped>
 .map-container {
   width: 100%;
-  height: 100vh;
+  height: 400px; /* Adjusted for a smaller size */
   position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 #map {
   width: 100%;
   height: 100%;
+}
+
+@media (max-width: 768px) {
+  .map-container {
+    height: 300px; /* Further adjustment for smaller screens */
+  }
 }
 </style>
