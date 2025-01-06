@@ -38,6 +38,9 @@ export const PropertyAccessoriesSchema = z.enum([
   'Media & Technology',
   'Outdoor Space',
 ]);
+
+
+/************************************* */
 export const ListingValuesSchema = z.object({
   category: z.string().min(1, { message: 'Category is required' }),
   locationValue: CountrySelectValueSchema.optional().refine(val => val != null, {
@@ -51,39 +54,64 @@ export const ListingValuesSchema = z.object({
   title: z.string().min(3, { message: 'Title must be at least 3 characters' }),
   description: DescriptionSchema,
   imagePublicId: PublicIdSchema,
-  
+
   // Additional UI fields
   cotAvailability: z.string().min(1, { message: 'Cot availability is required' }).optional(),
   ownersMessage: z.string().optional(),
-  
+
   // Children guidelines
   childrenAllowance: z.enum(['Allowed', 'Not Allowed']).optional(),
   cotAvailabilityChild: z.enum(['Available', 'Not Available']).optional(),
-  
+
   // Check-in and Check-out guidelines
   checkInDate: z.string().optional(),
   checkOutDate: z.string().optional(),
-  
+
   // Neighboring activities setup
   neighboringActivity: z.string().optional(),
-  
+
   // Events setup
   eventsAllowance: z.enum(['Allowed', 'Not Allowed']).optional(),
+
   // New fields for the uploaded image
   numberOfRooms: z.number().min(1, { message: 'At least 1 room is required' }),
   squareMeterCount: z.number().min(1, { message: 'Square meter count must be greater than 0' }),
   smokingAllowance: z.enum(['Allowed', 'Not Allowed']).optional().default('Allowed'),
+
   // Property type
   propertyType: z.enum(['Entire', 'Room', 'Shared']).optional(),
+
   // Property accessories
   propertyAccessories: z.array(PropertyAccessoriesSchema).optional(),
+
   // New fields for property selections
   PropertyAccessoriesSelected: z.string().optional(),
-  // PropertyGuidelinesSelected: z.string().optional(),
   RoomInfoFormSelected: z.string().optional(),
   AccommodationSelectionSelected: z.string().optional(),
   RoomAmenitiesSelected: z.string().optional(),
+
+  // New fields for location and address-related components
+  mapLibreLocation: z.object({
+    longitude: z.number().optional(),
+    latitude: z.number().optional(),
+  }).optional(),
+
+  countrySelected: z.object({
+    code: z.string().optional(),
+    name: z.string().optional(),
+  }).optional(),
+
+  fullAddress: z.object({
+    street: z.string().optional(),
+    apt: z.string().optional(),
+    city: z.string().optional(),
+    region: z.string().optional(),
+  }).optional(),
 });
+
+
+/************************************* */
+
 export const ReservationSchema = z.object({
   listingId: z.string().min(16, { message: 'Invalid listing ID' }),
   startDate: z

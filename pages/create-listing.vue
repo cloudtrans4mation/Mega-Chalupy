@@ -9,6 +9,7 @@ import PropertyGuidelines from '~/components/host-special/room-info-form/Propert
 import GettingStarted from '~/components/GettingStarted.vue';
 import ImageUploadForListingCreation from '~/components/ImageUploadForListingCreation.vue';
 import FullAddress from '~/components/FullAddress.vue';
+import { toRaw } from 'vue';
 
 // Initialize `formValues` to store data from FullAddress
 const formValues = ref<Record<string, any>>({});
@@ -48,7 +49,9 @@ const currentNumber = ref(0);
 // Function to handle form data emitted by FullAddress
 function handleFormChange(updatedForm: any) {
   formValues.value = updatedForm; // Update formValues with emitted data
-  console.log('Received Form Data:', formValues.value); // Debug or process the data as needed
+  const rawData = toRaw(formValues.value);
+
+  console.log('Received Form Data:', rawData); // Debug or process the data as needed
 }
 
 // Function to handle geocode data emitted by FullAddress

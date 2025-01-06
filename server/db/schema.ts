@@ -64,7 +64,7 @@ export const listing = pgTable('listings', {
   locationValue: text('location_value').notNull(),
   price: integer('price').notNull(),
 
-  //PropertyGuidelinesSelected 
+  // Property Guidelines
   cotAvailability: text('cot_availability'), // String field with nullable option
   ownersMessage: text('owners_message'),
   childrenAllowance: text('children_allowance'), // Enum but treated as text in DB
@@ -85,6 +85,18 @@ export const listing = pgTable('listings', {
   RoomInfoFormSelected: text('room_info_form_selected'),
   AccommodationSelectionSelected: text('accommodation_selection_selected'),
   RoomAmenitiesSelected: text('room_amenities_selected'),
+
+  // New fields for location and address-related components
+  mapLibreLocationLongitude: integer('map_libre_location_longitude').optional(),
+  mapLibreLocationLatitude: integer('map_libre_location_latitude').optional(),
+
+  countrySelectedCode: text('country_selected_code').optional(),
+  countrySelectedName: text('country_selected_name').optional(),
+
+  fullAddressStreet: text('full_address_street').optional(),
+  fullAddressApt: text('full_address_apt').optional(),
+  fullAddressCity: text('full_address_city').optional(),
+  fullAddressRegion: text('full_address_region').optional(),
 
   createdAt: timestamp('created_at').defaultNow().notNull(),
   updatedAt: timestamp('updated_at').$onUpdate(() => new Date()),
