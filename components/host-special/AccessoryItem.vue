@@ -9,11 +9,7 @@
       <img :src="icon" :alt="title" class="object-contain shrink-0 self-stretch my-auto aspect-square w-[30px]" />
       <span class="my-auto">{{ title }}</span>
     </div>
-
     <!-- Checkbox Section -->
-
-
-
     <label class="checkbox-label">
       <input type="checkbox" class="checkbox-input" :checked="selected" @change="handleChange" />
       <span class="checkbox-custom">
@@ -23,10 +19,6 @@
         <span class="checkmark">&#10003;</span>
       </span>
     </label>
-
-   
-
-
   </div>
 </template>
 
@@ -34,7 +26,6 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-
 export default defineComponent({
   name: 'AccessoryItem',
   props: {
@@ -70,13 +61,11 @@ export default defineComponent({
   gap: 10px;
   /* Increased gap between checkbox and label */
 }
-
 .checkbox-input {
   position: absolute;
   opacity: 0;
   cursor: pointer;
 }
-
 .checkbox-custom {
   position: relative;
   display: flex;
@@ -89,12 +78,10 @@ export default defineComponent({
   border: 2px solid black;
   transition: background-color 0.3s ease, border-color 0.3s ease;
 }
-
 .checkbox-custom:hover {
   background-color: #f0f0f0;
   border-color: #333;
 }
-
 .checkmark {
   font-size: 18px;
   color: black;
