@@ -19,29 +19,29 @@
             class="flex flex-wrap flex-1 shrink gap-1 items-center self-stretch text-xs text-slate-800 max-md:flex-col max-md:gap-3">
             <!-- Destination Input -->
             <div
-  class="flex items-center flex-1 gap-3.5 py-3 pr-11 pl-3 bg-white border border-gray-300 rounded-[34px] max-md:pr-5 relative z-[1]">
-  <img loading="lazy"
-    src="https://cdn.builder.io/api/v1/image/assets/5b20c0d534a34f0091744edaaeed1afd/22d987ef3af71f26e034623e9c561f36ad62f9aed60361d37089f9b4764a1878?apiKey=5b20c0d534a34f0091744edaaeed1afd&"
-    class="w-4 h-4 object-contain" alt="" />
-  <label for="destination" class="sr-only">Destination</label>
-  <MenubarRoot v-model="currentMenu" class="flex-1">
-    <MenubarMenu value="file" class="w-full">
-      <MenubarTrigger
-        class="w-full flex items-center justify-between gap-[2px] font-semibold rounded text-grass11 text-[13px] hover:bg-green4 transition-colors">
-        <input type="text" id="destination" :value="selectedDestination" placeholder="Going to"
-          class="flex-1 text-sm bg-transparent border-none outline-none placeholder-gray-400" />
-      </MenubarTrigger>
-      <MenubarPortal>
-        <MenubarContent style="z-index: 9999;" class="min-w-[220px] bg-white rounded-md p-[5px] shadow-lg">
-          <MenubarItem class="flex items-center rounded hover:bg-green4">
-            <DestinationSelect @destination-selected="updateSelectedDestination" />
-          </MenubarItem>
-          <!-- Additional items here... -->
-        </MenubarContent>
-      </MenubarPortal>
-    </MenubarMenu>
-  </MenubarRoot>
-</div>
+              class="flex items-center flex-1 gap-3.5 py-3 pr-11 pl-3 bg-white border border-gray-300 rounded-[34px] max-md:pr-5 relative z-[1]">
+              <img loading="lazy"
+                src="https://cdn.builder.io/api/v1/image/assets/5b20c0d534a34f0091744edaaeed1afd/22d987ef3af71f26e034623e9c561f36ad62f9aed60361d37089f9b4764a1878?apiKey=5b20c0d534a34f0091744edaaeed1afd&"
+                class="w-4 h-4 object-contain" alt="" />
+              <label for="destination" class="sr-only">Destination</label>
+              <MenubarRoot v-model="currentMenu" class="flex-1">
+                <MenubarMenu value="file" class="w-full">
+                  <MenubarTrigger
+                    class="w-full flex items-center justify-between gap-[2px] font-semibold rounded text-grass11 text-[13px] hover:bg-green4 transition-colors">
+                    <input type="text" id="destination" :value="selectedDestination" placeholder="Going to"
+                      class="flex-1 text-sm bg-transparent border-none outline-none placeholder-gray-400" />
+                  </MenubarTrigger>
+                  <MenubarPortal>
+                    <MenubarContent style="z-index: 9999;" class="min-w-[220px] bg-white rounded-md p-[5px] shadow-lg">
+                      <MenubarItem class="flex items-center rounded hover:bg-green4">
+                        <DestinationSelect @destination-selected="updateSelectedDestination" />
+                      </MenubarItem>
+                      <!-- Additional items here... -->
+                    </MenubarContent>
+                  </MenubarPortal>
+                </MenubarMenu>
+              </MenubarRoot>
+            </div>
 
             <!-- Dates Input -->
             <div
