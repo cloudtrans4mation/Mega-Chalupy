@@ -37,6 +37,9 @@ main {
 /* Adjust grid container for fewer items */
 .grid {
   display: grid;
-  justify-content: center; /* Center items horizontally */
-  align-content: center; /* Center items vertically if fewer rows */
-}</style>
+  justify-content: center;
+  /* Center items horizontally */
+  align-content: center;
+  /* Center items vertically if fewer rows */
+}
+</style>
