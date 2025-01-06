@@ -8,6 +8,7 @@ import RoomInfoForm from '~/components/host-special/room-info-form/RoomInfoForm.
 import PropertyGuidelines from '~/components/host-special/room-info-form/PropertyGuidelines.vue';
 import GettingStarted from '~/components/GettingStarted.vue';
 import ImageUploadForListingCreation from '~/components/ImageUploadForListingCreation.vue';
+import FullAddress from '~/components/FullAddress.vue';
 
 
 
@@ -192,6 +193,9 @@ function toggleSelection(label: string) {
           <ClientOnly>
             <CountrySelect :selectedCountry="listingValues?.locationValue" @countrySelect="locationSelected" />
             <MapLibreLocation @update:geocode="handleGeocode" ></MapLibreLocation>
+
+            <FullAddress></FullAddress>
+
             <!-- <Map :center="listingValues?.locationValue?.latlng" /> -->
           </ClientOnly>
           <div class="flex flex-col gap-4 md:flex-row pt-4">
