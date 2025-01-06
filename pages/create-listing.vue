@@ -51,6 +51,11 @@ const updateNavigation = (title: string, number: number) => {
   currentNumber.value = number;
 };
 
+
+function handleGeocode(address:any) {
+    console.log("Selected address:", address);
+  }
+
 // Function to toggle selection state for buttons
 function toggleSelection(label: string) {
   selectedButton.value = selectedButton.value === label ? null : label;
@@ -185,9 +190,9 @@ function toggleSelection(label: string) {
         <div v-if="steps === STEPS.LOCATION">
           <Heading title="Where is your place located?" subTitle="Help guests find you!" />
           <ClientOnly>
-            <MapLibreLocation></MapLibreLocation>
             <CountrySelect :selectedCountry="listingValues?.locationValue" @countrySelect="locationSelected" />
-            <Map :center="listingValues?.locationValue?.latlng" />
+            <MapLibreLocation @update:geocode="handleGeocode" ></MapLibreLocation>
+            <!-- <Map :center="listingValues?.locationValue?.latlng" /> -->
           </ClientOnly>
           <div class="flex flex-col gap-4 md:flex-row pt-4">
             <Button label="Back" outline @click="onBack" />
