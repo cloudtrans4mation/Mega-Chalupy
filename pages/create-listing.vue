@@ -33,7 +33,13 @@ const {
   setRoomInfoFormSelected,
   setAccommodationSelectionSelected,
   setRoomAmenitiesSelected,
+  
+  // New fields
+  setMapLibreLocation,          // For setting map location (latitude, longitude)
+  setCountrySelected,           // For setting the selected country
+  setFullAddress,               // For setting the full address (street, apt, city, region)
 } = useCreateListing();
+
 
 // Set SEO metadata
 useSeoMeta({

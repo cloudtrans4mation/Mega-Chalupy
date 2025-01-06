@@ -67,6 +67,9 @@ export function useCreateListing() {
     RoomInfoFormSelected: 'dd',
     AccommodationSelectionSelected: 'dd',
     RoomAmenitiesSelected: 'dd',
+
+    MapLibreLocation:'',        // New function for map location
+    FullAddress:'',             // New function for full address
   });
   
 
@@ -218,6 +221,25 @@ function setPropertyGuidelinesSelected(guidelines: string) {
 
 }
 
+function setMapLibreLocation(guidelines: string) {
+  listingValues.PropertyGuidelinesSelected = guidelines;
+  saveToLocalStorage()
+
+}
+
+function setCountrySelected(guidelines: string) {
+  listingValues.PropertyGuidelinesSelected = guidelines;
+  saveToLocalStorage()
+
+}
+
+function setFullAddress(fullAddress: string) {
+  listingValues.f = guidelines;
+  saveToLocalStorage()
+
+}
+
+
 // Function to set RoomInfoFormSelected
 function setRoomInfoFormSelected(roomInfo: string) {
   listingValues.RoomInfoFormSelected = roomInfo;
@@ -265,5 +287,8 @@ function setRoomAmenitiesSelected(amenities: string) {
     setRoomInfoFormSelected,
     setAccommodationSelectionSelected,
     setRoomAmenitiesSelected,
+    setMapLibreLocation,
+    setCountrySelected,
+    setFullAddress
   }
 }

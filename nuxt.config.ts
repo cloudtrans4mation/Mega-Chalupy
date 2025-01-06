@@ -13,12 +13,14 @@ export default defineNuxtConfig({
     'nuxt-rate-limit',
     'shadcn-nuxt',
     'radix-vue/nuxt',
-    "@nuxtjs/i18n"
+    "@nuxtjs/i18n",
+    '@pinia/nuxt',
   ],
 
   plugins: [
     { src: '~/plugins/vue-stripe.js', ssr: false },
-    '~/plugins/vue-the-mask.js'
+    '~/plugins/vue-the-mask.js',
+    '~/plugins/pinia.js'
     ],
   
   experimental: {
