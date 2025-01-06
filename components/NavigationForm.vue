@@ -1,6 +1,6 @@
 <template>
-  <nav class="flex flex-col pt-12 text-xs font-semibold text-zinc-400">
-    <ul class="flex flex-wrap gap-1.5 justify-center items-center p-2.5 w-full bg-black max-md:max-w-full">
+  <nav class="flex pt-12 text-xs font-semibold text-zinc-400 w-full">
+    <ul class="flex flex-wrap gap-1.5 justify-center items-center p-2.5 w-full bg-black">
       <li v-for="(label, index) in Object.keys(stepMap)" :key="index" class="flex-2 shrink">
         <button
           :class="[ 
@@ -15,6 +15,16 @@
     </ul>
   </nav>
 </template>
+
+<style scoped>
+/* Ensure the navigation bar spans across the full width of the screen on large devices */
+@media (min-width: 1024px) {
+  nav {
+    width: 100%;
+  }
+}
+</style>
+
 
 <script lang="ts">
 import { defineComponent, ref, watch } from 'vue';
