@@ -13,6 +13,7 @@ import { toRaw } from 'vue';
 
 // Initialize `formValues` to store data from FullAddress
 const formValues = ref<Record<string, any>>({});
+const geocode = ref<{ lat: number; lon: number } | null>(null);
 
 // Import your custom hook or methods
 let {
@@ -33,7 +34,7 @@ let {
   setRoomInfoFormSelected,
   setAccommodationSelectionSelected,
   setRoomAmenitiesSelected,
-  
+
   // New fields
   setMapLibreLocation,          // For setting map location (latitude, longitude)
   setFullAddress,               // For setting the full address (street, apt, city, region)
@@ -90,9 +91,9 @@ function toggleSelection(label: string) {
     'Finish up': STEPS.PUBLISH,
   };
 
-  if (stepMap[label]) {
-    currentStep.value = stepMap[label];
-  }
+  // if (stepMap[label]) {
+  //   currentStep.value = stepMap[label];
+  // }
 }
 </script>
 
@@ -323,7 +324,7 @@ function toggleSelection(label: string) {
   </section>
 
 
-  <NavigationForm :currentStep="currentStep" :currentTitle="currentTitle" :currentNumber="currentNumber" />
+  <!-- <NavigationForm :currentStep="currentStep.toString()" :currentTitle="currentTitle" :currentNumber="currentNumber" /> -->
 
 </template>
 
