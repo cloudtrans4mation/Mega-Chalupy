@@ -9,7 +9,7 @@ defineProps<MoreListingsProps>();
 </script>
 
 <template>
-  <section
+  <section style="padding-top: 0px;"
     class="max-w-[2520px] mx-auto px-4 sm:px-2 md:px-6 xl:px-[100px] flex overflow-hidden flex-col items-start font-bold text-zinc-700 pt-12 pb-12"
     aria-labelledby="more-listings-title">
     <!-- Title and Description -->

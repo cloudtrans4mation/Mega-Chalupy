@@ -1,7 +1,7 @@
 <template>
       <h1 class="py-8 text-2xl font-bold mb-8 text-center">Top 3 Creators of the Month</h1>
 
-      <div class="flex flex-wrap gap-6 w-full px-16 py-4 max-md:max-w-full justify-center items-center">
+      <div class="flex flex-wrap gap-6 w-full  py-4 max-md:max-w-full justify-center items-center">
         <!-- Card Container -->
     <div 
       v-for="profile in profiles" 
