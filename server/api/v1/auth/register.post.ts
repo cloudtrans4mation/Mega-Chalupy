@@ -4,6 +4,7 @@ import { eq } from 'drizzle-orm'
 import { hash } from '@node-rs/argon2'
 import { generateIdFromEntropySize } from 'lucia'
 import { RegisterUserSchema } from '~/zod-schemas/auth-schemas'
+import { lucia } from "~/server/utils/auth/lucia"
 
 export default defineEventHandler(async event => {
   try {
