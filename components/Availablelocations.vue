@@ -1,5 +1,5 @@
 <template>
-    <section class="max-w-[2520px] mx-auto px-4 sm:px-2 md:px-6 xl:px-[100px] flex flex-wrap justify-center gap-4 py-4 w-full font-semibold">
+    <section class="max-w-[2520px] mx-auto pt-[50px] sm:px-2 md:px-6 xl:px-[100px] flex flex-wrap justify-center gap-4 py-4 w-full font-semibold">
         <!-- Header Section -->
         <header class="flex flex-col items-center w-full px-4 mb-6 max-md:px-0">
             <header class="header">
@@ -13,7 +13,7 @@
             @click="handleClick"
             v-for="(item, index) in galleryItems"
             :key="index"
-            class="flex flex-col overflow-hidden rounded-xl border border-solid border-black border-opacity-10 min-w-[220px] max-w-[220px] bg-white shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-105"
+            class="flex  flex-col overflow-hidden rounded-xl border border-solid border-black border-opacity-10 min-w-[220px] max-w-[220px] bg-white shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-105"
         >
             <img
                 v-if="item.imageSrc"

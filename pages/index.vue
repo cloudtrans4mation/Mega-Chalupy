@@ -46,13 +46,10 @@ const showSearch = computed(() => {
     <Container>
       <!-- Show ChalupSearch as usual -->
       <ChalupSearch></ChalupSearch>
-
       <!-- Show Search only if showSearch is true -->
       <Search v-if="!showSearch" />
-
       <!-- Show loading component initially -->
       <div v-if="loading">Loading...</div>
-
       <!-- Main content -->
       <div>
         <!-- Empty State -->
@@ -75,21 +72,15 @@ const showSearch = computed(() => {
     </Container>
 
     <Availablelocations></Availablelocations>
-
     <RegistrationBanner v-if="!user"></RegistrationBanner>
-
-    
     <ExploreByTypeSection></ExploreByTypeSection>
-
     <InspirujSe></InspirujSe>
     <MoreListings></MoreListings>
     <FeaturesSection></FeaturesSection>
     <GiftCard></GiftCard>
     <Search />
     <MegaChalupyPlusSection></MegaChalupyPlusSection>
-
     <TopAuthors></TopAuthors>
-
     <AlwaysPresentFooter />
   </section>
 </template>

@@ -58,7 +58,7 @@ export default defineComponent({
 </script>
 
 <template>
-  <section class="max-w-[2520px] mx-auto px-4 sm:px-2 md:px-6 xl:px-[100px] flex flex-wrap items-center font-medium py-10 md:py-16 lg:py-20 rounded-2xl gap-10 md:gap-16" aria-labelledby="inspiration-title">
+  <section class="max-w-[2520px] mx-auto  sm:px-2 md:px-6 xl:px-[100px] flex flex-wrap items-center font-medium md:py-16 lg:py-20 rounded-2xl gap-10 md:gap-16" aria-labelledby="inspiration-title">
     <div class="flex flex-col w-full text-black max-md:max-w-full">
       <div class="flex flex-col w-full max-md:max-w-full">
         <h2 id="inspiration-title" class="text-3xl font-bold leading-normal max-md:max-w-full">
