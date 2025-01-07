@@ -83,7 +83,7 @@ const showSearch = computed(() => {
 
     <InspirujSe></InspirujSe>
     <MoreListings></MoreListings>
-
+    <FeaturesSection></FeaturesSection>
     <GiftCard></GiftCard>
     <Search />
     <MegaChalupyPlusSection></MegaChalupyPlusSection>
