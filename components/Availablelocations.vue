@@ -1,7 +1,7 @@
 <template>
     <section class="max-w-[2520px] mx-auto pt-[50px] sm:px-2 md:px-6 xl:px-[100px] flex flex-wrap justify-center gap-4 py-4 w-full font-semibold">
         <!-- Header Section -->
-        <header class="flex flex-col items-center w-full px-4 mb-6 max-md:px-0">
+        <header    class="flex flex-col items-center w-full   max-md:px-0">
             <header class="header">
                 <h2 class="header-title">Available locations</h2>
                 <p class="header-subtitle">Don't miss the news from the world of glamping.</p>
@@ -10,6 +10,7 @@
 
         <!-- Gallery Items -->
         <article
+      
             @click="handleClick"
             v-for="(item, index) in galleryItems"
             :key="index"
