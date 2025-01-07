@@ -78,13 +78,15 @@ const showSearch = computed(() => {
 
     <RegistrationBanner v-if="!user"></RegistrationBanner>
 
+    
     <ExploreByTypeSection></ExploreByTypeSection>
 
     <InspirujSe></InspirujSe>
+    <MoreListings></MoreListings>
+
     <GiftCard></GiftCard>
     <Search />
     <MegaChalupyPlusSection></MegaChalupyPlusSection>
-    <!-- <MoreListings></MoreListings> -->
 
     <TopAuthors></TopAuthors>
 
