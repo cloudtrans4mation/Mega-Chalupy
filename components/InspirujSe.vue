@@ -96,7 +96,7 @@ export default defineComponent({
 
     <!-- Browse Button -->
     <div class="flex flex-col items-center mt-4 w-full text-base font-medium text-center text-white max-md:max-w-full">
-      <button class="self-stretch px-7 py-3 bg-black rounded-xl max-md:px-5 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black" @click="$emit('browse')">
+      <button class=" px-7 py-3 bg-black rounded-xl max-md:px-5 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black" @click="$emit('browse')">
         Browse Cottages
       </button>
     </div>
