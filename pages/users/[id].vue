@@ -18,7 +18,7 @@ const {
 const config = useRuntimeConfig().public
 
 useSeoMeta({
-  title: () => user?.value?.name as string,
+  title: () => user?.value?.name as  ,
   description: () => user?.value?.description,
   ogTitle: () => user?.value?.name,
   ogDescription: () => user?.value?.description,
