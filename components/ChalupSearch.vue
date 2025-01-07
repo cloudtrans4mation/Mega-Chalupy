@@ -8,13 +8,13 @@
       </div>
 
       <!-- Centered Main Content -->
-      <div style="z-index: 1;"
-        class="relative z-10 flex flex-col items-center justify-center w-full max-w-[1479px] text-center text-white px-4">
+      <div style="z-index: 1;" class="relative z-10 flex flex-col items-center justify-center w-full max-w-[1024px] text-center text-white px-4">
         <h1 class="text-3xl md:text-4xl font-extrabold leading-snug mb-4 drop-shadow-lg">
-          Welcome, look for a cottage </h1>
+          Welcome, look for a cottage
+        </h1>
         <!-- Search Form -->
         <form @submit.prevent="handleSearch"
-          class="flex flex-wrap gap-2.5 items-center p-3.5 mt-4 w-full bg-gray-200 border border-solid border-gray-300 rounded-[37px] max-md:flex-col">
+          class="flex flex-wrap gap-2.5 items-center p-3.5 mt-4 w-full max-w-[800px] bg-gray-200 border border-solid border-gray-300 rounded-[37px] max-md:flex-col">
           <div
             class="flex flex-wrap flex-1 shrink gap-1 items-center self-stretch text-xs text-slate-800 max-md:flex-col max-md:gap-3">
             <!-- Destination Input -->
@@ -36,7 +36,6 @@
                       <MenubarItem class="flex items-center rounded hover:bg-green4">
                         <DestinationSelect @destination-selected="updateSelectedDestination" />
                       </MenubarItem>
-                      <!-- Additional items here... -->
                     </MenubarContent>
                   </MenubarPortal>
                 </MenubarMenu>
@@ -79,11 +78,31 @@
           </button>
         </form>
 
-
       </div>
     </header>
   </section>
 </template>
+
+<style scoped>
+input {
+  color: black;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* For Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+</style>
+
+
+
+
 
 <script lang="ts">
 import { defineComponent, ref, onMounted, onUnmounted } from 'vue';
@@ -184,21 +203,3 @@ export default defineComponent({
   },
 });
 </script>
-
-/* Scoped CSS */
-<style scoped>
-input {
-  color: black;
-}
-
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-/* For Firefox */
-input[type="number"] {
-  -moz-appearance: textfield;
-}
-</style>
