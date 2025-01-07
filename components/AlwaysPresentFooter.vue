@@ -6,12 +6,13 @@
       <div class="flex flex-wrap items-center gap-4">
         <span>&copy; 2024 Mega Chalupy, Inc.</span>
         <span class="hidden md:inline">·</span>
-        <a href="#" class="hover:underline text-black">Privacy</a>
+        <a href="/trust-and-safety/privacy-policy" class="hover:underline text-black">Privacy</a>
         <span class="hidden md:inline">·</span>
-        <a href="#" class="hover:underline text-black">Terms and Conditions</a>
+        <a href="/trust-and-safety/privacy-policy" class="hover:underline text-black">Terms and Conditions</a>
         <span class="hidden md:inline">·</span>
         <span class="hidden md:inline">·</span>
-        <a href="#" class="hover:underline text-black">How the site works</a>
+        <a href="/trust-and-safety/privacy-policy
+        " class="hover:underline text-black">How the site works</a>
       </div>
 
       <!-- Right Section: Language, Currency, and Support -->
