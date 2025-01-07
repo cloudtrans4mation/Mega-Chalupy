@@ -11,8 +11,7 @@ defineProps<MoreListingsProps>();
 <template>
   <section
     class="max-w-[2520px] mx-auto px-4 sm:px-2 md:px-6 xl:px-[100px] flex overflow-hidden flex-col items-start font-bold text-zinc-700 pt-12 pb-12"
-    aria-labelledby="more-listings-title"
-  >
+    aria-labelledby="more-listings-title">
     <!-- Title and Description -->
     <h2 id="more-listings-title" class="text-2xl text-white">{{ title || 'More Listings' }}</h2>
     <p class="mt-2 text-base font-light text-white max-md:max-w-full">
@@ -22,16 +21,11 @@ defineProps<MoreListingsProps>();
     <!-- Background Image Section with Text -->
     <div
       class="relative flex flex-col justify-center items-start self-stretch px-20 py-14 mt-6 w-full text-xs uppercase rounded min-h-[310px] max-md:px-5 max-md:max-w-full"
-      role="img"
-      aria-label="Background image for More Listings"
-    >
+      role="img" aria-label="Background image for More Listings">
       <!-- Background Image (Non-Transparent) -->
-      <img
-        loading="lazy"
+      <img loading="lazy"
         src="https://cdn.builder.io/api/v1/image/assets/TEMP/3fccbd3233e3b1c872c55804c7c793aaf3269768796215ff1ebba3e25d6cbe7c"
-        alt="Background Image for More Listings"
-        class="object-cover absolute inset-0 w-full h-full rounded-lg"
-      />
+        alt="Background Image for More Listings" class="object-cover absolute inset-0 w-full h-full rounded-lg" />
 
       <!-- Text and Button Over the Image -->
       <div class="relative z-10 flex flex-col items-start text-left text-white">
@@ -39,20 +33,12 @@ defineProps<MoreListingsProps>();
         <p class="mb-6">{{ description || 'Explore more listings....' }}</p>
 
         <!-- Button Overlaid on the Image (Aligned to the Left, Wider) -->
-        <button
-          class="gap-2.5 px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl mt-6 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-          @click="$emit('viewListings')"
-          type="button"
-          aria-label="See More Listings"
-        >
-          <span class="grow shrink w-[180px]">{{ buttonText || 'See the listings' }}</span>
-          <img
-            loading="lazy"
-            src="https://cdn.builder.io/api/v1/image/assets/TEMP/1e6b291bd83bddf1847960f23852e076a6b79a674d4dd422330037522820384d?placeholderIfAbsent=true&apiKey=5b20c0d534a34f0091744edaaeed1afd"
-            alt="Arrow Icon"
-            class="object-contain shrink-0 self-start aspect-[0.56] stroke-[1px] stroke-white w-[5px]"
-          />
-        </button>
+        <div class="mt-6">
+          <a href="#learn-more"
+            class="inline-flex items-center gap-2 px-6 py-3 text-white bg-blue-500 hover:bg-blue-600 rounded-lg shadow-lg transition-all duration-300">
+            See  the listings
+          </a>
+        </div>
       </div>
     </div>
   </section>
