@@ -1,4 +1,5 @@
 import { useToast } from 'vue-toastification'
+import { listing } from '~/server/db/schema';
 import type { CountrySelectValue } from '~/types'
 
 export enum STEPS {
@@ -62,11 +63,11 @@ export function useCreateListing() {
     propertyType: 'Entire', // Default to an enum value
 
     // Selection fields
-    PropertyAccessoriesSelected: 'dd',
-    PropertyGuidelinesSelected: 'dd',
-    RoomInfoFormSelected: 'dd',
-    AccommodationSelectionSelected: 'dd',
-    RoomAmenitiesSelected: 'dd',
+    PropertyAccessoriesSelected: '',
+    PropertyGuidelinesSelected: '',
+    RoomInfoFormSelected: '',
+    AccommodationSelectionSelected: '',
+    RoomAmenitiesSelected: '',
 
     MapLibreLocation: '',        // New function for map location
     FullAddress: '',             // New function for full address
@@ -222,7 +223,9 @@ export function useCreateListing() {
   }
 
   function setMapLibreLocation(MapLibreLocation: any) {
-    listingValues.PropertyGuidelinesSelected = MapLibreLocation;
+    listingValues.MapLibreLocation = MapLibreLocation;
+
+    console.log(listingValues.MapLibreLocation)
     saveToLocalStorage()
 
   }
