@@ -209,7 +209,7 @@ export function useCreateListing() {
   }
   ///////////////////////////////////
   // Function to set PropertyAccessoriesSelected
-  function setPropertyAccessoriesSelected(accessories: string) {
+  function setPropertyAccessoriesSelected(accessories: any) {
     listingValues.PropertyAccessoriesSelected = accessories;
     saveToLocalStorage()
 

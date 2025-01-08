@@ -81,7 +81,7 @@ export const listing = pgTable('listings', {
 
   // New fields for selections
   PropertyAccessoriesSelected: text('property_accessories_selected'),
-  // PropertyGuidelinesSelected: text('property_guidelines_selected'),
+  PropertyGuidelinesSelected: text('property_guidelines_selected'),
   RoomInfoFormSelected: text('room_info_form_selected'),
   AccommodationSelectionSelected: text('accommodation_selection_selected'),
   RoomAmenitiesSelected: text('room_amenities_selected'),

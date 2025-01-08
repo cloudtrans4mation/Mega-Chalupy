@@ -84,8 +84,13 @@ export const ListingValuesSchema = z.object({
   // Property accessories
   propertyAccessories: z.array(PropertyAccessoriesSchema).optional(),
 
+
+
+  
   // New fields for property selections
-  PropertyAccessoriesSelected: z.string().optional(),
+  PropertyAccessoriesSelected: z.string().nullable().optional(),
+  PropertyGuidelinesSelected: z.string().nullable().optional(),
+  
   RoomInfoFormSelected: z.string().optional(),
   AccommodationSelectionSelected: z.string().optional(),
   RoomAmenitiesSelected: z.string().optional(),

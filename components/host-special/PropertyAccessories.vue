@@ -9,7 +9,7 @@
           :icon="item.icon"
           :title="item.title"
           v-model:selected="item.selected"
-          @update:selected="handleAccessorySelection(item)"
+          @update:selected="handleAccessorySelection"
         />
       </div>
 
@@ -21,22 +21,18 @@
   </section>
 </template>
 
-
 <script setup lang="ts">
 import { ref } from 'vue';
 import AccessoryItem from './AccessoryItem.vue';
 
-// Define the emit function for the 'PropertyAccessoriesSelected' event
 const emit = defineEmits(['PropertyAccessoriesSelected']);
 
-// Define the interface for AccessoryItemType
 interface AccessoryItemType {
   icon: string;
   title: string;
   selected: boolean;
 }
 
-// Initialize accessory items data
 const accessoryItems = ref<AccessoryItemType[]>([
   { icon: 'https://cdn.builder.io/api/v1/image/assets/TEMP/ff1464450f809ca6db80563f774efe984a8623559a55aec6fb0c48d735834a1c', title: 'Parking', selected: true },
   { icon: 'https://cdn.builder.io/api/v1/image/assets/TEMP/ef24ef7655df1581424b12564820d9f3814deae323f5c16668331d8a05c4db1b', title: 'Kitchen', selected: false },
@@ -50,28 +46,23 @@ const accessoryItems = ref<AccessoryItemType[]>([
   { icon: 'https://cdn.builder.io/api/v1/image/assets/TEMP/edd5df9c3a84fca3f60ab251bb2fb6a0ee61456cb68a12f886fec1c64bab04a2', title: 'Reception services', selected: false },
 ]);
 
-// Handle accessory selection change
-function handleAccessorySelection(item: AccessoryItemType) {
-  // Toggle the selected state
-  item.selected = !item.selected;
-  // Emit the event to the parent
-  emit('PropertyAccessoriesSelected', item);
+function handleAccessorySelection() {
+  // Get the list of selected titles
+  const selectedTitles = accessoryItems.value
+    .filter(item => item.selected)
+    .map(item => item.title);
+
+    console.log(selectedTitles);
+  // Emit the list of selected titles
+  emit('PropertyAccessoriesSelected', selectedTitles);
 }
 </script>
-
-
 
 <style scoped>
 .accessory-items-container {
   display: flex;
   flex-direction: column;
-  gap: 16px; /* This adds space between the items */
+  gap: 16px;
   padding-bottom: 20px;
 }
-
-.accessory-item {
-  /* Optional: If you want additional margin on each item */
-  margin-bottom: 16px;
-}
 </style>
-

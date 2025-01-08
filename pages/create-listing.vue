@@ -120,7 +120,7 @@ function toggleSelection(label: string) {
           <div class="flex flex-col gap-4 md:flex-row pt-4">
 
             <Button label="Back" outline @click="onBack" />
-            <Button style="background-color: blue;" label="Next" :disabled="!listingValues.category" @click="onNext" />
+            <Button style="background-color: blue;" label="Next" @click="onNext" />
           </div>
 
         </div>
@@ -129,7 +129,7 @@ function toggleSelection(label: string) {
         <div v-if="steps === STEPS.ACCESSORIES">
           <Heading title="Choose your Property Accessories ..." subTitle="Pick a category" />
           <div>
-            <PropertyAccessories @handleAccessorySelection="setPropertyAccessoriesSelected"></PropertyAccessories>
+            <PropertyAccessories @PropertyAccessoriesSelected="setPropertyAccessoriesSelected" />
             <PropertyGuidelines @PropertyGuidelinesSelected="setPropertyGuidelinesSelected"></PropertyGuidelines>
           </div>
           <div class="flex flex-col gap-4 md:flex-row pt-4">

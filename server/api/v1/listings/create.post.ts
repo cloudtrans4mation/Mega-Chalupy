@@ -60,7 +60,13 @@ export default defineEventHandler(async event => {
       RoomInfoFormSelected,
       AccommodationSelectionSelected,
       RoomAmenitiesSelected,
+      
+      // Newly added fields
+      mapLibreLocation,
+      countrySelected,
+      fullAddress,
     } = parseResult.data;
+    
     
     const id = generateIdFromEntropySize(16)
 
@@ -94,7 +100,18 @@ export default defineEventHandler(async event => {
       RoomInfoFormSelected: RoomInfoFormSelected ?? null,
       AccommodationSelectionSelected: AccommodationSelectionSelected ?? null,
       RoomAmenitiesSelected: RoomAmenitiesSelected ?? null,
-    })
+      
+      // Newly added fields
+      mapLibreLocationLongitude: mapLibreLocation?.longitude ?? null,
+      mapLibreLocationLatitude: mapLibreLocation?.latitude ?? null,
+      countrySelectedCode: countrySelected?.code ?? null,
+      countrySelectedName: countrySelected?.name ?? null,
+      fullAddressStreet: fullAddress?.street ?? null,
+      fullAddressApt: fullAddress?.apt ?? null,
+      fullAddressCity: fullAddress?.city ?? null,
+      fullAddressRegion: fullAddress?.region ?? null,
+    });
+    
 
     return { statusCode: 201, message: 'Listing created!' }
   } catch (error: any) {

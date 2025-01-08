@@ -1,5 +1,5 @@
 <template>
-  <div :class="[
+  <div :class="[ 
     'flex gap-6 justify-between p-8 pb-16 w-full rounded-3xl border-2 border-solid min-h-[106px] max-md:px-5 max-md:max-w-full',
     selected ? 'bg-neutral-100 border-black' : 'bg-white border-black border-opacity-10',
     'max-md:flex-col max-md:gap-6 max-md:items-start'
@@ -11,7 +11,12 @@
     </div>
     <!-- Checkbox Section -->
     <label class="checkbox-label">
-      <input type="checkbox" class="checkbox-input" :checked="selected" @change="handleChange" />
+      <input 
+        type="checkbox" 
+        class="checkbox-input" 
+        :checked="selected" 
+        @change="handleChange" 
+      />
       <span class="checkbox-custom">
         <img loading="lazy"
           src="https://cdn.builder.io/api/v1/image/assets/TEMP/466c3b17040ec4fe2c82fa66cd685d4ef01d53b257e7e62f263d2503632fe529?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa"
@@ -24,6 +29,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+
 export default defineComponent({
   name: 'AccessoryItem',
   props: {
@@ -40,12 +46,14 @@ export default defineComponent({
       default: false,
     },
   },
-  emits: ['update:selected'], // Event to update the 'selected' status
+  emits: ['update:selected', 'emit-title'], // Emit for 'selected' and title
 
   methods: {
     handleChange(event: Event) {
       const isChecked = (event.target as HTMLInputElement).checked;
-      this.$emit('update:selected', isChecked); // Emit the updated value to parent
+      this.$emit('update:selected', isChecked); // Emit the updated 'selected' state
+      this.$emit('emit-title', this.title); // Emit the 'title' to the parent
+      console.log('Checkbox changed:', isChecked, 'Title:', this.title);
     },
   },
 });
@@ -57,7 +65,6 @@ export default defineComponent({
   align-items: center;
   cursor: pointer;
   gap: 10px;
-  /* Increased gap between checkbox and label */
 }
 .checkbox-input {
   position: absolute;
