@@ -84,7 +84,7 @@ export default defineNuxtConfig({
         lang: 'en',
       },
       link: [
-        { rel: 'icon', type: 'image/webp', href: '/logo.png' },
+        { rel: 'icon', type: 'image/webp', href: '/favicon32.png' },
         { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Raleway' },
         { rel: 'stylesheet', href: 'https://unpkg.com/vuesax@4.0.1-alpha.16/dist/vuesax.min.css' },
         { rel: 'stylesheet', href: 'https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' },
