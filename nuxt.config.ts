@@ -91,12 +91,13 @@ export default defineNuxtConfig({
 
 
       ],
-      script: [{ src: 'https://upload-widget.cloudinary.com/global/all.js' },
+      script: [
+
+        { src: 'https://upload-widget.cloudinary.com/global/all.js' },
         { src: 'https://js.stripe.com/v3' },
         { src: 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js' },
         { src: 'https://js.stripe.com/v3' },
         
-
 //      { src: 'https://unpkg.com/vuesax@4.0.1-alpha.16/dist/vuesax.min.js' }
       ],
     },
