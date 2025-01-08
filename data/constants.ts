@@ -123,8 +123,6 @@ export const categories = [
 ]
 
 
-
-
 export const things = [
   {
     label: 'Kitchen Equipment ',
@@ -184,3 +182,5 @@ export const buttons = [
     imgSrc: 'https://cdn.builder.io/api/v1/image/assets/TEMP/03c4e5dd969da45f52a9e8819250b937cb8b3a66b019f23d3e8f599c71324cfb?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa',
   },
 ];
+
+
