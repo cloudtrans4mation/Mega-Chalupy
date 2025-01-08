@@ -130,7 +130,7 @@ function toggleSelection(label: string) {
           <Heading title="Choose your Property Accessories ..." subTitle="Pick a category" />
           <div>
             <PropertyAccessories @PropertyAccessoriesSelected="setPropertyAccessoriesSelected" />
-            <PropertyGuidelines @PropertyGuidelinesSelected="setPropertyGuidelinesSelected"></PropertyGuidelines>
+            <PropertyGuidelines  @PropertyGuidelinesSelected="setPropertyGuidelinesSelected"></PropertyGuidelines>
           </div>
           <div class="flex flex-col gap-4 md:flex-row pt-4">
             <Button label="Back" outline @click="onBack" />

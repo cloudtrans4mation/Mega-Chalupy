@@ -1,28 +1,32 @@
 <template>
-  <section class=" bg-white flex flex-col gap-12 p-6 bg-gray-50 rounded-lg shadow-md">
+  <section class="bg-white flex flex-col gap-12 p-6 bg-gray-50 rounded-lg shadow-md">
     <!-- Cot Availability -->
     <div class="flex flex-col w-full">
       <h3 class="text-lg font-semibold text-gray-800 mb-2">Cot Availability</h3>
       <div class="p-4 bg-white border rounded-lg shadow-sm">
-        <select id="cotAvailability" :value="isAvailable"
+        <select
+          id="cotAvailability"
+          v-model="cotAvailability"
           class="w-full p-2 text-gray-700 bg-white border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-          @change="$emit('update:isAvailable', $event.target.value)">
+        >
           <option value="available">Available</option>
           <option value="not-available">Not Available</option>
         </select>
       </div>
     </div>
 
-
-
     <!-- Owner's Message -->
     <div class="flex flex-col w-full">
       <h3 class="text-lg font-semibold text-gray-800 mb-2">Owner's Message</h3>
       <div
-        class="p-4 bg-white border rounded-lg shadow-sm hover:shadow-md focus-within:ring focus-within:ring-blue-500 transition duration-200">
-        <textarea id="ownerMessage" placeholder="Enter your custom message for hosts"
+        class="p-4 bg-white border rounded-lg shadow-sm hover:shadow-md focus-within:ring focus-within:ring-blue-500 transition duration-200"
+      >
+        <textarea
+          id="ownerMessage"
+          v-model="ownerMessage"
+          placeholder="Enter your custom message for hosts"
           class="w-full h-24 resize-none text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          :value="value" @input="$emit('update:value', $event.target.value)"></textarea>
+        ></textarea>
       </div>
     </div>
 
@@ -32,19 +36,25 @@
       <div class="flex flex-wrap gap-4">
         <!-- Check-in -->
         <div
-          class="flex gap-3 items-center p-4 bg-white border rounded-lg shadow-sm hover:shadow-md focus-within:ring focus-within:ring-blue-500 transition duration-200">
-          <input type="date" id="checkInDate" placeholder="Check-in Date"
+          class="flex gap-3 items-center p-4 bg-white border rounded-lg shadow-sm hover:shadow-md focus-within:ring focus-within:ring-blue-500 transition duration-200"
+        >
+          <input
+            type="date"
+            id="checkInDate"
+            v-model="checkIn"
             class="w-full text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            :value="checkIn" @input="$emit('update:checkIn', $event.target.value)" />
-
+          />
         </div>
         <!-- Check-out -->
         <div
-          class="flex gap-3 items-center p-4 bg-white border rounded-lg shadow-sm hover:shadow-md focus-within:ring focus-within:ring-blue-500 transition duration-200">
-          <input type="date" id="checkOutDate" placeholder="Check-out Date"
+          class="flex gap-3 items-center p-4 bg-white border rounded-lg shadow-sm hover:shadow-md focus-within:ring focus-within:ring-blue-500 transition duration-200"
+        >
+          <input
+            type="date"
+            id="checkOutDate"
+            v-model="checkOut"
             class="w-full text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            :value="checkOut" @input="$emit('update:checkOut', $event.target.value)" />
-
+          />
         </div>
       </div>
     </div>
@@ -54,9 +64,11 @@
       <!-- Dropdown with Label -->
       <div class="w-full sm:w-1/2">
         <h3 class="text-lg font-semibold text-gray-800 mb-2">Children Guidelines</h3>
-        <select id="childrenAllowance" :value="childrenAllowance"
+        <select
+          id="childrenAllowance"
+          v-model="childrenAllowance"
           class="w-full p-4 text-gray-700 bg-white border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-          @change="$emit('update:childrenAllowance', $event.target.value)">
+        >
           <option value="">Select option</option>
           <option value="allowed">Allowed</option>
           <option value="not-allowed">Not Allowed</option>
@@ -66,13 +78,84 @@
       <!-- Numeric Input -->
       <div class="w-full sm:w-1/2">
         <h3 class="text-lg font-semibold text-gray-800 mb-2">Number of KM</h3>
-        <input type="number" id="kmInput" :value="km" placeholder="Type number of KM"
+        <input
+          type="number"
+          id="kmInput"
+          v-model="km"
+          placeholder="Type number of KM"
           class="w-full p-4 text-gray-700 bg-white border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-          @input="$emit('update:km', $event.target.value)" />
+        />
       </div>
     </div>
   </section>
 </template>
+
+<script lang="ts">
+import { defineComponent, watch } from 'vue';
+
+export default defineComponent({
+  name: 'PropertyGuidelines',
+  props: {
+    checkIn: {
+      type: String,
+      required: false,
+      default: '',
+    },
+    checkOut: {
+      type: String,
+      required: false,
+      default: '',
+    },
+    ownerMessage: {
+      type: String,
+      required: false,
+      default: '',
+    },
+    childrenAllowance: {
+      type: String,
+      required: false,
+      default: '',
+    },
+    km: {
+      type: [String, Number],
+      required: false,
+      default: '',
+    },
+    cotAvailability: {
+      type: String,
+      required: false,
+      default: '',
+    },
+  },
+  emits: ['PropertyGuidelinesSelected'],
+  setup(props, { emit }) {
+    const data = {
+      checkIn: props.checkIn,
+      checkOut: props.checkOut,
+      ownerMessage: props.ownerMessage,
+      childrenAllowance: props.childrenAllowance,
+      km: props.km,
+      cotAvailability: props.cotAvailability,
+    };
+
+    // Watch for changes in props and emit updated data
+    watch(
+      () => data,
+      () => {
+        emit('PropertyGuidelinesSelected', data);
+      },
+      { deep: true, immediate: true }
+    );
+
+    return {
+      ...data,
+    };
+  },
+});
+</script>
+
+
+
 
 <style scoped>
 /* General Styles */
@@ -132,126 +215,3 @@ img {
   margin-left: 0.5rem;
 }
 </style>
-
-<script lang="ts">
-import { defineComponent } from 'vue';
-
-export default defineComponent({
-  name: 'PropertyGuidelines',
-
-  props: {
-    checkIn: {
-      type: String,
-      required: false,
-      default: ''
-    },
-    checkOut: {
-      type: String,
-      required: false,
-      default: ''
-    },
-    value: {
-      type: String,
-      required: false,
-      default: '',
-    },
-    eventsAllowance: {
-      type: String,
-      required: false,
-      default: '',
-    },
-    quietHours: {
-      type: String,
-      required: false,
-      default: '',
-    },
-    squareMeterCount: {
-      type: Number,
-      required: false,
-      default: 0,
-    },
-    childrenAllowance: {
-      type: String,
-      required: false,
-      default: '',
-    },
-    activity: {
-      type: String,
-      required: false,
-      default: '',
-    },
-    km: {
-      type: [String, Number],
-      required: false,
-      default: '',
-    },
-    cotAvailability: {
-      type: String,
-      required: false,
-      default: '',
-    },
-  },
-
-  emits: ['PropertyGuidelinesSelected'],
-
-  methods: {
-    // Emit all form data as a single object
-    emitAllFields() {
-      const data = {
-        checkInDate: this.checkIn,
-        checkOutDate: this.checkOut,
-        ownerMessage: this.value,
-        eventsAllowance: this.eventsAllowance,
-        quietHours: this.quietHours,
-        squareMeterCount: this.squareMeterCount,
-        childrenAllowance: this.childrenAllowance,
-        activity: this.activity,
-        km: this.km,
-        cotAvailability: this.cotAvailability
-      };
-
-      // Emit the entire form data object to the parent
-      this.$emit('PropertyGuidelinesSelected', data);
-    }
-  },
-
-  watch: {
-    // Watch for changes in any property and emit the updated data
-    checkIn() {
-      this.emitAllFields();
-    },
-    checkOut() {
-      this.emitAllFields();
-    },
-    value() {
-      this.emitAllFields();
-    },
-    eventsAllowance() {
-      this.emitAllFields();
-    },
-    quietHours() {
-      this.emitAllFields();
-    },
-    squareMeterCount() {
-      this.emitAllFields();
-    },
-    childrenAllowance() {
-      this.emitAllFields();
-    },
-    activity() {
-      this.emitAllFields();
-    },
-    km() {
-      this.emitAllFields();
-    },
-    cotAvailability() {
-      this.emitAllFields();
-    }
-  },
-
-  // Optional lifecycle hook to emit data on component mounted
-  mounted() {
-    this.emitAllFields();
-  }
-});
-</script>

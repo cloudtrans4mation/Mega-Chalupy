@@ -9,7 +9,7 @@
           :icon="item.icon"
           :title="item.title"
           v-model:selected="item.selected"
-          @update:selected="handleAccessorySelection"
+          @click="handleAccessorySelection"
         />
       </div>
 
