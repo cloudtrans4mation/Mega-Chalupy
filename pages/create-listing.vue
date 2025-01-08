@@ -34,7 +34,6 @@ let {
   setRoomInfoFormSelected,
   setAccommodationSelectionSelected,
   setRoomAmenitiesSelected,
-
   // New fields
   setMapLibreLocation,          // For setting map location (latitude, longitude)
   setFullAddress,               // For setting the full address (street, apt, city, region)
@@ -58,7 +57,6 @@ const handleGeocode = (geocodeData: { lat: number; lon: number }) => {
   console.log('Received Geocode Data:', geocodeData); // Debug or process the data as needed
   setMapLibreLocation(geocodeData)
 };
-// Function to handle form data emitted by FullAddress
 // Function to handle form data emitted by FullAddress
 function handleFormChange(updatedForm: any) {
   formValues.value = updatedForm; // Update formValues with emitted data

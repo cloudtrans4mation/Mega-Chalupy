@@ -255,7 +255,8 @@ export function useCreateListing() {
 
   // Function to set RoomAmenitiesSelected
   function setRoomAmenitiesSelected(amenities: string) {
-    listingValues.RoomAmenitiesSelected = amenities;
+    listingValues.RoomAmenitiesSelected =  toRaw(amenities); // Convert formValues to raw data
+    
     saveToLocalStorage()
 
   }

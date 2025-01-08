@@ -48,9 +48,7 @@ function selectCountry(country: CountrySelectValue) {
           <ComboboxInput
             :disabled
             class="w-full py-5 pl-3 pr-10 text-sm leading-5 text-gray-900 border-none focus:ring-0 disabled:opacity-70 disabled:bg-gray-300 disabled:border-0 disabled:cursor-not-allowed disabled:text-gray-500"
-            :displayValue="
-              country => `${(country as CountrySelectValue).flag} ${(country as CountrySelectValue).label}, ${(country as CountrySelectValue).region}`
-            "
+            :displayValue="country => `${(country as CountrySelectValue).flag} ${(country as CountrySelectValue).label}, ${(country as CountrySelectValue).region}`"
             @change="query = $event.target.value" />
           <ComboboxButton class="absolute inset-y-0 right-0 flex items-center pr-2">
             <Icon
@@ -79,7 +77,7 @@ function selectCountry(country: CountrySelectValue) {
               :value="country"
               v-slot="{ selected, active }">
               <li
-                class="relative z-50 py-2 pl-10 pr-4 cursor-default select-none"
+                class="relative z-50 py-2 pl-10 pr-4 cursor-default select-none hover:text-black"
                 :class="{
                   'bg-primary text-white': active,
                   'text-gray-900': !active,
@@ -106,3 +104,4 @@ function selectCountry(country: CountrySelectValue) {
     </Combobox>
   </div>
 </template>
+

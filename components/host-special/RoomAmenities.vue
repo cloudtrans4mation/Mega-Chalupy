@@ -42,8 +42,11 @@
     } else {
       selectedAmenities.value = selectedAmenities.value.filter(item => item !== amenity);
     }
+
+    console.log(selectedAmenities.value)
     // Emit the updated selected amenities array
     emit('RoomAmenitiesSelected', selectedAmenities.value);
+
   }
   </script>
 
@@ -102,4 +105,4 @@
 .checkbox-input:checked~.checkbox-custom .checkmark {
     opacity: 1;
 }
-</style>>
+</style>
