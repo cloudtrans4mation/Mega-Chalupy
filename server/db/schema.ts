@@ -65,12 +65,6 @@ export const listing = pgTable('listings', {
   price: integer('price').notNull(),
 
   // Property Guidelines
-  cotAvailability: text('cot_availability'), // String field with nullable option
-  ownersMessage: text('owners_message'),
-  childrenAllowance: text('children_allowance'), // Enum but treated as text in DB
-  cotAvailabilityChild: text('cot_availability_child'), // Enum but treated as text in DB
-  checkInDate: text('check_in_date'),
-  checkOutDate: text('check_out_date'),
   neighboringActivity: text('neighboring_activity'),
   eventsAllowance: text('events_allowance'), // Enum but stored as text
 

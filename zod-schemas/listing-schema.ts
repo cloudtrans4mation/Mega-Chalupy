@@ -55,17 +55,6 @@ export const ListingValuesSchema = z.object({
   description: DescriptionSchema,
   imagePublicId: PublicIdSchema,
 
-  // Additional UI fields
-  cotAvailability: z.string().min(1, { message: 'Cot availability is required' }).optional(),
-  ownersMessage: z.string().optional(),
-
-  // Children guidelines
-  childrenAllowance: z.enum(['Allowed', 'Not Allowed']).optional(),
-  cotAvailabilityChild: z.enum(['Available', 'Not Available']).optional(),
-
-  // Check-in and Check-out guidelines
-  checkInDate: z.string().optional(),
-  checkOutDate: z.string().optional(),
 
   // Neighboring activities setup
   neighboringActivity: z.string().optional(),
@@ -83,8 +72,6 @@ export const ListingValuesSchema = z.object({
 
   // Property accessories
   propertyAccessories: z.array(PropertyAccessoriesSchema).optional(),
-
-
 
   
   // New fields for property selections

@@ -240,21 +240,21 @@ export function useCreateListing() {
 
 
   // Function to set RoomInfoFormSelected
-  function setRoomInfoFormSelected(roomInfo: string) {
+  function setRoomInfoFormSelected(roomInfo: an) {
     listingValues.RoomInfoFormSelected = roomInfo;
     saveToLocalStorage()
 
   }
 
   // Function to set AccommodationSelectionSelected
-  function setAccommodationSelectionSelected(accommodation: string) {
+  function setAccommodationSelectionSelected(accommodation: any) {
     listingValues.AccommodationSelectionSelected = accommodation;
     saveToLocalStorage()
 
   }
 
   // Function to set RoomAmenitiesSelected
-  function setRoomAmenitiesSelected(amenities: string) {
+  function setRoomAmenitiesSelected(amenities: any) {
     listingValues.RoomAmenitiesSelected =  toRaw(amenities); // Convert formValues to raw data
     
     saveToLocalStorage()
