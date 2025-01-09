@@ -97,76 +97,40 @@ useSeoMeta({
 </script>
 
 <template>
-  <div class="flex items-center justify-center min-h-screen px-6 py-8 max-w-[60rem] ">
-    <div class="bg-white shadow-lg rounded-lg  w-full p-8 space-y-6">
+  <div class="flex items-center justify-center min-h-screen px-6 py-8 max-w-[60rem]">
+    <div class="bg-white shadow-lg rounded-lg w-full p-8 space-y-6">
       <Logo class="mx-auto mb-6" big />
       <Heading title="Welcome to Mega Chalupy" subTitle="Create an account" />
 
       <form @submit.prevent="register" class="flex flex-col gap-6">
         <!-- Name Input -->
-        <Input
-          v-model="registerData.name"
-          id="name"
-          label="Name"
-          :disabled="isLoading"
-          required
-          :error="errors.name"
-          class="focus:ring-blue-500 focus:border-blue-500 border"
-        />
+        <Input v-model="registerData.name" id="name" label="Name" :disabled="isLoading" required :error="errors.name"
+          class="focus:ring-blue-500 focus:border-blue-500 border" />
 
         <!-- Email Input -->
-        <Input
-          v-model="registerData.email"
-          id="email"
-          label="Email Address"
-          type="email"
-          :disabled="isLoading"
-          required
-          :error="errors.email"
-          class="focus:ring-blue-500 focus:border-blue-500 border"
-        />
+        <Input v-model="registerData.email" id="email" label="Email Address" type="email" :disabled="isLoading" required
+          :error="errors.email" class="focus:ring-blue-500 focus:border-blue-500 border" />
 
         <!-- Password Input -->
-        <Input
-          v-model="registerData.password"
-          id="password"
-          label="Password"
-          type="password"
-          :disabled="isLoading"
-          required
-          :error="errors.password"
-          class="focus:ring-blue-500 focus:border-blue-500 border"
-        />
+        <Input v-model="registerData.password" id="password" label="Password" type="password" :disabled="isLoading"
+          required :error="errors.password" class="focus:ring-blue-500 focus:border-blue-500 border" />
 
         <!-- Confirm Password Input -->
-        <Input
-          v-model="confirmPassword"
-          id="confirmPassword"
-          label="Confirm Password"
-          type="password"
-          :disabled="isLoading"
-          required
-          :error="errors.confirmPassword"
-          class="focus:ring-blue-500 focus:border-blue-500 border"
-        />
+        <Input v-model="confirmPassword" id="confirmPassword" label="Confirm Password" type="password"
+          :disabled="isLoading" required :error="errors.confirmPassword"
+          class="focus:ring-blue-500 focus:border-blue-500 border" />
 
         <!-- Client Type Section -->
-        <main class="flex flex-col items-center overflow-hidden mt-6 space-y-6">
+        <main class="flex flex-col items-center overflow-hidden mt-6 space-y-6 py-12 px-6">
           <section class="flex flex-col md:flex-row gap-6 justify-center items-center w-full">
             <!-- Owner Button -->
-            <article
-              @click="setClientType('owner')"
-              :class="[
-                'article-btn flex flex-col items-center p-6 bg-white rounded-xl border border-solid shadow-lg border-black border-opacity-10 w-full max-w-xs cursor-pointer transition-transform duration-300 ease-in-out transform hover:scale-105',
-                { 'border-blue-500': isClientTypeSelected('owner') }
-              ]"
-            >
-              <img
-                loading="lazy"
+            <article @click="setClientType('owner')" :class="[
+              'article-btn flex flex-col items-center p-6 bg-white rounded-xl border border-solid shadow-lg border-black border-opacity-10 w-full md:w-64 cursor-pointer transition-transform duration-300 ease-in-out transform hover:scale-105',
+              { 'border-blue-500': isClientTypeSelected('owner') }
+            ]">
+              <img loading="lazy"
                 src="https://cdn.builder.io/api/v1/image/assets/TEMP/57880e77cbf696f15b15657024f2db286c72ac846b9077600fd3b6899e2d9acc?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa"
-                alt="Owner icon"
-                class="object-contain aspect-square w-[50px] mx-auto"
-              />
+                alt="Owner icon" class="object-contain aspect-square w-[50px] mx-auto" />
               <div class="flex flex-col mt-4 w-full text-center">
                 <h2 class="text-base font-semibold text-black">As Owner</h2>
                 <p class="text-sm font-medium text-neutral-500">I want to post my rental</p>
@@ -174,19 +138,13 @@ useSeoMeta({
             </article>
 
             <!-- Client Button -->
-            <article
-              @click="setClientType('client')"
-              :class="[
-                'article-btn flex flex-col items-center p-6 bg-white rounded-xl border border-solid shadow-lg border-black border-opacity-10 w-full max-w-xs cursor-pointer transition-transform duration-300 ease-in-out transform hover:scale-105',
-                { 'border-blue-500': isClientTypeSelected('client') }
-              ]"
-            >
-              <img
-                loading="lazy"
+            <article @click="setClientType('client')" :class="[
+              'article-btn flex flex-col items-center p-6 bg-white rounded-xl border border-solid shadow-lg border-black border-opacity-10 w-full md:w-64 cursor-pointer transition-transform duration-300 ease-in-out transform hover:scale-105',
+              { 'border-blue-500': isClientTypeSelected('client') }
+            ]">
+              <img loading="lazy"
                 src="https://cdn.builder.io/api/v1/image/assets/TEMP/94664606cea22aac92a72229f1fa5eb54c1fdfd882f2dca8d03e3b678ba2c334?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa"
-                alt="Client icon"
-                class="object-contain aspect-square w-[50px] mx-auto"
-              />
+                alt="Client icon" class="object-contain aspect-square w-[50px] mx-auto" />
               <div class="flex flex-col mt-4 w-full text-center">
                 <h2 class="text-base font-semibold text-black">As Client</h2>
                 <p class="text-sm font-medium text-neutral-500">I want to rent</p>
@@ -196,6 +154,8 @@ useSeoMeta({
 
           <hr class="self-center w-full h-0 border border-solid border-neutral-200 mt-6" />
         </main>
+
+
 
         <!-- Error message for client type -->
         <p class="text-sm text-rose-500" v-if="errors.clientType">
@@ -207,12 +167,8 @@ useSeoMeta({
         </p>
 
         <!-- Register Button -->
-        <Button
-          type="submit"
-          :disabled="isLoading"
-          label="Register"
-          style="background-color: #007bff; color: white; border-radius: 8px;"
-        />
+        <Button type="submit" :disabled="isLoading" label="Register"
+          style="background-color: #007bff; color: white; border-radius: 8px;" />
       </form>
 
       <!-- Social Login Options -->
@@ -222,44 +178,32 @@ useSeoMeta({
         </p>
         <div class="flex justify-center space-x-4">
           <!-- Google -->
-          <button
-            type="button"
+          <button type="button"
             class="flex items-center px-4 py-2 border rounded-lg shadow hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300"
-            aria-label="Sign up with Google"
-          >
+            aria-label="Sign up with Google">
             <img
               src="https://cdn.builder.io/api/v1/image/assets/5b20c0d534a34f0091744edaaeed1afd/3d5797f45b26ee3c25aa64985eb241909d242626e81fe9b32a765e5214712594"
-              alt="Google logo"
-              class="h-5 mr-2"
-            />
+              alt="Google logo" class="h-5 mr-2" />
             Google
           </button>
 
           <!-- Apple -->
-          <button
-            type="button"
+          <button type="button"
             class="flex items-center px-4 py-2 border rounded-lg shadow hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300"
-            aria-label="Sign up with Apple"
-          >
+            aria-label="Sign up with Apple">
             <img
               src="https://cdn.builder.io/api/v1/image/assets/5b20c0d534a34f0091744edaaeed1afd/34870c274940a3247bb0e6dd59307d645fa316517a8df67bd6624f54037f042a"
-              alt="Apple logo"
-              class="h-5 mr-2"
-            />
+              alt="Apple logo" class="h-5 mr-2" />
             Apple
           </button>
 
           <!-- Facebook -->
-          <button
-            type="button"
+          <button type="button"
             class="flex items-center px-4 py-2 border rounded-lg shadow hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300"
-            aria-label="Sign up with Facebook"
-          >
+            aria-label="Sign up with Facebook">
             <img
               src="https://cdn.builder.io/api/v1/image/assets/5b20c0d534a34f0091744edaaeed1afd/7ef9b09388f19b91553be60a3d9efaca93b73e22315cdceb1cb397447048b8c6"
-              alt="Facebook logo"
-              class="h-5 mr-2"
-            />
+              alt="Facebook logo" class="h-5 mr-2" />
             Facebook
           </button>
         </div>
@@ -275,6 +219,8 @@ useSeoMeta({
     </div>
   </div>
 </template>
+
+
 
 
 
