@@ -13,6 +13,7 @@ setTimeout(() => {
 }, 3000); // 3 seconds
 
 import GiftCard from '~/components/GiftCard.vue';
+import NewsSection from '~/components/news/NewsSection.vue';
 
 const { allListings, isLoading, fetchNextSet } = useFilteredPagination()
 
@@ -81,7 +82,8 @@ const showSearch = computed(() => {
     <Search />
     <MegaChalupyPlusSection></MegaChalupyPlusSection>
     <TopAuthors></TopAuthors>
-    <AlwaysPresentFooter />
+    <NewsSection/>
+    <AlwaysPresen0tFooter />
   </section>
 </template>
 

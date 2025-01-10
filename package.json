@@ -45,6 +45,7 @@
     "resend": "^3.3.0",
     "shadcn-nuxt": "^0.10.4",
     "swiper": "^11.1.14",
+    "translatte": "^3.0.1",
     "v-calendar": "^3.1.2",
     "vue": "^3.4.29",
     "vue-flag-icon": "^2.1.0",
