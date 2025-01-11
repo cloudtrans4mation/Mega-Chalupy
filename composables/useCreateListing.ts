@@ -1,7 +1,8 @@
 import { useToast } from 'vue-toastification'
 import { listing } from '~/server/db/schema';
 import type { CountrySelectValue } from '~/types'
-
+import { toRaw } from 'vue';
+ 
 export enum STEPS {
   GETTINGSTARTED = 0,
   CATEGORY = 1,
@@ -248,7 +249,7 @@ export function useCreateListing() {
 
   // Function to set AccommodationSelectionSelected
   function setAccommodationSelectionSelected(accommodation: any) {
-    listingValues.AccommodationSelectionSelected = accommodation;
+    listingValues.AccommodationSelectionSelected = toRaw(accommodation);
     saveToLocalStorage()
 
   }
