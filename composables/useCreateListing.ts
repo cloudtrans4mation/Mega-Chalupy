@@ -240,7 +240,7 @@ export function useCreateListing() {
 
 
   // Function to set RoomInfoFormSelected
-  function setRoomInfoFormSelected(roomInfo: an) {
+  function setRoomInfoFormSelected(roomInfo: any) {
     listingValues.RoomInfoFormSelected = roomInfo;
     saveToLocalStorage()
 

@@ -43,7 +43,7 @@
       selectedAmenities.value = selectedAmenities.value.filter(item => item !== amenity);
     }
 
-    console.log(selectedAmenities.value)
+    console.log(toRaw(selectedAmenities.value))
     // Emit the updated selected amenities array
     emit('RoomAmenitiesSelected', selectedAmenities.value);
 
