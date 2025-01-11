@@ -79,7 +79,7 @@ export const ListingValuesSchema = z.object({
   PropertyGuidelinesSelected: z.any().nullable().optional(),
   
   RoomInfoFormSelected: z.string().optional(),
-  AccommodationSelectionSelected: z.string().optional(),
+  AccommodationSelectionSelected: z.any().nullable().optional(),
   RoomAmenitiesSelected: z.any().nullable().optional(),
 
   // New fields for location and address-related components
