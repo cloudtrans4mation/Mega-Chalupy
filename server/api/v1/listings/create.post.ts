@@ -43,12 +43,7 @@ export default defineEventHandler(async event => {
       title,
       description,
       imagePublicId,
-      cotAvailability,
-      ownersMessage,
-      childrenAllowance,
-      cotAvailabilityChild,
-      checkInDate,
-      checkOutDate,
+
       neighboringActivity,
       eventsAllowance,
       numberOfRooms,
@@ -60,10 +55,9 @@ export default defineEventHandler(async event => {
       RoomInfoFormSelected,
       AccommodationSelectionSelected,
       RoomAmenitiesSelected,
-      
+  
       // Newly added fields
-      mapLibreLocation,
-      countrySelected,
+      mapLibreLocationInfo,
       fullAddress,
     } = parseResult.data;
     
@@ -101,15 +95,12 @@ export default defineEventHandler(async event => {
       AccommodationSelectionSelected: AccommodationSelectionSelected ?? null,
       RoomAmenitiesSelected: RoomAmenitiesSelected ?? null,
       
+
       // Newly added fields
-      mapLibreLocationLongitude: mapLibreLocation?.longitude ?? null,
-      mapLibreLocationLatitude: mapLibreLocation?.latitude ?? null,
-      countrySelectedCode: countrySelected?.code ?? null,
-      countrySelectedName: countrySelected?.name ?? null,
+      mapLibreLocationInfo: mapLibreLocationInfo ?? null,
+
       fullAddressStreet: fullAddress?.street ?? null,
-      fullAddressApt: fullAddress?.apt ?? null,
-      fullAddressCity: fullAddress?.city ?? null,
-      fullAddressRegion: fullAddress?.region ?? null,
+ 
     });
     
 
