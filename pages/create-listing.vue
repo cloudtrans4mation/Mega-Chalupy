@@ -55,7 +55,7 @@ const currentNumber = ref(0);
 const handleGeocode = (geocodeData: { lat: number; lon: number }) => {
   geocode.value = geocodeData;  // Store the received geocode data
   console.log('Received Geocode Data:', geocodeData); // Debug or process the data as needed
-  setMapLibreLocation(geocodeData)
+  setMapLibreLocation(toRaw(geocodeData))
 };
 // Function to handle form data emitted by FullAddress
 function handleFormChange(updatedForm: any) {
