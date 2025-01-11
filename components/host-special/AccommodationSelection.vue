@@ -70,6 +70,8 @@ function selectAccommodation(type: 'entire' | 'room' | 'shared') {
     console.log(`Selected accommodation type: ${type}`);
     
     // Emit the updated selection
+      emit('AccommodationSelectionSelected', selectedAccommodation.value);
+
     console.log(type)
 
 }

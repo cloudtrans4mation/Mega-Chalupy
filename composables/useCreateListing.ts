@@ -225,7 +225,6 @@ export function useCreateListing() {
 
   function setMapLibreLocation(MapLibreLocation: any) {
     listingValues.MapLibreLocation = MapLibreLocation;
-
     console.log(listingValues.MapLibreLocation)
     saveToLocalStorage()
 
