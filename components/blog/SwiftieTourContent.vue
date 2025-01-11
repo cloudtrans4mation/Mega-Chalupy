@@ -33,8 +33,8 @@ import DestinationSection from './DestinationSection.vue';
           Prozoumejte nabídku MEGA chalupy, Prozoumejte nabídalupy Prozoualupy
         </p>
       </section>
-
       <DestinationSection />
+      
     </div>
   </div>
 </template>

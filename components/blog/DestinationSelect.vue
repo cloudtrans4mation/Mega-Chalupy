@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { DestinationProps } from './types';
+import { DestinationProps } from '~/data/types';
 
 const destinations: DestinationProps[] = [
   {
@@ -29,7 +29,7 @@ const destinations: DestinationProps[] = [
     <div class="flex flex-col mt-6 w-full text-lg font-semibold tracking-normal leading-none max-md:max-w-full">
       <div v-for="(destination, index) in destinations" :key="index" class="flex flex-wrap gap-10 justify-between items-center py-1.5 pr-1.5 mt-8 w-full max-md:max-w-full" :class="{ 'mt-0': index === 0 }">
         <div class="self-stretch my-auto">{{ destination.title }}</div>
-        <img :src="destination.iconSrc" :alt="" loading="lazy" class="object-contain shrink-0 self-stretch my-auto w-6 aspect-[2]" />
+        <img :src="destination.iconSrc"  loading="lazy" class="object-contain shrink-0 self-stretch my-auto w-6 aspect-[2]" />
       </div>
     </div>
   </div>
