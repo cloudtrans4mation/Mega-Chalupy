@@ -1,5 +1,4 @@
 import { useToast } from 'vue-toastification'
-import { listing } from '~/server/db/schema';
 import type { CountrySelectValue } from '~/types'
 import { toRaw } from 'vue';
  
@@ -231,13 +230,11 @@ export function useCreateListing() {
   }
 
  
-
   function setFullAddress(fullAddress: any) {
     listingValues.FullAddress = fullAddress;
     saveToLocalStorage()
 
   }
-
 
   // Function to set RoomInfoFormSelected
   function setRoomInfoFormSelected(roomInfo: any) {
@@ -256,15 +253,10 @@ export function useCreateListing() {
   // Function to set RoomAmenitiesSelected
   function setRoomAmenitiesSelected(amenities: any) {
     listingValues.RoomAmenitiesSelected =  toRaw(amenities); // Convert formValues to raw data
-    
     saveToLocalStorage()
-
   }
 
-
-
   /////////////////////////////////////
-
   if (import.meta.client) {
     loadFromLocalStorage()
   }

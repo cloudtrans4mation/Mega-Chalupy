@@ -77,12 +77,6 @@ export default defineEventHandler(async event => {
       title,
       description,
       imagePublicId,
-      cotAvailability: cotAvailability ?? null,
-      ownersMessage: ownersMessage ?? null,
-      childrenAllowance: childrenAllowance ?? null,
-      cotAvailabilityChild: cotAvailabilityChild ?? null,
-      checkInDate: checkInDate ?? null,
-      checkOutDate: checkOutDate ?? null,
       neighboringActivity: neighboringActivity ?? null,
       eventsAllowance: eventsAllowance ?? null,
       numberOfRooms,
@@ -99,7 +93,7 @@ export default defineEventHandler(async event => {
       // Newly added fields
       mapLibreLocationInfo: mapLibreLocationInfo ?? null,
 
-      fullAddressStreet: fullAddress?.street ?? null,
+      fullAddress: fullAddress?.street ?? null,
  
     });
     

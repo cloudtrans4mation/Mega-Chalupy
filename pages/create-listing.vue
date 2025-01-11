@@ -202,15 +202,16 @@ function toggleSelection(label: string) {
         <!-- Step 9: Location -->
         <div v-if="steps === STEPS.LOCATION">
           <Heading title="Where is your place located?" subTitle="Help guests find you!" />
+          
           <ClientOnly>
             <div class="component-container">
               <MapLibreLocation @update:geocode="handleGeocode" />
               <CountrySelect :selectedCountry="listingValues?.locationValue" @countrySelect="locationSelected" />
               <FullAddress @formChange="handleFormChange" />
             </div>
-
             <!-- <Map :center="listingValues?.locationValue?.latlng" /> -->
           </ClientOnly>
+
           <div class="flex flex-col gap-4 md:flex-row pt-4">
             <Button label="Back" outline @click="onBack" />
             <Button style="background-color: blue;" label="Next" @click="onNext" />

@@ -90,12 +90,7 @@ export const ListingValuesSchema = z.object({
     name: z.string().optional(),
   }).optional(),
 
-  fullAddress: z.object({
-    street: z.string().optional(),
-    apt: z.string().optional(),
-    city: z.string().optional(),
-    region: z.string().optional(),
-  }).optional(),
+  fullAddress: z.any().nullable().optional(),
 });
 
 
