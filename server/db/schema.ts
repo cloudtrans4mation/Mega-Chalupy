@@ -84,6 +84,9 @@ export const listing = pgTable('listings', {
   mapLibreLocationLongitude: integer('map_libre_location_longitude') ,
   mapLibreLocationLatitude: integer('map_libre_location_latitude') ,
 
+
+  mapLibreLocationInfo: text('map_libre_location_info') ,
+
   countrySelectedCode: text('country_selected_code') ,
   countrySelectedName: text('country_selected_name') ,
 
