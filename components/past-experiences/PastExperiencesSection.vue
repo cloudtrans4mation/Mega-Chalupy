@@ -1,5 +1,5 @@
 <template>
-  <section class="relative rounded-xl mx-auto my-12  px-10 py-16">
+  <section class="relative rounded-xl mx-auto my-12 ">
     <!-- Hero Section -->
     <FlexibleHero></FlexibleHero>
 
