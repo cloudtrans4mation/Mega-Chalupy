@@ -29,19 +29,18 @@
       </div>
 
       <!-- Experiences Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="flex flex-center grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         <ExperienceCard v-for="(experience, index) in experiences" :key="index" :experience="experience"
           :images="experience.images"
           class="bg-white rounded-lg shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl" />
       </div>
 
       <!-- Load More Button -->
-      <div class="mt-16 text-center">
-        <button
-          class="px-6 py-3 text-lg font-semibold text-white bg-indigo-500 rounded-full shadow-md hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition">
-          Load More
-        </button>
-      </div>
+      <div class="flex flex-col items-center mt-4 w-full text-base font-medium text-center text-white max-md:max-w-full">
+      <button class=" px-7 py-3 bg-black rounded-xl max-md:px-5 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black" @click="$emit('browse')">
+        Load More
+      </button>
+    </div>
     </div>
 
     <ExperienceDiscovery></ExperienceDiscovery>
