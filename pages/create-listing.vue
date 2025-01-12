@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { categories, things, buttons } from '~/data/constants';
 import { ref } from 'vue';
+import { toRaw } from 'vue';
 import AccommodationSelection from '~/components/host-special/AccommodationSelection.vue';
 import RoomAmenities from '~/components/host-special/RoomAmenities.vue';
 import PropertyAccessories from '~/components/host-special/PropertyAccessories.vue';
@@ -9,13 +9,9 @@ import PropertyGuidelines from '~/components/host-special/room-info-form/Propert
 import GettingStarted from '~/components/GettingStarted.vue';
 import ImageUploadForListingCreation from '~/components/ImageUploadForListingCreation.vue';
 import FullAddress from '~/components/FullAddress.vue';
-import { toRaw } from 'vue';
+import NavigationForm from '~/components/NavigationForm.vue'; // Import NavigationForm
+import { categories, things, buttons } from '~/data/constants';
 
-// Initialize `formValues` to store data from FullAddress
-const formValues = ref<Record<string, any>>({});
-const geocode = ref<{ lat: number; lon: number } | null>(null);
-
-// Import your custom hook or methods
 let {
   listingValues,
   steps,
@@ -34,66 +30,45 @@ let {
   setRoomInfoFormSelected,
   setAccommodationSelectionSelected,
   setRoomAmenitiesSelected,
-  // New fields
-  setMapLibreLocation,          // For setting map location (latitude, longitude)
-  setFullAddress,               // For setting the full address (street, apt, city, region)
+  setMapLibreLocation, // For setting map location (latitude, longitude)
+  setFullAddress, // For setting the full address (street, apt, city, region)
 } = useCreateListing();
 
-
-// Set SEO metadata
 useSeoMeta({
   title: 'Create Listing',
 });
 
 // Define state variables
 const selectedButton = ref<string | null>(null);
-const currentStep = ref(STEPS.GETTINGSTARTED);
-const currentTitle = ref('');
-const currentNumber = ref(0);
+const currentStep = ref(STEPS.GETTINGSTARTED); // Current step
 
+
+// Handle step change emitted by the child component
+function handleStepChange(step: number) {
+  console.log('Step changed to:', step);
+  console.log('setps:', steps);
+
+}
+
+const formValues = ref<Record<string, any>>({});
+const geocode = ref<{ lat: number; lon: number } | null>(null);
 
 const handleGeocode = (geocodeData: { lat: number; lon: number }) => {
-  geocode.value = geocodeData;  // Store the received geocode data
+  geocode.value = geocodeData; // Store the received geocode data
   console.log('Received Geocode Data:', geocodeData); // Debug or process the data as needed
-  setMapLibreLocation(toRaw(geocodeData))
+  setMapLibreLocation(toRaw(geocodeData));
 };
+
 // Function to handle form data emitted by FullAddress
 function handleFormChange(updatedForm: any) {
   formValues.value = updatedForm; // Update formValues with emitted data
   const rawData = toRaw(formValues.value); // Convert formValues to raw data
-
-  // Call the function setFullAddress with the rawData
   setFullAddress(rawData);
-
   console.log('Received Form Data:', rawData); // Debug or process the data as needed
 }
-
-// Function to toggle selection state for buttons
-function toggleSelection(label: string) {
-  selectedButton.value = selectedButton.value === label ? null : label;
-  currentStep.value = STEPS.GETTINGSTARTED; // Default to the first step
-
-  const stepMap = {
-    'Getting Started': STEPS.GETTINGSTARTED,
-    'Type': STEPS.TYPE,
-    'Accessories': STEPS.ACCESSORIES,
-    'Specification': STEPS.SPECIFICATION,
-    'Hosting Options': STEPS.HOSTINGOPTIONS,
-    'Room Amenities': STEPS.ROOMAMENTIES,
-    'Things': STEPS.THINGS,
-    'Images': STEPS.IMAGES,
-    'Location': STEPS.LOCATION,
-    'Info': STEPS.INFO,
-    'Description': STEPS.DESCRIPTION,
-    'Price': STEPS.PRICE,
-    'Finish up': STEPS.PUBLISH,
-  };
-
-  // if (stepMap[label]) {
-  //   currentStep.value = stepMap[label];
-  // }
-}
 </script>
+
+
 
 
 
@@ -128,7 +103,7 @@ function toggleSelection(label: string) {
           <Heading title="Choose your Property Accessories ..." subTitle="Pick a category" />
           <div>
             <PropertyAccessories @PropertyAccessoriesSelected="setPropertyAccessoriesSelected" />
-            <PropertyGuidelines  @PropertyGuidelinesSelected="setPropertyGuidelinesSelected"></PropertyGuidelines>
+            <PropertyGuidelines @PropertyGuidelinesSelected="setPropertyGuidelinesSelected"></PropertyGuidelines>
           </div>
           <div class="flex flex-col gap-4 md:flex-row pt-4">
             <Button label="Back" outline @click="onBack" />
@@ -202,7 +177,6 @@ function toggleSelection(label: string) {
         <!-- Step 9: Location -->
         <div v-if="steps === STEPS.LOCATION">
           <Heading title="Where is your place located?" subTitle="Help guests find you!" />
-          
           <ClientOnly>
             <div class="component-container">
               <MapLibreLocation @update:geocode="handleGeocode" />
@@ -321,7 +295,7 @@ function toggleSelection(label: string) {
   </section>
 
 
-  <NavigationForm :currentStep="currentStep" :currentTitle="currentTitle" :currentNumber="currentNumber" />
+  <NavigationForm :currentStep="currentStep" :onStepChange="handleStepChange" />
 
 </template>
 

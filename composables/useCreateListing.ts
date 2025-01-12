@@ -89,6 +89,8 @@ export function useCreateListing() {
   }
 
   function onNext() {
+
+    console.log(steps)
     if (steps.value === STEPS.PUBLISH && !validDescription()) return
     steps.value++
     saveToLocalStorage()
