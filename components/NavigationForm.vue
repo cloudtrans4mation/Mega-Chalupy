@@ -39,18 +39,24 @@ export default defineComponent({
   },
   setup(props) {
     // Step map defines the numeric value associated with each label
+    // Step map defines the numeric value associated with each label
     const stepMap = {
-      'Type': 1,
-      'Amenities': 2,
-      'Photos': 3,
-      'Description': 4,
-      'Hosting': 5,
-      'Location': 6,
-      'Details': 7,
-      'Price': 8,
-      'Rooms': 9,
-      'Finish up': 10
+      'Getting Started': STEPS.GETTINGSTARTED,
+      'Category': STEPS.CATEGORY,
+      'Accessories': STEPS.ACCESSORIES,
+      'Specification': STEPS.SPECIFICATION,
+      'Hosting Options': STEPS.HOSTINGOPTIONS,
+      'Room Amenities': STEPS.ROOMAMENTIES,
+      'Things': STEPS.THINGS,
+      'Photos': STEPS.IMAGES,
+      'Info': STEPS.INFO,
+      'Location': STEPS.LOCATION,
+      'Type': STEPS.TYPE,
+      'Description': STEPS.DESCRIPTION,
+      'Price': STEPS.PRICE,
+      'Finish up': STEPS.PUBLISH
     };
+
 
     // Initial selection based on the current step
     const selectedItem = ref(stepMap[props.currentStep] || props.currentStep);

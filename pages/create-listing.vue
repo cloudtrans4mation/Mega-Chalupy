@@ -46,7 +46,7 @@ const currentStep = ref(STEPS.GETTINGSTARTED); // Current step
 // Handle step change emitted by the child component
 function handleStepChange(step: number) {
   console.log('Step changed to:', step);
-  console.log('setps:', steps);
+  steps.value=step;
 
 }
 
@@ -67,8 +67,6 @@ function handleFormChange(updatedForm: any) {
   console.log('Received Form Data:', rawData); // Debug or process the data as needed
 }
 </script>
-
-
 
 
 
