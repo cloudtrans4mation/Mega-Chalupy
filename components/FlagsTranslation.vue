@@ -36,27 +36,30 @@ onMounted(() => {
 </script>
 
 <style scoped>
+/* Ensure the GTranslate wrapper is responsive */
 .gtranslate_wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: fixed;
-  bottom: 10px;
-  right: 10px;
-  z-index: 9999;
+  width: 100%;
 }
 
-@media (max-width: 600px) {
+/* Responsive styles for the GTranslate widget */
+@media (max-width: 768px) {
   .gtranslate_wrapper {
-    bottom: 5px;
-    right: 5px;
+    flex-direction: column;
   }
 }
 
-@media (max-width: 400px) {
-  .gtranslate_wrapper {
-    bottom: 2px;
-    right: 2px;
+/* Ensure the GTranslate widget adapts to different screen sizes */
+.gtranslate_wrapper .gt_float_switcher {
+  width: 100%;
+  max-width: 100px;
+}
+
+@media (max-width: 768px) {
+  .gtranslate_wrapper .gt_float_switcher {
+    max-width: 100%;
   }
 }
 </style>
