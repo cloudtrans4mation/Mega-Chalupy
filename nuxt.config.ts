@@ -17,6 +17,10 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
   ],
 
+
+
+
+  
   plugins: [
     { src: '~/plugins/vue-stripe.js', ssr: false },
     '~/plugins/vue-the-mask.js',
