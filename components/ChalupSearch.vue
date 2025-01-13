@@ -3,7 +3,7 @@
     <header class="relative flex flex-col px-4 w-full min-h-[451px] max-md:max-w-full justify-center items-center">
       <!-- Background Image with Gradient Overlay -->
       <div class="absolute inset-0 w-full h-full rounded-lg overflow-hidden">
-        <img loading="lazy" src="../public/mega-search-image.png" alt="background"
+        <img src="../public/mega-search-image.png" alt="background"
           class="object-cover w-full h-full rounded-lg" />
       </div>
 
