@@ -10,7 +10,7 @@ onMounted(() => {
   window.gtranslateSettings = {
     default_language: 'cs',
     detect_browser_language: true,
-    languages: ['cs'],
+    languages: ['cs','en'],
     wrapper_selector: '.gtranslate_wrapper',
     flag_size: 16,
     switcher_horizontal_position: 'inline',
