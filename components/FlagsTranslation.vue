@@ -1,46 +1,40 @@
 <template>
-  <Menu style="z-index: 999;" as="div" class="relative inline-block text-left">
-    <div>
-      <MenuButton
-        class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
-        <img :src="languageStore.currentLang" alt="User Icon" class="w-8 h-8 object-contain" />
-      </MenuButton>
-    </div>
-
-    <transition enter-active-class="transition ease-out duration-100" enter-from-class="transform opacity-0 scale-95"
-      enter-to-class="transform opacity-100 scale-100" leave-active-class="transition ease-in duration-75"
-      leave-from-class="transform opacity-100 scale-100" leave-to-class="transform opacity-0 scale-95">
-      <MenuItems
-        class="absolute right-0  origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-        <div class="py-1">
-          <MenuItem v-slot="{ active }">
-            <a @click="changeLanguage(englishFlag)" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">
-              <img :src="englishFlag" alt="User Icon" class="w-8 h-8 object-contain" />
-            </a>
-          </MenuItem>
-
-          <MenuItem v-slot="{ active }">
-            <a @click="changeLanguage(czFlag)" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">
-              <img :src="czFlag" alt="User Icon" class="w-8 h-8 object-contain" />
-            </a>
-          </MenuItem>
-        </div>
-      </MenuItems>
-    </transition>
-  </Menu>
+  <div class="gtranslate_wrapper"></div>
 </template>
 
+
 <script setup>
-import { ref } from 'vue'
-import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
-import { useLanguageStore} from '../store/languageStore.ts'
+import { onMounted } from 'vue';
 
-import englishFlag from '~/public/english.png'
-import czFlag from '~/public/cz.svg'
+onMounted(() => {
+  // Set up GTranslate settings
+  window.gtranslateSettings = {
+    default_language: 'en',
+    detect_browser_language: true,
+    languages: ['cs'],
+    wrapper_selector: '.gtranslate_wrapper',
+    flag_size: 16,
+    switcher_horizontal_position: 'inline',
+    switcher_vertical_position: 'center',
+  };
 
-const languageStore = useLanguageStore() // Initialize the Pinia store
+  // Dynamically load the GTranslate script
+  const script = document.createElement('script');
+  script.src = 'https://cdn.gtranslate.net/widgets/latest/float.js';
+  script.defer = true;
+  document.body.appendChild(script);
 
-const changeLanguage = (flag) => {
-  languageStore.setLanguage(flag);  // Update the currentLang in the store and persist it in localStorage
-}
+  // Wait for the GTranslate widget to load
+  script.onload = () => {
+    // Remove all elements with the class "gt-lang-code"
+    const elements = document.querySelectorAll('.gt-lang-code');
+    elements.forEach((el) => el.remove());
+
+
+    const switcherArrows = document.querySelectorAll('.gt_float_switcher-arrow');
+    switcherArrows.forEach((arrow) => arrow.remove());
+  };
+});
 </script>
+
+
