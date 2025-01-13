@@ -8,7 +8,7 @@ import { onMounted } from 'vue';
 onMounted(() => {
   // Set up GTranslate settings
   window.gtranslateSettings = {
-    default_language: 'cz',
+    default_language: 'cs',
     native_language_names: true,
     detect_browser_language: true,
     languages: ['en', 'cs'],
