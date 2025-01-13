@@ -31,8 +31,8 @@ onMounted(() => {
         wrapper.style.maxWidth = '90%';
         wrapper.style.width = 'auto';
       } else {
-        wrapper.style.maxWidth = '150px';
-        wrapper.style.width = '150px';
+        wrapper.style.maxWidth = '100px';
+        wrapper.style.width = '100px';
       }
     }
   };
