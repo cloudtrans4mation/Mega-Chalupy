@@ -14,8 +14,8 @@ onMounted(() => {
     languages: ['en', 'cs'],
     wrapper_selector: '.gtranslate_wrapper',
     switcher_horizontal_position: 'right',
-    switcher_vertical_position: 'top',
-    float_switcher_open_direction: 'bottom',
+    switcher_vertical_position: 'inline',
+    float_switcher_open_direction: 'center',
   };
 
   // Dynamically load the GTranslate script
