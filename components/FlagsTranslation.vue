@@ -3,7 +3,7 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue';
+import { onMounted, onUnmounted } from 'vue';
 
 onMounted(() => {
   // Set up GTranslate settings
@@ -23,6 +23,20 @@ onMounted(() => {
   script.defer = true;
   document.body.appendChild(script);
 
+  // Function to handle responsive design
+  const handleResize = () => {
+    const wrapper = document.getElementById('gt_float_wrapper');
+    if (wrapper) {
+      if (window.innerWidth <= 768) {
+        wrapper.style.maxWidth = '90%';
+        wrapper.style.width = 'auto';
+      } else {
+        wrapper.style.maxWidth = '150px';
+        wrapper.style.width = '150px';
+      }
+    }
+  };
+
   // Wait for the GTranslate widget to load
   script.onload = () => {
     // Remove all elements with the class "gt-lang-code"
@@ -31,7 +45,18 @@ onMounted(() => {
 
     const switcherArrows = document.querySelectorAll('.gt_float_switcher-arrow');
     switcherArrows.forEach((arrow) => arrow.remove());
+
+    // Initial call to handleResize
+    handleResize();
+
+    // Add event listener for window resize
+    window.addEventListener('resize', handleResize);
   };
+
+  // Clean up event listener on component unmount
+  onUnmounted(() => {
+    window.removeEventListener('resize', handleResize);
+  });
 });
 </script>
 
@@ -48,18 +73,6 @@ onMounted(() => {
 @media (max-width: 768px) {
   .gtranslate_wrapper {
     flex-direction: column;
-  }
-}
-
-/* Ensure the GTranslate widget adapts to different screen sizes */
-.gtranslate_wrapper .gt_float_switcher {
-  width: 100%;
-  max-width: 100px;
-}
-
-@media (max-width: 768px) {
-  .gtranslate_wrapper .gt_float_switcher {
-    max-width: 100%;
   }
 }
 </style>
