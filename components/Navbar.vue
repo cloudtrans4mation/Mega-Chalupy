@@ -3,7 +3,7 @@
     <Container>
       <nav class="flex flex-col w-full">
         <!-- Top Navigation -->
-        <div class="flex flex-wrap items-center justify-between px-6 py-4 bg-white  border-opacity-40">
+        <div class="flex flex-wrap items-center justify-between px-6 py-4 bg-white border-opacity-40">
 
           <!-- Logo -->
           <div class="flex items-center py-2 w-8 md:w-10 lg:w-12">
@@ -26,9 +26,6 @@
               Experiences
             </a>
           </div>
-
-
-
 
           <!-- Search Component -->
           <div v-if="!user" class="hidden md:block">

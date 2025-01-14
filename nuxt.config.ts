@@ -24,7 +24,8 @@ export default defineNuxtConfig({
   plugins: [
     { src: '~/plugins/vue-stripe.js', ssr: false },
     '~/plugins/vue-the-mask.js',
-    '~/plugins/pinia.js'
+    '~/plugins/pinia.js',
+    
     ],
   
   experimental: {
@@ -101,6 +102,7 @@ export default defineNuxtConfig({
         { src: 'https://js.stripe.com/v3' },
         { src: 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js' },
         { src: 'https://js.stripe.com/v3' },
+        {src : 'translate.google.com/translate_a/element.js?cb=googleTranslateElementInit'}
         
 //      { src: 'https://unpkg.com/vuesax@4.0.1-alpha.16/dist/vuesax.min.js' }
       ],
