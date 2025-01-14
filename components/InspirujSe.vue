@@ -58,7 +58,7 @@ export default defineComponent({
 </script>
 
 <template>
-  <section style="padding-top:0px;padding-bottom:0px" class="max-w-[2520px] mx-auto  sm:px-2 md:px-6 xl:px-[100px] flex flex-wrap items-center font-medium md:py-16 lg:py-20 rounded-2xl gap-10 md:gap-16" aria-labelledby="inspiration-title">
+  <section style="padding-top:0px;padding-bottom:0px" class="max-w-[2520px] mx-auto sm:px-2 md:px-6 xl:px-[100px] flex flex-wrap items-center font-medium md:py-16 lg:py-20 rounded-2xl gap-10 md:gap-16" aria-labelledby="inspiration-title">
     <div class="flex flex-col w-full text-black max-md:max-w-full">
       <div class="flex flex-col w-full max-md:max-w-full">
         <h2 id="inspiration-title" class="text-3xl font-bold leading-normal max-md:max-w-full">
@@ -71,9 +71,9 @@ export default defineComponent({
       
       <!-- Top Cards Section -->
       <div class="flex flex-wrap gap-10 items-start w-full max-md:max-w-full mt-8">
-        <div v-for="card in topCards" :key="card.id" class="flex flex-col flex-1 shrink basis-0 min-w-[240px]">
+        <div v-for="card in topCards" :key="card.id" class="flex flex-col flex-1 shrink basis-0 min-w-[240px] p-4 bg-white rounded-lg shadow-md">
           <img :src="card.image" :alt="card.title"  
-            :class="['object-cover w-full rounded-lg', card.aspectRatio]" />
+            :class="['object-cover w-full rounded-lg max-w-[380px] h-[250px] mx-auto', card.aspectRatio]" />
           <div class="flex flex-col mt-4 w-full">
             <div class="font-light text-sm">{{ card.category }}</div>
             <div class="mt-2.5 font-semibold text-lg">{{ card.title }}</div>
@@ -83,9 +83,9 @@ export default defineComponent({
 
       <!-- Bottom Cards Section -->
       <div class="flex flex-wrap gap-10 items-start mt-8 w-full max-md:max-w-full">
-        <div v-for="card in bottomCards" :key="card.id" class="flex flex-col flex-1 shrink basis-0 min-w-[240px]">
+        <div v-for="card in bottomCards" :key="card.id" class="flex flex-col flex-1 shrink basis-0 min-w-[240px] p-4 bg-white rounded-lg shadow-md">
           <img :src="card.image" :alt="card.title"  
-            :class="['object-cover w-full rounded-lg', card.aspectRatio]" />
+            :class="['object-cover w-full rounded-lg max-w-[380px] h-[250px] mx-auto', card.aspectRatio]" />
           <div class="flex flex-col mt-4 w-full">
             <div class="font-light text-sm">{{ card.category }}</div>
             <div class="mt-2.5 font-semibold text-lg">{{ card.title }}</div>
