@@ -17,7 +17,7 @@
           <!-- Navigation Links (Desktop Only) -->
           <div v-if="!isMobile"
             class="hidden md:flex justify-center items-center space-x-8 md:space-x-10 h-full">
-            <a href="#"
+            <a href="/"
               class="nav-link px-6 py-3 text-center text-gray-800 font-semibold hover:text-gray-900 hover:border-2 hover:border-gray-300 hover:rounded-full transition-all duration-300 ease-in-out">
               Housing
             </a>
