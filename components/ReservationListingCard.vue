@@ -21,7 +21,7 @@
       <!-- Details Section -->
       <div class="p-4">
         <p class="uppercase tracking-wide text-sm font-bold text-gray-700">
-          {{ listing.title.slice(0, 15) }}{{ listing.title.length > 15 ? '...' : '' }} • {{ listing.category }}
+          {{ listing.title.slice(0, 19) }}{{ listing.title.length > 19 ? '...' : '' }} • {{ listing.category }}
         </p>
 
         <p class="text-gray-900">
