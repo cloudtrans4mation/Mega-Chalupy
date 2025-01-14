@@ -130,7 +130,6 @@
   transition: background-color 0.3s ease, transform 0.3s ease;
   position: absolute;
   top: 60%;
-  transform: translateY(-50%);
 }
 
 :deep(.swiper-button-next) {
