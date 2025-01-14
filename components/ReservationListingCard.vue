@@ -21,8 +21,9 @@
       <!-- Details Section -->
       <div class="p-4">
         <p class="uppercase tracking-wide text-sm font-bold text-gray-700">
-          {{ listing.title }} • {{ listing.category }}
+          {{ listing.title.slice(0, 15) }}{{ listing.title.length > 15 ? '...' : '' }} • {{ listing.category }}
         </p>
+
         <p class="text-gray-900">
           ${{ totalPrice || price }} • Per Night
         </p>
@@ -133,11 +134,13 @@
 }
 
 :deep(.swiper-button-next) {
-  right: 10px; /* Adjust the position from the right */
+  right: 10px;
+  /* Adjust the position from the right */
 }
 
 :deep(.swiper-button-prev) {
-  left: 10px; /* Adjust the position from the left */
+  left: 10px;
+  /* Adjust the position from the left */
 }
 
 :deep(.swiper-button-next):hover,
@@ -205,12 +208,12 @@ type ListingCardProps = {
   description?: string;
   locationValue: string;
   category:
-    | {
-        icon: string;
-        label: string;
-        description: string;
-      }
-    | undefined;
+  | {
+    icon: string;
+    label: string;
+    description: string;
+  }
+  | undefined;
 };
 
 // Define props
