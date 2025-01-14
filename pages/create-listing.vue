@@ -39,15 +39,18 @@ useSeoMeta({
 });
 
 // Define state variables
-const selectedButton = ref<string | null>(null);
+const selectedButton = ref<string | null>(null); // This will store the selected button label
 const currentStep = ref(STEPS.GETTINGSTARTED); // Current step
-
 
 // Handle step change emitted by the child component
 function handleStepChange(step: number) {
   console.log('Step changed to:', step);
-  steps.value=step;
+  steps.value = step;
+}
 
+// Define button selection behavior
+function toggleSelection(label: string) {
+  selectedButton.value = selectedButton.value === label ? null : label; // Toggle selection on click
 }
 
 const formValues = ref<Record<string, any>>({});
@@ -67,7 +70,8 @@ function handleFormChange(updatedForm: any) {
   console.log('Received Form Data:', rawData); // Debug or process the data as needed
 }
 </script>
- 
+
+
 
 
 <template>
