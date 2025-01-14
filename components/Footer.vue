@@ -111,7 +111,7 @@ const currentYear = new Date().getFullYear()
 
     <div class="flex flex-wrap gap-10 justify-between items-center mt-8 w-full max-md:max-w-full">
 
-      <img loading="lazy"
+      <img  
         src="https://cdn.builder.io/api/v1/image/assets/TEMP/30b15b43ae0ca6c635499be139cab9e65fa08eb406a07d9a393d87212e0e4fe9?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa"
         alt="Company logo" class="object-contain shrink-0 self-stretch my-auto w-8 aspect-square" />
 
@@ -128,15 +128,15 @@ const currentYear = new Date().getFullYear()
 
       <div class="flex gap-4 items-start self-stretch my-auto">
 
-        <a href="#" aria-label="Facebook"><img loading="lazy"
+        <a href="#" aria-label="Facebook"><img  
             src="https://cdn.builder.io/api/v1/image/assets/TEMP/d94bfe2e61a8a657d16d704830d2a47683c86deb9846b13bee928fd50ebaef12?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa"
             alt="" class="object-contain shrink-0 aspect-square w-[35px]" /></a>
 
-        <a href="#" aria-label="Twitter"><img loading="lazy"
+        <a href="#" aria-label="Twitter"><img  
             src="https://cdn.builder.io/api/v1/image/assets/TEMP/f9ecccd33404d60c7d3193da67c4da1c46a4614bf055d180d6457f7dfa0e44d4?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa"
             alt="" class="object-contain shrink-0 aspect-square w-[35px]" /></a>
 
-        <a href="#" aria-label="Instagram"><img loading="lazy"
+        <a href="#" aria-label="Instagram"><img  
             src="https://cdn.builder.io/api/v1/image/assets/TEMP/a771d2f2275bee48ebda3a567385cddff57fbb0063f70cc5b04dd839e08576cd?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa"
             alt="" class="object-contain shrink-0 aspect-square w-[35px]" /></a>
 

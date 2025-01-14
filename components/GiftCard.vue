@@ -20,7 +20,7 @@
 
     <!-- Image Container -->
     <div class="flex justify-center flex-1 shrink-0 min-w-[240px] md:basis-1/2 lg:basis-7/12">
-      <img loading="lazy" src="/megacard.png" alt="Mega Chalupy gift cards"
+      <img   src="/megacard.png" alt="Mega Chalupy gift cards"
         class="object-cover rounded-lg transition-transform transform hover:scale-105 duration-300 w-full max-w-7xl" />
     </div>
   </section>

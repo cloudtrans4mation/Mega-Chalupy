@@ -41,7 +41,7 @@ export default defineComponent({
         <img
           :src="imageUrl"
           :alt="title"
-          loading="lazy"
+           
           class="object-cover absolute inset-0 size-full"
         />
         <div 

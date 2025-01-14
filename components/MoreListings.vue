@@ -23,7 +23,7 @@ defineProps<MoreListingsProps>();
       class="relative flex flex-col justify-center items-start self-stretch px-20 py-14 mt-6 w-full text-xs uppercase rounded min-h-[310px] max-md:px-5 max-md:max-w-full"
       role="img" aria-label="Background image for More Listings">
       <!-- Background Image (Non-Transparent) -->
-      <img loading="lazy"
+      <img  
         src="https://cdn.builder.io/api/v1/image/assets/TEMP/3fccbd3233e3b1c872c55804c7c793aaf3269768796215ff1ebba3e25d6cbe7c"
         alt="Background Image for More Listings" class="object-cover absolute inset-0 w-full h-full rounded-lg" />
 

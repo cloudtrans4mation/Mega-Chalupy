@@ -48,7 +48,7 @@ export default defineComponent({
           class="mySwiper"
         >
           <swiper-slide v-for="(image, index) in images" :key="index">
-            <img :src="image" loading="lazy" />
+            <img :src="image"   />
             <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
           </swiper-slide>
         </swiper>

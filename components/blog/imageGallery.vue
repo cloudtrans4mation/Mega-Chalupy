@@ -20,7 +20,7 @@ const images: ImageProps[] = [
 <template>
   <div class="flex flex-wrap gap-4 items-center py-8 mt-14 w-full border-t border-b border-solid border-y-black border-y-opacity-10 max-md:mt-10 max-md:max-w-full">
     <div v-for="(image, index) in images" :key="index" class="flex overflow-hidden flex-col flex-1 shrink items-start self-stretch my-auto rounded-xl border border-solid basis-0 border-black border-opacity-10 min-w-[240px]">
-      <img :src="image.src" :alt="image.alt" loading="lazy" class="object-contain max-w-full aspect-[1.76] w-[390px]" />
+      <img :src="image.src" :alt="image.alt"   class="object-contain max-w-full aspect-[1.76] w-[390px]" />
     </div>
   </div>
 </template>

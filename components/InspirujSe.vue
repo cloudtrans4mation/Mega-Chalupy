@@ -72,7 +72,7 @@ export default defineComponent({
       <!-- Top Cards Section -->
       <div class="flex flex-wrap gap-10 items-start w-full max-md:max-w-full mt-8">
         <div v-for="card in topCards" :key="card.id" class="flex flex-col flex-1 shrink basis-0 min-w-[240px]">
-          <img :src="card.image" :alt="card.title" loading="lazy"
+          <img :src="card.image" :alt="card.title"  
             :class="['object-cover w-full rounded-lg', card.aspectRatio]" />
           <div class="flex flex-col mt-4 w-full">
             <div class="font-light text-sm">{{ card.category }}</div>
@@ -84,7 +84,7 @@ export default defineComponent({
       <!-- Bottom Cards Section -->
       <div class="flex flex-wrap gap-10 items-start mt-8 w-full max-md:max-w-full">
         <div v-for="card in bottomCards" :key="card.id" class="flex flex-col flex-1 shrink basis-0 min-w-[240px]">
-          <img :src="card.image" :alt="card.title" loading="lazy"
+          <img :src="card.image" :alt="card.title"  
             :class="['object-cover w-full rounded-lg', card.aspectRatio]" />
           <div class="flex flex-col mt-4 w-full">
             <div class="font-light text-sm">{{ card.category }}</div>

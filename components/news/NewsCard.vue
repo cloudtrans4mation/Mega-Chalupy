@@ -6,7 +6,7 @@
         <img
           :src="imageUrl"
           :alt="title"
-          loading="lazy"
+           
           class="object-cover w-full h-full aspect-[1.1] rounded-md"
         />
       </div>

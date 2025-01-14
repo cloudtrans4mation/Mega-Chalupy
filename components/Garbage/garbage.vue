@@ -30,7 +30,7 @@ class="  relative z-[1] flex w-full justify-center black-text border-none ">
         <div
           class="relative flex items-center p-3 bg-white rounded-full shadow-sm border border-gray-200 flex-1 min-w-[240px] lg:min-w-[250px]"
           @click="toggleDateSelector">
-          <img loading="lazy"
+          <img  
             src="https://cdn.builder.io/api/v1/image/assets/TEMP/385186cd1e9b4d55a0a945e9beba365cb5e8c23ae2ff1582c154eef948783cbb?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa"
             alt="dates-icon" class="w-5 h-5 mr-2" />
           <label for="dates" class="sr-only">Dates</label>
@@ -41,7 +41,7 @@ class="  relative z-[1] flex w-full justify-center black-text border-none ">
         <!-- Travelers Input -->
         <div
           class="flex items-center p-3 bg-white rounded-full shadow-sm border border-gray-200 flex-1 min-w-[240px] lg:min-w-[250px]">
-          <img loading="lazy"
+          <img  
             src="https://cdn.builder.io/api/v1/image/assets/TEMP/ef580c73e38012b4a90786e17c2f82fadbdb107d48a77ca14baeebf60950b7b0?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa"
             alt="travelers-icon" class="w-5 h-5 mr-2" />
           <label for="travelers" class="sr-only">Number of travelers</label>

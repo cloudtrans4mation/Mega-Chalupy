@@ -64,7 +64,7 @@ export default defineComponent({
         <img
           :src="benefit.imageUrl"
           :alt="benefit.imageAlt"
-          loading="lazy"
+           
           class="object-contain w-[60px] h-[60px]"
         />
       </div>

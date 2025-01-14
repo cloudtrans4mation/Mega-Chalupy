@@ -78,7 +78,7 @@ const amenities: AmenityItem[] = [
     
     <ul class="flex flex-wrap gap-6 items-center mt-6 w-full text-sm font-medium leading-none" role="list">
       <li v-for="facility in facilities" :key="facility.name" class="flex gap-3 items-center">
-        <img :src="facility.icon" :alt="`${facility.name} icon`" loading="lazy"
+        <img :src="facility.icon" :alt="`${facility.name} icon`"  
           class="object-contain shrink-0 w-5 aspect-square" />
         <span>{{ facility.name }}</span>
       </li>
@@ -91,7 +91,7 @@ const amenities: AmenityItem[] = [
         <li v-for="(amenity, index) in amenities" :key="index">
           <article class="flex flex-col w-full">
             <header class="flex gap-3 items-center w-full text-base">
-              <img :src="amenity.icon" :alt="`${amenity.label} icon`" loading="lazy"
+              <img :src="amenity.icon" :alt="`${amenity.label} icon`"  
                 class="object-contain shrink-0 w-5 aspect-square" />
               <h3 class="flex-1">{{ amenity.label }}</h3>
             </header>
@@ -99,7 +99,7 @@ const amenities: AmenityItem[] = [
             <ul v-if="amenity.subItems" class="flex flex-col mt-4 w-full space-y-1.5">
               <li v-for="(subItem, subIndex) in amenity.subItems" :key="subIndex"
                 class="flex gap-4 items-center text-sm">
-                <img :src="subItem.icon" :alt="`${subItem.label} icon`" loading="lazy"
+                <img :src="subItem.icon" :alt="`${subItem.label} icon`"  
                   class="object-contain shrink-0 w-4 aspect-square" />
                 <span>{{ subItem.label }}</span>
               </li>

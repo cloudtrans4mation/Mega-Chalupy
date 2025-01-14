@@ -14,7 +14,7 @@
         <option value="not-allowed">Not Allowed</option>
         <option value="outdoor-only">Outdoor Only</option>
       </select>
-      <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/8b73d3f214689eb3f115a12f33782f63308a49aceec3cd2ea4d1bc900aead8ca?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa" class="object-contain shrink-0 self-stretch my-auto w-1.5 aspect-[2]" alt="" />
+      <img   src="https://cdn.builder.io/api/v1/image/assets/TEMP/8b73d3f214689eb3f115a12f33782f63308a49aceec3cd2ea4d1bc900aead8ca?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa" class="object-contain shrink-0 self-stretch my-auto w-1.5 aspect-[2]" alt="" />
     </div>
   </div>
 </template>

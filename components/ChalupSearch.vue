@@ -20,7 +20,7 @@
             <!-- Destination Input -->
             <div
               class="flex items-center flex-1 gap-3.5 py-3 pr-11 pl-3 bg-white border border-gray-300 rounded-[34px] max-md:pr-5 relative z-[1]">
-              <img loading="lazy"
+              <img  
                 src="https://cdn.builder.io/api/v1/image/assets/5b20c0d534a34f0091744edaaeed1afd/22d987ef3af71f26e034623e9c561f36ad62f9aed60361d37089f9b4764a1878?apiKey=5b20c0d534a34f0091744edaaeed1afd&"
                 class="w-4 h-4 object-contain" alt="" />
               <label for="destination" class="sr-only">Destination</label>
@@ -45,7 +45,7 @@
             <!-- Dates Input -->
             <div
               class="flex items-center flex-1 gap-3.5 py-3 pr-11 pl-3 bg-white border border-gray-300 rounded-[34px] max-md:pr-5">
-              <img loading="lazy"
+              <img  
                 src="https://cdn.builder.io/api/v1/image/assets/5b20c0d534a34f0091744edaaeed1afd/46cdace2eb081e9ad1f85a4eb522baf565aa92fba0df8dee5c0aab61a5e10ac0?apiKey=5b20c0d534a34f0091744edaaeed1afd&"
                 class="w-4 h-4 object-contain" alt="" />
               <label for="travel-dates" class="sr-only">Travel Dates</label>
@@ -57,7 +57,7 @@
             <!-- Travelers Input -->
             <div
               class="flex items-center flex-1 gap-3.5 py-3 pr-11 pl-3 bg-white border border-gray-300 rounded-[34px] max-md:pr-5">
-              <img loading="lazy"
+              <img  
                 src="https://cdn.builder.io/api/v1/image/assets/5b20c0d534a34f0091744edaaeed1afd/873c6c0dd8939241b16802abb1e017d5d6f1f45d2a15f76b845a27e0c4c44b90?apiKey=5b20c0d534a34f0091744edaaeed1afd&"
                 class="w-4 h-4 object-contain" alt="" />
               <label for="travelers" class="sr-only">Number of travelers</label>

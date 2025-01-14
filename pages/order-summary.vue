@@ -27,13 +27,13 @@
 
                     <div class="flex items-start self-stretch py-6 my-auto w-[102px]">
 
-                        <img loading="lazy"
+                        <img  
                             src="https://cdn.builder.io/api/v1/image/assets/TEMP/63854f49a95b61f77f7a94f7c993b826e10d1f01134a3e666aa068256f4debd2?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa"
                             alt="" class="object-contain aspect-[3.18] w-[102px]" />
 
                     </div>
 
-                    <img loading="lazy"
+                    <img  
                         src="https://cdn.builder.io/api/v1/image/assets/TEMP/630cd76872211c2b34e37109428f10bdd02d6bf1dea8ac77fda3bd4a7aeecbb2?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa"
                         alt="" class="object-contain shrink-0 self-stretch my-auto aspect-[7.09] w-[170px]" />
 

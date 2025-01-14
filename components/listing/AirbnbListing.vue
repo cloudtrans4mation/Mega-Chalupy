@@ -10,10 +10,10 @@
             </div>
 
 
-            <img loading="lazy"
+            <img  
                 src="https://cdn.builder.io/api/v1/image/assets/TEMP/6a19a2f47f28a2d22608363eeb19bf0e4c52399865e265660acffce85ad56d12?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa"
                 class="object-cover absolute inset-0 size-full rounded-t-2xl" alt="Sevierville, Tennessee landscape" />
-            <img loading="lazy"
+            <img  
                 src="https://cdn.builder.io/api/v1/image/assets/TEMP/541f9829fd733bb530fd4104083783f4d844309bc747029ac4c6d90a97bd3c2a?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa"
                 class="object-contain w-full aspect-[1.17] rounded-t-2xl" alt="Mega Chalupy listing main image" />
         </header>
@@ -31,7 +31,7 @@
                 </p>
             </div>
             <div class="flex gap-1 items-center text-right whitespace-nowrap">
-                <img loading="lazy"
+                <img  
                     src="https://cdn.builder.io/api/v1/image/assets/TEMP/9acc2d35dc28979b2d209ba0204e4dc036e82eebb39896e86f2e82bfc59420f0?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa"
                     class="object-contain shrink-0 self-stretch my-auto w-4 aspect-square" alt="" />
                 <span class="self-stretch my-auto text-sm">4.94</span>

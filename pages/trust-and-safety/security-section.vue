@@ -32,7 +32,7 @@
   
       </div>
   
-      <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/4614b350fce10ac084e74548672faaecffe71c1194fb66a3091eb508b6daf8ac?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa" alt="Security illustration" class="object-contain self-stretch my-auto aspect-square min-w-[240px] w-[346px]" />
+      <img   src="https://cdn.builder.io/api/v1/image/assets/TEMP/4614b350fce10ac084e74548672faaecffe71c1194fb66a3091eb508b6daf8ac?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa" alt="Security illustration" class="object-contain self-stretch my-auto aspect-square min-w-[240px] w-[346px]" />
   
     </section>
   

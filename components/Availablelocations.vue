@@ -20,7 +20,7 @@
                 v-if="item.imageSrc"
                 :src="item.imageSrc"
                 :alt="item.imageAlt"
-                loading="lazy"
+                 
                 class="object-cover w-full h-[150px] bg-gray-200"
             />
             <div class="flex flex-col px-4 py-2">

@@ -7,7 +7,7 @@
         <div class="flex flex-col mt-6 w-full max-md:max-w-full">
             <div
                 class="flex relative flex-col flex-wrap justify-center px-6 py-8 w-full rounded-3xl min-h-[230px] shadow-[0px_6px_20px_rgba(0,0,0,0.2)] max-md:px-5 max-md:max-w-full">
-                <img loading="lazy"
+                <img  
                     src="https://cdn.builder.io/api/v1/image/assets/TEMP/b6d006ab309d410985aa59569c02ade5ca5b69f6a26eae456dad64a481ebd118?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa"
                     alt="" class="object-cover absolute inset-0 w-full h-full rounded-3xl" />
 

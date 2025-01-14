@@ -5,7 +5,7 @@
         <div class="flex gap-2.5 items-center p-5 w-24 h-24 bg-black rounded-3xl min-h-[96px]">
 
             <img :src="icon" class="object-contain self-stretch my-auto aspect-square w-[60px]"
-                loading="lazy" />
+                  />
 
         </div>
 

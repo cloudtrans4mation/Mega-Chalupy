@@ -5,7 +5,7 @@
         :src="image"
         :alt="title"
         class="object-cover w-full h-48 rounded-lg shadow-md transition-transform duration-300 transform hover:scale-105"
-        loading="lazy"
+         
       />
       <!-- Content Section -->
       <div class="flex flex-col mt-4 space-y-2">

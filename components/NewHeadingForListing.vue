@@ -13,14 +13,14 @@
         <!-- Ratings and Location -->
         <div class="flex flex-wrap items-center gap-4">
           <div class="flex items-center gap-2">
-            <img loading="lazy"
+            <img  
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/a45741a4f68ed5bf3cd2e97756ca5f4f158a89eebd516d72bd71547dc37bfd19?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa"
               alt="Star Icon" class="w-4 h-4" />
             <span>5.0</span>
           </div>
           <a href="#reviews" class="underline">0 reviews</a>
           <div class="flex items-center gap-2 text-gray-500">
-            <img loading="lazy"
+            <img  
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/1162eb8ee62f8ae01a1ccad66338a1ae042073f1ad4aa6e543ec0aa629f10b85?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa"
               alt="Superhost Icon" class="w-4 h-4" />
             <span>Host</span>
@@ -33,7 +33,7 @@
         <!-- Action Links (Share and Save) -->
         <div class="flex gap-4 text-black">
           <a class="flex items-center gap-1 cursor-pointer hover:underline" @click="shareProperty">
-            <img loading="lazy"
+            <img  
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/20242f213dd9d7afd719f1de27156ebe8479261606af202808d7d7b66456e7fb?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa"
               alt="Share Icon" class="w-4 h-4" />
             <span>Share</span>
@@ -41,7 +41,7 @@
 
 
           <ToastProvider>
-            <img loading="lazy"
+            <img  
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/c070cdf2a1a3d989c1bd587a9529e53d3db60e59d55671b373ac63695a746269?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa"
               alt="Save Icon" class="w-4 h-4" />
             <button class="flex items-center gap-1 cursor-pointer hover:underline" @click="handleClick">

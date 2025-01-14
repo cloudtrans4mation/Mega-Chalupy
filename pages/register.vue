@@ -128,7 +128,7 @@ useSeoMeta({
               'article-btn flex flex-col items-center p-6 bg-white rounded-xl border border-solid shadow-lg border-black border-opacity-10 w-full md:w-64 cursor-pointer transition-transform duration-300 ease-in-out transform hover:scale-105',
               { 'border-blue-500': isClientTypeSelected('owner') }
             ]">
-              <img loading="lazy"
+              <img  
                 src="https://cdn.builder.io/api/v1/image/assets/TEMP/57880e77cbf696f15b15657024f2db286c72ac846b9077600fd3b6899e2d9acc?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa"
                 alt="Owner icon" class="object-contain aspect-square w-[50px] mx-auto" />
               <div class="flex flex-col mt-4 w-full text-center">
@@ -142,7 +142,7 @@ useSeoMeta({
               'article-btn flex flex-col items-center p-6 bg-white rounded-xl border border-solid shadow-lg border-black border-opacity-10 w-full md:w-64 cursor-pointer transition-transform duration-300 ease-in-out transform hover:scale-105',
               { 'border-blue-500': isClientTypeSelected('client') }
             ]">
-              <img loading="lazy"
+              <img  
                 src="https://cdn.builder.io/api/v1/image/assets/TEMP/94664606cea22aac92a72229f1fa5eb54c1fdfd882f2dca8d03e3b678ba2c334?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa"
                 alt="Client icon" class="object-contain aspect-square w-[50px] mx-auto" />
               <div class="flex flex-col mt-4 w-full text-center">

@@ -2,7 +2,7 @@
 
     <section class="flex flex-wrap gap-10 justify-center items-center mt-12 w-full max-md:mt-10 max-md:max-w-full">
   
-      <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/7863cc4ac2d002cd94334a668b88a6988871ed523ac7de5f459f19cc0a13b3fd?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa" alt="Inclusion illustration" class="object-contain self-stretch my-auto aspect-square min-w-[240px] w-[346px]" />
+      <img   src="https://cdn.builder.io/api/v1/image/assets/TEMP/7863cc4ac2d002cd94334a668b88a6988871ed523ac7de5f459f19cc0a13b3fd?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa" alt="Inclusion illustration" class="object-contain self-stretch my-auto aspect-square min-w-[240px] w-[346px]" />
   
       <div class="flex flex-col flex-1 shrink self-stretch my-auto basis-0 min-w-[240px] max-md:max-w-full">
   

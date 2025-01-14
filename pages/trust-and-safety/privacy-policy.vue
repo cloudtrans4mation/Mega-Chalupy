@@ -4,7 +4,7 @@
   
       <header class="flex flex-col w-full max-md:max-w-full">
   
-        <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/41c032371c5240256c0168af46e671e035d8e50b8dff65ab5a3b7994aff421a0?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa" alt="Trust and Safety banner" class="object-contain self-center mt-5 max-w-full aspect-[1.91] w-[880px]" />
+        <img   src="https://cdn.builder.io/api/v1/image/assets/TEMP/41c032371c5240256c0168af46e671e035d8e50b8dff65ab5a3b7994aff421a0?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa" alt="Trust and Safety banner" class="object-contain self-center mt-5 max-w-full aspect-[1.91] w-[880px]" />
   
       </header>
   

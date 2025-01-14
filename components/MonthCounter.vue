@@ -18,7 +18,7 @@
     
               <span class="flex shrink-0 my-auto w-2.5 h-2.5 rounded-full bg-zinc-300" aria-hidden="true"></span>
     
-              <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/306d57a6590ef7124c9b4653577a8f20a7238e33fe9fe4065da497e3881a2475?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa" class="object-contain shrink-0 max-w-full rounded-full aspect-[1.69] w-[150px]" alt="Decorative image" />
+              <img   src="https://cdn.builder.io/api/v1/image/assets/TEMP/306d57a6590ef7124c9b4653577a8f20a7238e33fe9fe4065da497e3881a2475?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa" class="object-contain shrink-0 max-w-full rounded-full aspect-[1.69] w-[150px]" alt="Decorative image" />
     
             </div>
     

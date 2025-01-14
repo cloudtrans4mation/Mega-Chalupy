@@ -7,7 +7,7 @@
             <!-- Render each section dynamically -->
             <section v-for="(section, sectionIndex) in amenities" :key="sectionIndex" class="mt-4">
               <h2 class="flex gap-4 items-center py-2.5 w-full text-base">
-                <img loading="lazy" :src="section.icon" alt=""
+                <img   :src="section.icon" alt=""
                   class="object-contain shrink-0 self-stretch my-auto aspect-square w-[30px]" />
                 <span>{{ section.title }}</span>
               </h2>
@@ -19,14 +19,14 @@
                     <input type="checkbox" class="checkbox-input" :value="amenity.name"
                       @change="toggleAmenity(amenity.name, $event.target.checked)">
                     <span class="checkbox-custom">
-                      <img loading="lazy" :src="amenity.image" alt=""
+                      <img   :src="amenity.image" alt=""
                         class="object-contain shrink-0 self-stretch my-auto aspect-square w-[30px] mt-2 md:mt-0">
                       <span class="checkmark">&#10003;</span>
                     </span>
                   </label>
                 </li>
               </ul>
-              <img loading="lazy" :src="section.image" alt="" class="object-cover w-full h-auto" />
+              <img   :src="section.image" alt="" class="object-cover w-full h-auto" />
             </section>
           </div>
         </div>

@@ -8,7 +8,7 @@
                 <span class="flex-1 shrink self-stretch my-auto min-w-[240px] max-md:max-w-full">
                    Entire
                 </span>
-                <img loading="lazy"
+                <img  
                     src="https://cdn.builder.io/api/v1/image/assets/TEMP/bc64419cc6d432c824d749fa04ea485f6a2652eb3911638e9e9794aa83a4134b?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa"
                     alt="Icon for entire accommodation"
                     class="object-contain shrink-0 self-stretch my-auto aspect-square w-[45px]" />
@@ -25,7 +25,7 @@
                         <span class="text-neutral-500">Please choose ideal</span>...
                     </p>
                 </div>
-                <img loading="lazy"
+                <img  
                     src="https://cdn.builder.io/api/v1/image/assets/TEMP/a6032e2da097521c01f6f13f224f534c3b64bb56460b7aa6ba5be946db5edc01?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa"
                     alt="Icon for room accommodation"
                     class="object-contain shrink-0 self-stretch my-auto w-11 aspect-[0.98]" />
@@ -42,7 +42,7 @@
                         <span class="text-neutral-500">Please choose ideal</span>...
                     </p>
                 </div>
-                <img loading="lazy"
+                <img  
                     src="https://cdn.builder.io/api/v1/image/assets/TEMP/a43db3f340ef72d37c9df0c3f61c5e1017277685055e3199d6631262051ab9f6?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa"
                     alt="Icon for shared accommodation"
                     class="object-contain shrink-0 self-stretch my-auto aspect-square w-[45px]" />

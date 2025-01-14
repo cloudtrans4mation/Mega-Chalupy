@@ -18,7 +18,7 @@
         @change="handleChange" 
       />
       <span class="checkbox-custom">
-        <img loading="lazy"
+        <img  
           src="https://cdn.builder.io/api/v1/image/assets/TEMP/466c3b17040ec4fe2c82fa66cd685d4ef01d53b257e7e62f263d2503632fe529?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa"
           alt="" class="object-contain shrink-0 self-stretch my-auto aspect-square w-[30px] mt-2 md:mt-0">
         <span class="checkmark">&#10003;</span>

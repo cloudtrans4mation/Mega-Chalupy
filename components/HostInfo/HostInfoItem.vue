@@ -13,7 +13,7 @@ defineProps<HotelInfoProps>();
     <div class="flex flex-wrap gap-8 items-start w-full leading-none">
       <div class="flex gap-2 items-start whitespace-nowrap text-zinc-900 w-[151px] md:w-auto">
         <img
-          loading="lazy"
+           
           src="https://cdn.builder.io/api/v1/image/assets/5b20c0d534a34f0091744edaaeed1afd/3f39458fb4fba46e59d3146246ae6fad2081a325c690c24b4b5dafa19ac20b8d?apiKey=5b20c0d534a34f0091744edaaeed1afd&"
           class="object-contain shrink-0 w-5 aspect-square"
           alt="Check-in icon"
@@ -32,7 +32,7 @@ defineProps<HotelInfoProps>();
     <div class="flex flex-wrap gap-8 items-start mt-5 w-full">
       <div class="flex gap-2 items-start whitespace-nowrap w-[151px] md:w-auto">
         <img
-          loading="lazy"
+           
           src="https://cdn.builder.io/api/v1/image/assets/5b20c0d534a34f0091744edaaeed1afd/74b5e125cb1213eee23de254d7984589c41baeb6871f0d7a1fff224a9efc43ef?apiKey=5b20c0d534a34f0091744edaaeed1afd&"
           class="object-contain shrink-0 w-5 aspect-square"
           alt="Check-out icon"
@@ -50,7 +50,7 @@ defineProps<HotelInfoProps>();
     <div class="flex flex-wrap gap-8 items-start mt-5 w-full text-zinc-900">
       <div class="flex gap-2 items-start leading-5 whitespace-nowrap w-[151px] md:w-auto">
         <img
-          loading="lazy"
+           
           src="https://cdn.builder.io/api/v1/image/assets/5b20c0d534a34f0091744edaaeed1afd/24505806a63313956cf4cf68280f41eeafb39a8ff59acd0744b50b236760d467?apiKey=5b20c0d534a34f0091744edaaeed1afd&"
           class="object-contain shrink-0 w-5 aspect-square"
           alt="Cancellation policy icon"
@@ -66,7 +66,7 @@ defineProps<HotelInfoProps>();
     <div class="flex flex-wrap gap-8 items-start mt-5 w-full leading-5 text-zinc-900">
       <div class="flex gap-2 items-start w-[151px] md:w-auto">
         <img
-          loading="lazy"
+           
           src="https://cdn.builder.io/api/v1/image/assets/5b20c0d534a34f0091744edaaeed1afd/d0ac656cc0eeaf27ef02915b28f1eb70c3e176eca16f9bf126aeb5614b7ea4ac?apiKey=5b20c0d534a34f0091744edaaeed1afd&"
           class="object-contain shrink-0 w-5 aspect-square"
           alt="Children and beds icon"
@@ -103,7 +103,7 @@ defineProps<HotelInfoProps>();
             <div class="flex flex-wrap gap-10 justify-between items-center mt-2.5 w-full md:max-w-full">
               <div class="flex gap-4 items-center self-stretch my-auto text-zinc-900">
                 <img
-                  loading="lazy"
+                   
                   src="https://cdn.builder.io/api/v1/image/assets/5b20c0d534a34f0091744edaaeed1afd/c23164db791a428a30844096864d2d58c2b5de075646d6540f293d99cc0a163d?apiKey=5b20c0d534a34f0091744edaaeed1afd&"
                   class="object-contain shrink-0 self-stretch my-auto w-5 aspect-square"
                   alt="Cot icon"
@@ -132,7 +132,7 @@ defineProps<HotelInfoProps>();
     <div class="flex flex-wrap gap-8 items-center mt-5 w-full text-zinc-900">
       <div class="flex gap-2 items-start self-stretch my-auto leading-5 w-[151px] md:w-auto">
         <img
-          loading="lazy"
+           
           src="https://cdn.builder.io/api/v1/image/assets/5b20c0d534a34f0091744edaaeed1afd/bab028098fe16bc9ce20d7fa8ecfa6346ad0ffed440b9020776c2fa4899199f0?apiKey=5b20c0d534a34f0091744edaaeed1afd&"
           class="object-contain shrink-0 w-5 aspect-square"
           alt="Age restriction icon"
@@ -147,7 +147,7 @@ defineProps<HotelInfoProps>();
     <div class="flex flex-wrap gap-8 items-start mt-5 w-full leading-5 text-zinc-900">
       <div class="flex gap-2 items-start w-[151px] md:w-auto">
         <img
-          loading="lazy"
+           
           src="https://cdn.builder.io/api/v1/image/assets/5b20c0d534a34f0091744edaaeed1afd/6df9a67be5642a7077091e5101269d3b16201fe2942ffbf1ff8bd0771f929f13?apiKey=5b20c0d534a34f0091744edaaeed1afd&"
           class="object-contain shrink-0 w-5 aspect-square"
           alt="Payment icon"
@@ -163,7 +163,7 @@ defineProps<HotelInfoProps>();
     <div class="flex flex-wrap gap-8 items-start mt-5 w-full leading-none text-zinc-900">
       <div class="flex gap-2 items-start whitespace-nowrap w-[151px] md:w-auto">
         <img
-          loading="lazy"
+           
           src="https://cdn.builder.io/api/v1/image/assets/5b20c0d534a34f0091744edaaeed1afd/6bef349943fe996a9b5fa323b5e70200fb2bd8539a3437ff3e25991be8c54b32?apiKey=5b20c0d534a34f0091744edaaeed1afd&"
           class="object-contain shrink-0 w-5 aspect-square"
           alt="No smoking icon"
@@ -178,7 +178,7 @@ defineProps<HotelInfoProps>();
     <div class="flex flex-wrap gap-8 items-start mt-5 w-full leading-none text-zinc-900">
       <div class="flex gap-2.5 items-start whitespace-nowrap w-[151px] md:w-auto">
         <img
-          loading="lazy"
+           
           src="https://cdn.builder.io/api/v1/image/assets/5b20c0d534a34f0091744edaaeed1afd/6015d2ddedc7382f97ad0314b856148a64aef68d7b348b125a16574553db7c5b?apiKey=5b20c0d534a34f0091744edaaeed1afd&"
           class="object-contain shrink-0 aspect-[0.95] w-[19px]"
           alt="No parties icon"
@@ -193,7 +193,7 @@ defineProps<HotelInfoProps>();
     <div class="flex flex-wrap gap-8 items-start mt-5 w-full leading-none text-zinc-900">
       <div class="flex gap-2 items-start whitespace-nowrap w-[151px] md:w-auto">
         <img
-          loading="lazy"
+           
           src="https://cdn.builder.io/api/v1/image/assets/5b20c0d534a34f0091744edaaeed1afd/0f33f31704c5343da6f696f36fb2d964e8cc37e51aa8cd0d54e524fac8ed3901?apiKey=5b20c0d534a34f0091744edaaeed1afd&"
           class="object-contain shrink-0 w-5 aspect-square"
           alt="Quiet hours icon"
@@ -208,7 +208,7 @@ defineProps<HotelInfoProps>();
     <div class="flex flex-wrap gap-8 items-start mt-5 w-full leading-none text-zinc-900">
       <div class="flex gap-2.5 items-start whitespace-nowrap w-[151px] md:w-auto">
         <img
-          loading="lazy"
+           
           src="https://cdn.builder.io/api/v1/image/assets/5b20c0d534a34f0091744edaaeed1afd/dd4b26c03048bf7c09d9d41224995cd7680315219d6a6aca26ca1ca807be691e?apiKey=5b20c0d534a34f0091744edaaeed1afd&"
           class="object-contain shrink-0 w-5 aspect-square"
           alt="No pets icon"

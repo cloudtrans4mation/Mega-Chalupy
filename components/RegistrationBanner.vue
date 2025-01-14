@@ -4,7 +4,7 @@
     
     <!-- Left section with logo and text -->
     <div class="flex flex-wrap flex-1 shrink gap-6 items-center my-auto min-w-[240px] max-md:max-w-full">
-      <img loading="lazy"
+      <img  
         src="https://cdn.builder.io/api/v1/image/assets/TEMP/609de48249f6c87f700fb90996a663eb76c6130c1e22ff548824521797e78d3f?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa"
         alt="Logo" class="object-contain shrink-0 my-auto aspect-square w-[34px]" />
 

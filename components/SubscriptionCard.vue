@@ -7,7 +7,7 @@
     </header>
 
     <div class="flex items-start py-6 w-full">
-      <img loading="lazy"
+      <img  
         src="https://cdn.builder.io/api/v1/image/assets/TEMP/7680442ff733b875ead1b65afe207d63901b748ed830ae43ab758ffeb7844154?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa"
         class="object-contain aspect-[3.18] w-[102px]" alt="" />
     </div>
@@ -23,7 +23,7 @@
         <li v-for="feature in features" :key="feature" class="flex gap-3 items-center mt-2.5">
           <!-- NuxtLink to navigate to order-summary -->
           <NuxtLink to="/order-summary" class="flex items-center w-full">
-            <img loading="lazy"
+            <img  
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/a3a40ef5bac291db23b4574a1f55b40dc64de071c0dfbc8652d935791566f1ab?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa"
               class="object-contain shrink-0 self-stretch my-auto aspect-square w-[22px]" alt="" />
             <span class="flex-1 shrink self-stretch my-auto basis-0">{{ feature }}</span>

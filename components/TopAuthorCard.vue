@@ -9,7 +9,7 @@
       
       <!-- Profile Image -->
       <div class="flex items-center justify-center w-20 h-20 rounded-full bg-gray-50 shadow-md">
-        <img :src="profileImage" :alt="profileName" loading="lazy" class="w-full h-full object-cover rounded-full" />
+        <img :src="profileImage" :alt="profileName"   class="w-full h-full object-cover rounded-full" />
       </div>
     </div>
 

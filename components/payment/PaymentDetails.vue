@@ -8,12 +8,12 @@
 
       <div class="flex space-x-4">
         <button class="payment-button">
-          <img loading="lazy"
+          <img  
             src="https://cdn.builder.io/api/v1/image/assets/TEMP/1bec191a71480ce2d625c1319e3b8709969cc9e53971c0288223695085435c1a?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa"
             alt="Payment option 1" class="object-contain shrink-0 aspect-[1.46] w-[70px]" />
         </button>
         <button class="payment-button">
-          <img loading="lazy"
+          <img  
             src="https://cdn.builder.io/api/v1/image/assets/TEMP/de59801cb4fadaf2ae390c2ac7c86ce5de391d057405e5e4b40aa17cfd8f06a8?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa"
             alt="Payment option 2" class="object-contain shrink-0 aspect-[1.46] w-[70px]" />
         </button>
@@ -23,12 +23,12 @@
 
       <div class="flex gap-5 items-center">
         <button class="payment-button">
-          <img loading="lazy"
+          <img  
             src="https://cdn.builder.io/api/v1/image/assets/TEMP/5735caa7ed9bb96e2ad388f70c61c45615969dc62fa1cb6a244feb0e36f25512?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa"
             alt="Payment option 3" class="object-contain shrink-0 self-stretch my-auto aspect-[1.46] w-[70px]" />
         </button>
         <button class="payment-button">
-          <img loading="lazy"
+          <img  
             src="https://cdn.builder.io/api/v1/image/assets/TEMP/65d0faed214ad5695dd2e320a6f9dd352e92bae75ea7276cb885d0aefb2694cc?placeholderIfAbsent=true&apiKey=cefca70c5e3e4c30aa4a14ad34b27ffa"
             alt="Payment option 4" class="object-contain shrink-0 self-stretch my-auto aspect-[1.46] w-[70px]" />
         </button>
