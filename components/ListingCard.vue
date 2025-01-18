@@ -106,7 +106,7 @@ function favorited(id: string) {
                       </tr>
                     </thead>
                     <tbody>
-                      <tr v-for="(request, index) in requests" :key="index" class="border-t border-gray-300">
+                      <tr v-for="(reservation, index) in requests" :key="index" class="border-t border-gray-300">
                         <td class="px-4 py-2">{{ reservation?.id }}</td>
                         <td class="px-4 py-2">{{ reservation?.user }}</td>
                         <td class="px-4 py-2">{{ reservation?.totalPrice }}</td>
