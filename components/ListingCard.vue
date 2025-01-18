@@ -114,56 +114,66 @@ const steps = [{
               <DialogRoot>
                 <DialogTrigger
                   class="text-center relative disabled:opacity-60 disabled:cursor-not-allowed rounded-lg hover:opacity-70 transition w-full bg-green-500 border-2 text-white py-1.5 text-sm font-light border-green-500 focus:outline-none">
-                  Show Requests</DialogTrigger>
+                  Show Requests
+                </DialogTrigger>
 
                 <DialogPortal>
                   <DialogOverlay class="bg-blackA9 data-[state=open]:animate-overlayShow fixed inset-0 z-30" />
                   <DialogContent
-                    class="bg-green-500 data-[state=open]:animate-contentShow fixed top-[50%] left-[50%] max-h-[85vh] w-[90vw] max-w-[450px] translate-x-[-50%] translate-y-[-50%] rounded-[6px] bg-white p-[25px] shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,_hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] focus:outline-none z-[100]">
-                    <DialogTitle class="text-mauve12 m-0 text-[17px] font-semibold">
-                      Requests </DialogTitle>
-                    <DialogDescription class="text-mauve11 mt-[10px] mb-5 text-[15px] leading-normal">
-                      The Process of accepting the requests is as follow : </DialogDescription>
+                    class="data-[state=open]:animate-contentShow fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] bg-white p-[25px] shadow-lg focus:outline-none z-[100]"
+                    style="width: 90%; max-width: 1200px; border-radius: 10px;">
+                    <DialogTitle class="text-black m-0 text-[20px] font-semibold">
+                      Requests
+                    </DialogTitle>
+                    <DialogDescription class="text-black mt-[10px] mb-5 text-[15px] leading-normal">
+                      The Process of accepting the requests is as follows:
+                    </DialogDescription>
 
-                    <!-------------------------------------------->
-                    <StepperRoot :default-value="2" class="   flex gap-2 w-full max-w-[32rem]">
-                      <StepperItem v-for="item in steps" :key="item.step"
-                        class="w-full flex justify-center gap-2 cursor-pointer group data-[disabled]:pointer-events-none relative px-4"
-                        :step="item.step">
-                        <StepperTrigger
-                          class="inline-flex items-center group-data-[disabled]:text-gray-400 group-data-[state=active]:bg-green11 group-data-[state=active]:text-white justify-center rounded-full text-gray-400 w-10 h-10 shrink-0 bg-gray-300 group-data-[state=completed]:bg-white group-data-[state=completed]:text-green10 focus:shadow-[0_0_0_2px] focus:shadow-black focus:outline-none">
-                          <StepperIndicator>
-                            <Icon :icon="item.icon" class="w-5 h-5" />
-                          </StepperIndicator>
-                        </StepperTrigger>
+                    <!-- Table to Show Requests -->
+                    <div class="overflow-auto">
+                      <table class="min-w-full bg-white border border-gray-300 rounded-lg text-black">
+                        <thead class="bg-gray-100">
+                          <tr>
+                            <th class="px-4 py-2 text-left font-semibold">Request ID</th>
+                            <th class="px-4 py-2 text-left font-semibold">User</th>
+                            <th class="px-4 py-2 text-left font-semibold">Total Price</th>
+                            <th class="px-4 py-2 text-left font-semibold">Status</th>
+                            <th class="px-4 py-2 text-left font-semibold">Actions</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr v-for="(request, index) in requests" :key="index" class="border-t border-gray-300">
+                            <td class="px-4 py-2">{{ request.id }}</td>
+                            <td class="px-4 py-2">{{ request.user }}</td>
+                            <td class="px-4 py-2">$ {{ request.totalPrice }}</td>
+                            <td class="px-4 py-2">{{ request.status }}</td>
+                            <td class="px-4 py-2 flex gap-2">
+                              <button
+                                class="bg-green-500 text-white py-1 px-3 rounded-lg hover:bg-green-600 transition focus:outline-none"
+                                @click="acceptRequest(request.id)">
+                                Accept
+                              </button>
+                              <button
+                                class="bg-red-500 text-white py-1 px-3 rounded-lg hover:bg-red-600 transition focus:outline-none"
+                                @click="refuseRequest(request.id)">
+                                Refuse
+                              </button>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
 
-                        <StepperSeparator v-if="item.step !== steps[steps.length - 1].step"
-                          class="absolute block top-5 left-[calc(50%+30px)] right-[calc(-50%+20px)] h-0.5 rounded-full group-data-[disabled]:bg-gray-300 bg-gray-300 group-data-[state=completed]:bg-white bg-green5 shrink-0" />
-
-                        <div
-                          class="absolute text-center top-full left-0 w-full mt-2 text-white group-data-[state=inactive]:text-gray-300">
-                          <StepperTitle class="font-medium">
-                            {{ item.title }}
-                          </StepperTitle>
-                          <StepperDescription class="hidden sm:block text-xs">
-                            {{ item.description }}
-                          </StepperDescription>
-                        </div>
-                      </StepperItem>
-                    </StepperRoot>
-
-
-                    <!-------------------------------------------->
-
-                    <div class="mt-[25px] flex justify-end">
+                    <div class="mt-4 flex justify-end">
                       <DialogClose as-child>
                         <button
-                          class="bg-green4 text-green11 hover:bg-green5 focus:shadow-green7 inline-flex h-[35px] items-center justify-center rounded-[4px] px-[15px] font-semibold leading-none focus:shadow-[0_0_0_2px] focus:outline-none">
+                          class="bg-gray-300 text-black hover:bg-gray-400 focus:shadow-gray-400 inline-flex h-[35px] items-center justify-center rounded-[4px] px-[15px] font-semibold leading-none focus:outline-none">
+                          Close
                         </button>
                       </DialogClose>
                     </div>
                     <DialogClose
-                      class="text-grass11 hover:bg-green4 focus:shadow-green7 absolute top-[10px] right-[10px] inline-flex h-[25px] w-[25px] appearance-none items-center justify-center rounded-full focus:shadow-[0_0_0_2px] focus:outline-none"
+                      class="text-gray-600 hover:bg-gray-200 focus:shadow-gray-300 absolute top-[10px] right-[10px] inline-flex h-[25px] w-[25px] items-center justify-center rounded-full focus:outline-none"
                       aria-label="Close">
                       <Icon icon="lucide:x" />
                     </DialogClose>
@@ -171,18 +181,24 @@ const steps = [{
                 </DialogPortal>
               </DialogRoot>
             </div>
-
-
           </div>
         </div>
       </div>
     </template>
+
+
+
+
+
+
+
     <style scoped>
 
     /* Scoped CSS for this component */
     .bg-green-500 {
       background-color: #10B981;
       /* Tailwind green-500 */
+
     }
 
     .text-blackA11 {
