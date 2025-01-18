@@ -7,28 +7,19 @@ const currentYear = new Date().getFullYear()
   <footer class="flex flex-col px-24 pt-10 pb-5  bg-white max-md:px-5">
 
     <div class="flex flex-wrap justify-between w-full text-slate-900 max-md:max-w-full">
-
       <nav
         class="flex flex-wrap flex-1 shrink justify-between h-full text-base basis-0 min-w-[240px] max-md:max-w-full">
 
         <div class="flex flex-col flex-1 shrink basis-0">
 
           <h2 class="font-bold leading-7">Product</h2>
-
           <ul class="flex flex-col mt-4 font-medium">
-
             <li><a href="#" class="opacity-50">Autocapture</a></li>
-
             <li><a href="#" class="mt-2.5 opacity-50">Data Governance</a></li>
-
             <li><a href="#" class="mt-2.5 opacity-50">Virtual Events</a></li>
-
             <li><a href="#" class="mt-2.5 opacity-50">Virtual Users</a></li>
-
             <li><a href="#" class="mt-2.5 opacity-50">Behavioral Analytics</a></li>
-
             <li><a href="#" class="mt-2.5 opacity-50">Connect</a></li>
-
           </ul>
         </div>
 
@@ -81,7 +72,6 @@ const currentYear = new Date().getFullYear()
               <form class="flex mt-4 w-full text-sm rounded-none">
 
                 <label for="emailInput" class="sr-only">Email address</label>
-
                 <input type="email" id="emailInput" placeholder="Email address" aria-label="Email address"
                   class="flex-grow p-4 mr-0 bg-white rounded-md border-2 border-solid border-slate-200" />
 
