@@ -107,19 +107,19 @@ function favorited(id: string) {
                     </thead>
                     <tbody>
                       <tr v-for="(request, index) in requests" :key="index" class="border-t border-gray-300">
-                        <td class="px-4 py-2">{{ request.id }}</td>
-                        <td class="px-4 py-2">{{ request.user }}</td>
-                        <td class="px-4 py-2">$ {{ request.totalPrice }}</td>
-                        <td class="px-4 py-2">{{ request.status }}</td>
+                        <td class="px-4 py-2">{{ reservation?.id }}</td>
+                        <td class="px-4 py-2">{{ reservation?.user }}</td>
+                        <td class="px-4 py-2">{{ reservation?.totalPrice }}</td>
+                        <td class="px-4 py-2">{{ reservation?.status }}</td>
                         <td class="px-4 py-2 flex gap-2">
                           <button
                             class="bg-green-500 text-white py-1 px-3 rounded-lg hover:bg-green-600 transition focus:outline-none"
-                            @click="acceptRequest(request.id)">
+                            @click="acceptRequest(reservation?.id)">
                             Accept
                           </button>
                           <button
                             class="bg-red-500 text-white py-1 px-3 rounded-lg hover:bg-red-600 transition focus:outline-none"
-                            @click="refuseRequest(request.id)">
+                            @click="refuseRequest(reservation?.id)">
                             Refuse
                           </button>
                         </td>
@@ -155,9 +155,7 @@ function favorited(id: string) {
 .bg-green-500 {
   background-color: #10B981;
   /* Tailwind green-500 */
-
 }
-
 .text-blackA11 {
   color: rgba(0, 0, 0, 0.11);
   /* Example color from @radix-ui/colors */
