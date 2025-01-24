@@ -1,7 +1,7 @@
 <template>
     <section class="flex justify-center">
         <div
-            class="filter-tab flex flex-wrap justify-between items-start p-5 mt-11 w-full max-w-3xl bg-white rounded-lg  bg-blend-normal border-neutral-200 max-md:mt-10 max-md:max-w-full">
+            class="filter-tab flex flex-wrap justify-between items-start p-5 mt-11 w-full max-w-3xl  rounded-lg  bg-blend-normal border-neutral-200 max-md:mt-10 max-md:max-w-full">
 
             <!-- Property Accessibility -->
             <div class="filter-column flex flex-col justify-between min-w-[240px] w-[261px]">

@@ -15,6 +15,7 @@ export default defineNuxtConfig({
     'radix-vue/nuxt',
     "@nuxtjs/i18n",
     '@pinia/nuxt',
+    '@nuxt/content'
   ],
 
 

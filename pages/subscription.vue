@@ -39,7 +39,6 @@ export default defineComponent({
 
 <style scoped>
 section {
-    background-color: #f5f5f5;
     padding: 2rem;
 }
 

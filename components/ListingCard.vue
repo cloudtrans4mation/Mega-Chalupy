@@ -74,7 +74,7 @@ function favorited(id: string) {
         </div>
 
         <!-- Show Requests Button -->
-        <div>
+        <!-- <div>
           <DialogRoot>
             <DialogTrigger
               class="text-center relative disabled:opacity-60 disabled:cursor-not-allowed rounded-lg hover:opacity-70 transition w-full bg-green-500 border-2 text-white py-1.5 text-sm font-light border-green-500 focus:outline-none">
@@ -93,8 +93,7 @@ function favorited(id: string) {
                   The Process of accepting the requests is as follows:
                 </DialogDescription>
 
-                <!-- Table to Show Requests -->
-                <div class="overflow-auto">
+=                <div class="overflow-auto">
                   <table class="min-w-full bg-white border border-gray-300 rounded-lg text-black">
                     <thead class="bg-gray-100">
                       <tr>
@@ -144,7 +143,10 @@ function favorited(id: string) {
               </DialogContent>
             </DialogPortal>
           </DialogRoot>
-        </div>
+        </div> -->
+        <!-------------------------->
+
+
       </div>
     </div>
   </div>
