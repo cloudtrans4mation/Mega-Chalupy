@@ -39,7 +39,7 @@ function isClientTypeSelected(type: 'owner' | 'client') {
   return registerData.clientType === type
 }
 
-// Function to register a user
+// Function to register a user and trigger verification email
 async function register() {
   // Validate if client type is selected
   if (!registerData.clientType) {
@@ -79,6 +79,22 @@ async function register() {
 
     if (res) {
       toast.success('Registered successfully')
+
+      // Optionally trigger a verification email if the backend does not handle it automatically
+      try {
+        const emailRes = await $fetch('/api/v1/auth/reset-password', {
+          method: 'POST',
+          body: { email: registerData.email }, // Assuming `email` exists in `registerData`
+        })
+
+        if (emailRes) {
+          toast.success('Verification email sent successfully')
+        }
+      } catch (emailError: any) {
+        console.error(emailError.data.message)
+        toast.error('Failed to send verification email: ' + emailError.data.message)
+      }
+
       await navigateTo('/')
     }
   } catch (error: any) {
@@ -89,6 +105,7 @@ async function register() {
     isLoading.value = false
   }
 }
+
 
 // Set SEO meta tags
 useSeoMeta({
