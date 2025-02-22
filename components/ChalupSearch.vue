@@ -12,6 +12,8 @@
         <h1 class="text-3xl md:text-4xl font-extrabold leading-snug mb-4 drop-shadow-lg">
           Welcome, look for a cottage
         </h1>
+
+        
         <!-- Search Form -->
         <form @submit.prevent="handleSearch"
           class="flex flex-wrap gap-2.5 items-center p-3.5 mt-4 w-full max-w-[800px] bg-gray-200 border border-solid border-gray-300 rounded-[37px] max-md:flex-col">
@@ -103,14 +105,15 @@ input[type="number"] {
 
 
 
-
 <script lang="ts">
-import { defineComponent, ref, onMounted, onUnmounted } from 'vue';
-import type { DateValue } from '@internationalized/date'
-import { useRouter } from 'vue-router';
+import { defineComponent, ref, computed, watch, onMounted, onUnmounted } from 'vue';
+import type { DateValue } from '@internationalized/date';
+import { useRouter, useRoute } from 'vue-router';
 import DateSelector from './date-home-search/DateSelector.vue';
 import DestinationSelect from './DestinationSelect.vue';
 import MainSearchBar from './MainSearchBar.vue';
+import { cabins } from '~/data/constants'; // Assuming your cabins data is stored here
+
 export default defineComponent({
   name: 'ChalupSearch',
   components: {
@@ -120,17 +123,30 @@ export default defineComponent({
   },
   setup() {
     const router = useRouter();
+    const route = useRoute();
+
     // State for query parameters
     const queryParams = ref({
       locationValue: '',
       category: '',
       favoriteIds: [],
     });
+
     // State for dropdowns
     const isAccordionOpen = ref(false);
     const isDateSelectorOpen = ref(false);
     const selectedDates = ref('');
     const selectedDestination = ref('');
+
+    // Sync query parameters with form inputs
+    watch(
+      () => route.query,
+      (newQuery) => {
+        selectedDestination.value = (newQuery.destination as string) || '';
+        selectedDates.value = (newQuery.travelDates as string) || '';
+      },
+      { immediate: true }
+    );
 
     // Update selected destination
     const updateSelectedDestination = (destination: string) => {
@@ -143,11 +159,25 @@ export default defineComponent({
       selectedDates.value = dates;
     };
 
+    // Computed property to filter cabins dynamically
+    const filteredCabins = computed(() => {
+      return cabins.filter((cabin) => {
+        return (
+          (!selectedDestination.value || cabin.location.includes(selectedDestination.value)) &&
+          (!selectedDates.value || cabin.availableDates.includes(selectedDates.value))
+        );
+      });
+    });
+
     // Handle search button click
     const handleSearch = () => {
       console.log('Selected Dates:', selectedDates.value); // Debugging output
-      const searchParams = new URLSearchParams(queryParams.value as any).toString();
-      router.push(`/advanced-search?${searchParams}`);
+      router.push({
+        query: {
+          destination: selectedDestination.value || undefined,
+          travelDates: selectedDates.value || undefined,
+        },
+      });
     };
 
     // Toggle the accordion and close DateSelector if needed
@@ -198,6 +228,7 @@ export default defineComponent({
       selectedDestination,
       updateSelectedDestination,
       handleSearch,
+      filteredCabins, // This now contains the filtered cabins based on inputs
       isDateUnavailable,
     };
   },

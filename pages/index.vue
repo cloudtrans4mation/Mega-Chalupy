@@ -82,7 +82,7 @@ const showSearch = computed(() => {
     <Search />
     <MegaChalupyPlusSection></MegaChalupyPlusSection>
     <TopAuthors></TopAuthors>
-    <NewsSection/>
+    <NewsSection />
     <AlwaysPresen0tFooter />
   </section>
 </template>

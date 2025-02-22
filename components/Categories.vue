@@ -6,7 +6,6 @@ import { useRoute } from 'vue-router'
 const route = useRoute()
 const category = ref(route.query.category)
 const isSticky = ref(false)
-import { Separator } from 'radix-vue'
 
 const isMainPage = computed(() => route.name === 'index')
 

@@ -1,5 +1,5 @@
 import { Resend } from 'resend'
-//import { loadEmailTemplate } from '~/server/utils/email/emailTemplates'
+import { loadEmailTemplate } from '~/server/utils/email/emailTemplates'
 import { loadEmailTemplates } from '~/server/utils/email/loadEmailTemplate'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
@@ -10,8 +10,7 @@ export default defineEventHandler(async event => {
 
   const apiRouteSecret = headers?.split(' ')[1]
 
-  //just true now for testing purposes
-  // if (apiRouteSecret !== process.env.API_ROUTE_SECRET ) {
+  // if (apiRouteSecret !== process.env.API_ROUTE_SECRET) {
   //   throw createError({ statusCode: 401, message: 'Unauthorized' })
   // }
 
@@ -27,7 +26,7 @@ export default defineEventHandler(async event => {
     )
 
     const data = await resend.emails.send({
-      from: 'Mega Chalupy <cloud@trans4mation-bs.cz>',
+      from: 'Staystrella <staystrella@atalek.com>',
       to: [email],
       subject: 'Password reset',
       html: htmlContent,

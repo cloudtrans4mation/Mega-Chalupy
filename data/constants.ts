@@ -184,3 +184,8 @@ export const buttons = [
 ];
 
 
+export const cabins = [
+  { id: 1, name: 'Cozy Cabin', location: 'Mountain View', price: 120 },
+  { id: 2, name: 'Lakeside Retreat', location: 'Lake Tahoe', price: 150 },
+  { id: 3, name: 'Forest Escape', location: 'Redwood Forest', price: 180 },
+];

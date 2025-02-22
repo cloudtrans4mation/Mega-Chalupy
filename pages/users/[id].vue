@@ -5,8 +5,8 @@ const route = useRoute('users-id')
 const id = route.params.id
 
 const { data: user, status } = await useFetch<AuthUser>(`/api/v1/users/user/${id}`, {
-  lazy: true,
-})
+ lazy: true,
+}) 
 const loggedInUser = useUser()
 
 const {
